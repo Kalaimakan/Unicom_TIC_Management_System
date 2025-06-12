@@ -1,0 +1,16 @@
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Properties.Resources.resources
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.AdminCreation.resources
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.LoginForm.resources
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.MainDashBoard.resources
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.exe.config
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.exe
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.pdb
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\bin\Debug\System.Data.SQLite.dll
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\bin\Debug\System.Data.SQLite.xml
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom T.077940FC.Up2Date
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.exe
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.pdb
+C:\Users\ASUS\Desktop\UMS project\UnicomTICManagementSystem\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.StudentCreation.resources

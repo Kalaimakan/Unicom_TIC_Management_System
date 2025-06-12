@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Unicom_TIC_Management_System.Models
+{
+    class Exam
+    {
+        public int Exam_Id { get; set; }
+        public string Exam_Name { get; set; }
+    }
+}
