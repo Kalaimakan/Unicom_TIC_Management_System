@@ -54,8 +54,10 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
+    <Compile Include="Controllers\LecturerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarkController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TimetableController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -81,6 +83,12 @@
     <Compile Include="Views\AdminCreation.Designer.cs">
       <DependentUpon>AdminCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\LecturerCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LecturerCreation.Designer.cs">
+      <DependentUpon>LecturerCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +100,12 @@
     </Compile>
     <Compile Include="Views\MainDashBoard.Designer.cs">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StaffCreation.Designer.cs">
+      <DependentUpon>StaffCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentCreation.cs">
       <SubType>Form</SubType>
@@ -111,15 +125,22 @@
     <EmbeddedResource Include="Views\AdminCreation.resx">
       <DependentUpon>AdminCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LecturerCreation.resx">
+      <DependentUpon>LecturerCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainDashBoard.resx">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\StaffCreation.resx">
+      <DependentUpon>StaffCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\StudentCreation.resx">
       <DependentUpon>StudentCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\UnicomTICManagementSystem.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

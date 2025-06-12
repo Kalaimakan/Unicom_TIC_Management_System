@@ -84,6 +84,7 @@ namespace Unicom_TIC_Management_System.Views
             registerUser.User_Name = textBoxUserName.Text.Trim();
             registerUser.Password = textBoxPassword.Text.Trim();
             registerUser.User_Email = textBoxEmail.Text.Trim();
+            registerUser.User_Role = "Admin";
             registerAdmin.Email = textBoxEmail.Text.Trim();
             registerAdmin.Date_Of_Birth = dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
             registerAdmin.PhoneNumber = textBoxPhoneNumber.Text.Trim();

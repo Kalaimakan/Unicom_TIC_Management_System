@@ -9,7 +9,7 @@ namespace Unicom_TIC_Management_System.Repositories
 {
     class Db_Config
     {
-        private static string connectionString = "Data Source=C:\\Users\\ASUS\\Desktop\\UMS project\\UnicomTICManagementSystem\\Unicom TIC Management System\\UnicomTICManagementSystem.db;Version=3;";
+        private static string connectionString = "Data Source=UnicomTICManagementSystem.db;Version=3;";
 
         public static SQLiteConnection getConnection()
         {

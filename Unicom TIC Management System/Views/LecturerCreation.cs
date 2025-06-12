@@ -12,12 +12,12 @@ using Unicom_TIC_Management_System.Models;
 
 namespace Unicom_TIC_Management_System.Views
 {
-    public partial class StudentCreation: Form
+    public partial class LecturerCreation: Form
     {
-        StudentController studentController = new StudentController();
-        Student registerStudent =new Student();
-        User registerUser=new User();
-        public StudentCreation()
+        LecturerController lecturerController = new LecturerController();   
+        Lecturer registerLecturer= new Lecturer();
+        User registerUser= new User();
+        public LecturerCreation()
         {
             InitializeComponent();
             clearFields();
@@ -29,42 +29,37 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Clear();
             textBoxUserName.Clear();
             textBoxPassword.Clear();
-            textBoxEmail.Clear();
-            textBoxAddress.Clear();
             textBoxPhoneNumber.Clear();
             dateTimePickerDOB.ResetText();
+            textBoxEmail.Clear();
+            textBoxSalary.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
             checkBoxOther.Checked = false;
-            comboBoxCourse.SelectedIndex = -1;
         }
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            //Assain value to the table Property
-            registerStudent.First_Name = textBoxFirstName.Text.Trim();
-            registerStudent.Last_Name = textBoxLastName.Text.Trim();
+            //Data Assainment
+            registerLecturer.First_Name = textBoxFirstName.Text.Trim();
+            registerLecturer.Last_Name = textBoxLastName.Text.Trim();
             registerUser.User_Name = textBoxUserName.Text.Trim();
             registerUser.Password = textBoxPassword.Text.Trim();
-            registerStudent.Date_of_Birth = dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
-            registerStudent.Email= textBoxEmail.Text.Trim();
+            registerLecturer.PhoneNumber = textBoxPhoneNumber.Text.Trim();
+            registerLecturer.Email = textBoxEmail.Text.Trim();
             registerUser.User_Email = textBoxEmail.Text.Trim();
-            registerUser.User_Role = "Student";
-            registerStudent.Address = textBoxAddress.Text.Trim();
-            registerStudent.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-            registerStudent.Entrolld_Course=comboBoxCourse.SelectedItem?.ToString();
-            //Assin gender
+            registerLecturer.Date_of_Birth=dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
+            registerLecturer.salary=Convert.ToDouble(textBoxSalary.Text.Trim());
+            registerUser.User_Role = "Lecturer";
             if (checkBoxMale.Checked)
-                registerStudent.Gender = "Male";
+                registerLecturer.Gender = "Male";
             else if (checkBoxFemale.Checked)
-                registerStudent.Gender = "Female";
+                registerLecturer.Gender = "Female";
             else
-                registerStudent.Gender = "Other";
+                registerLecturer.Gender = "Other";
 
-
-
-            //Confirmation Dialog
+            //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(
-            $"Are you sure you want to register{registerStudent.Last_Name} ?\n\nUsername: {registerUser.User_Name}\nEmail: {registerUser.User_Email}\nRole: Student\nSelected Course :{registerStudent.Entrolld_Course} ",
+            $"Are you sure you want to register{registerLecturer.Last_Name} ?\n\nUsername: {registerUser.User_Name}\nEmail: {registerUser.User_Email}\nRole: Lecturer ",
             "Confirm Registration",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question
@@ -73,8 +68,10 @@ namespace Unicom_TIC_Management_System.Views
             {
                 return;
             }
-            studentController.createStudent(registerStudent, registerUser);
+
+            lecturerController.createLecture(registerUser, registerLecturer);
             clearFields();
+
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -92,10 +89,12 @@ namespace Unicom_TIC_Management_System.Views
             if (textBoxPassword.UseSystemPasswordChar)
             {
                 textBoxPassword.UseSystemPasswordChar = false;
+                buttonTogglePassword.Text = "🔒";
             }
             else
             {
                 textBoxPassword.UseSystemPasswordChar = true;
+                buttonTogglePassword.Text = "👁️";
             }
         }
     }

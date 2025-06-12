@@ -31,8 +31,6 @@
             this.labelFillLastName = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonTogglePassword = new System.Windows.Forms.Button();
             this.labelFillPhoneNumber = new System.Windows.Forms.Label();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
@@ -92,32 +90,6 @@
             this.labelUserName.Size = new System.Drawing.Size(130, 22);
             this.labelUserName.TabIndex = 56;
             this.labelUserName.Text = "User Name     :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.label2.Location = new System.Drawing.Point(300, 624);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 22);
-            this.label2.TabIndex = 55;
-            this.label2.Text = "Already have an Account ?";
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.Color.Cyan;
-            this.buttonLogin.Location = new System.Drawing.Point(175, 657);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(456, 38);
-            this.buttonLogin.TabIndex = 54;
-            this.buttonLogin.Text = "Log in";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click_1);
             // 
             // buttonTogglePassword
             // 
@@ -438,8 +410,6 @@
             this.Controls.Add(this.labelFillLastName);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelUserName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonTogglePassword);
             this.Controls.Add(this.labelFillPhoneNumber);
             this.Controls.Add(this.textBoxPhoneNumber);
@@ -471,8 +441,6 @@
         private System.Windows.Forms.Label labelFillLastName;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Label labelUserName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonTogglePassword;
         private System.Windows.Forms.Label labelFillPhoneNumber;
         private System.Windows.Forms.TextBox textBoxPhoneNumber;

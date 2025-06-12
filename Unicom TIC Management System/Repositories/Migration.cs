@@ -85,8 +85,9 @@ namespace Unicom_TIC_Management_System.Repositories
                                     First_Name TEXT NOT NULL,
                                     Last_Name TEXT NOT NULL,
                                     Email NOT NULL UNIQUE,
-                                    Gender NOT NULL,
                                     PhoneNumber NOT NULL UNIQUE,
+                                    Date_of_Birth TEXT NOT NULL ,
+                                    Gender NOT NULL,
                                     Salary NOT NULL,
                                     FOREIGN KEY (User_Id) REFERENCES Users(User_Id)
                                         ON DELETE SET NULL
@@ -104,6 +105,8 @@ namespace Unicom_TIC_Management_System.Repositories
                                     Gender TEXT NOT NULL ,
                                     PhoneNumber TEXT NOT NULL UNIQUE,
                                     Date_of_Birth TEXT NOT NULL ,
+                                    Address TEXT NOT NULL,
+                                    Entrolled_Course TEXT NOT NULL,
                                     Course_Id INTEGER,
                                     FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
                                         ON DELETE SET NULL
@@ -120,9 +123,10 @@ namespace Unicom_TIC_Management_System.Repositories
                                     Lecturer_Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     First_Name TEXT NOT NULL,
                                     Last_Name TEXT NOT NULL,
-                                    PhoneNumber TEXT NOT NULL UNIQUE,
                                     Email TEXT NOT NULL UNIQUE,
+                                    PhoneNumber TEXT NOT NULL UNIQUE,
                                     Date_of_Birth TEXT NOT NULL ,
+                                    Gender NOT NULL,
                                     salary TEXT NOT NULL ,
                                     Subject_Id INTEGER,
                                     FOREIGN KEY (Subject_Id) REFERENCES Subjects(Subject_Id)
