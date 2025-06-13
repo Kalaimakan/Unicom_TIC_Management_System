@@ -12,17 +12,65 @@ using Unicom_TIC_Management_System.Models;
 
 namespace Unicom_TIC_Management_System.Views
 {
-    public partial class LecturerCreation: Form
+    public partial class LecturerCreation : Form
     {
-        LecturerController lecturerController = new LecturerController();   
-        Lecturer registerLecturer= new Lecturer();
-        User registerUser= new User();
+        LecturerController lecturerController = new LecturerController();
+        Lecturer registerLecturer = new Lecturer();
+        User registerUser = new User();
         public LecturerCreation()
         {
             InitializeComponent();
-            clearFields();
+            SetPlaceholders();
         }
 
+        private void SetPlaceholders()
+        {
+            ApplyPlaceholder(textBoxFirstName, "Enter the First Name");
+            ApplyPlaceholder(textBoxLastName, "Enter the Last Name");
+            ApplyPlaceholder(textBoxUserName, "Enter the User Name");
+            ApplyPlaceholder(textBoxPassword, "Enter the Password");
+            ApplyPlaceholder(textBoxPhoneNumber, "Enter the Phone Number");
+            ApplyPlaceholder(textBoxEmail, "Enter the Email");
+            ApplyPlaceholder(textBoxSalary, "Enter the Salary");
+        }
+
+        private void ApplyPlaceholder(TextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = true;
+                    }
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = false;
+                    }
+                }
+            };
+
+            // Special handling for password field
+            if (textBox == textBoxPassword)
+            {
+                textBox.UseSystemPasswordChar = false;
+            }
+        }
         public void clearFields()
         {
             textBoxFirstName.Clear();
@@ -36,6 +84,23 @@ namespace Unicom_TIC_Management_System.Views
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
             checkBoxOther.Checked = false;
+
+            buttonTogglePassword.Text = "👁️";
+
+            labelFillFirstName.Text = "";
+            labelFillFirstName.Visible = false;
+            labelFillLastName.Text = "";
+            labelFillLastName.Visible = false;
+            labelFillUserName.Text = "";
+            labelFillUserName.Visible = false;
+            labelFillPassword.Text = "";
+            labelFillPassword.Visible = false;
+            labelFillEmail.Text = "";
+            labelFillEmail.Visible = false;
+            labelFillPhoneNumber.Text = "";
+            labelFillPhoneNumber.Visible = false;
+            labelFillSalary.Text = "";
+            labelFillSalary.Visible = false;
         }
         private void buttonRegister_Click(object sender, EventArgs e)
         {
@@ -47,8 +112,8 @@ namespace Unicom_TIC_Management_System.Views
             registerLecturer.PhoneNumber = textBoxPhoneNumber.Text.Trim();
             registerLecturer.Email = textBoxEmail.Text.Trim();
             registerUser.User_Email = textBoxEmail.Text.Trim();
-            registerLecturer.Date_of_Birth=dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
-            registerLecturer.salary=Convert.ToDouble(textBoxSalary.Text.Trim());
+            registerLecturer.Date_of_Birth = dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
+            registerLecturer.salary = Convert.ToDouble(textBoxSalary.Text.Trim());
             registerUser.User_Role = "Lecturer";
             if (checkBoxMale.Checked)
                 registerLecturer.Gender = "Male";
@@ -86,16 +151,14 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.UseSystemPasswordChar)
+
+            if (textBoxPassword.Text == "Enter the Password" && textBoxPassword.ForeColor == Color.Gray)
             {
-                textBoxPassword.UseSystemPasswordChar = false;
-                buttonTogglePassword.Text = "🔒";
+                return;
             }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-                buttonTogglePassword.Text = "👁️";
-            }
+
+            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
+            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
     }
 }

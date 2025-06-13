@@ -30,7 +30,7 @@ namespace Unicom_TIC_Management_System.Views
             ApplyPlaceholder(textBoxFirstName, "Enter the First Name");
             ApplyPlaceholder(textBoxLastName, "Enter the Last Name");
             ApplyPlaceholder(textBoxUserName, "Enter the User Name");
-            //ApplyPlaceholder(textBoxPassword, "Enter the Password");
+            ApplyPlaceholder(textBoxPassword, "Enter the Password");
             ApplyPlaceholder(textBoxPhoneNumber, "Enter the Phone Number");
             ApplyPlaceholder(textBoxEmail, "Enter the Email");
         }
@@ -41,25 +41,38 @@ namespace Unicom_TIC_Management_System.Views
             textBox.Text = placeholder;
             textBox.ForeColor = Color.Gray;
 
-            textBox.GotFocus += (s, e) =>
+            textBox.Enter += (s, e) =>
             {
                 if (textBox.Text == placeholder)
                 {
                     textBox.Text = "";
                     textBox.ForeColor = Color.Black;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = true;
+                    }
                 }
             };
 
-            textBox.LostFocus += (s, e) =>
+            textBox.Leave += (s, e) =>
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     textBox.Text = placeholder;
                     textBox.ForeColor = Color.Gray;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = false;
+                    }
                 }
             };
-        }
 
+            // Special handling for password field
+            if (textBox == textBoxPassword)
+            {
+                textBox.UseSystemPasswordChar = false;
+            }
+        }
         public void clearFormfield()
         {
             textBoxFirstName.Clear();
@@ -72,6 +85,23 @@ namespace Unicom_TIC_Management_System.Views
             checkBoxFemale.Checked = false;
             checkBoxMale.Checked = false;
             checkBoxOther.Checked = false;
+            buttonTogglePassword.Text = "👁️";
+
+            labelFillFirstName.Text = "";
+            labelFillFirstName.Visible = false;
+            labelFillLastName.Text = "";
+            labelFillLastName.Visible = false;
+            labelFillUserName.Text = "";
+            labelFillUserName.Visible = false;
+            labelFillPassword.Text = "";
+            labelFillPassword.Visible = false;
+            labelFillEmail.Text = "";
+            labelFillEmail.Visible = false;
+            labelFillPhoneNumber.Text = "";
+            labelFillPhoneNumber.Visible = false;
+            labelFillDOB.Visible = false;
+            labelFillGender.Visible = false;
+
         }
         private void buttonLogin_Click_1(object sender, EventArgs e)
         {
@@ -96,8 +126,42 @@ namespace Unicom_TIC_Management_System.Views
             else
                 registerAdmin.Gender = "Other";
 
-            adminController.nameValidation(registerAdmin.First_Name, "First Name");
+            //Validate the form fields
+            var firstNameValidation = adminController.validateName(registerAdmin.First_Name, "First Name");
+            labelFillFirstName.Text = firstNameValidation.errorMessage;
+            labelFillFirstName.Visible = !firstNameValidation.isValid;
 
+            var lastNameValidation = adminController.validateName(registerAdmin.Last_Name, "Last Name");
+            labelFillLastName.Text = lastNameValidation.errorMessage;
+            labelFillLastName.Visible = !lastNameValidation.isValid;
+
+            var userNameValidation = adminController.validateName(registerUser.User_Name, "User Name");
+            labelFillUserName.Text = userNameValidation.errorMessage;
+            labelFillUserName.Visible = !userNameValidation.isValid;
+
+            var passwordValidation = adminController.validatePassword(registerUser.Password);
+            labelFillPassword.Text = passwordValidation.errorMessage;
+            labelFillPassword.Visible = !passwordValidation.isValid;
+
+            var emailValidation = adminController.validateEmail(registerUser.User_Email);
+            labelFillEmail.Text = emailValidation.errorMessage;
+            labelFillEmail.Visible = !emailValidation.isValid;
+
+            var phoneNumberValidation = adminController.validatePhoneNumber(registerAdmin.PhoneNumber);
+            labelFillPhoneNumber.Text = phoneNumberValidation.errorMessage;
+            labelFillPhoneNumber.Visible = !phoneNumberValidation.isValid;
+
+            var dateOfBirthValidation = adminController.validateDateOfBirth(dateTimePickerDOB.Value);
+            labelFillDOB.Text = dateOfBirthValidation.errorMessage;
+            labelFillDOB.Visible = !dateOfBirthValidation.isValid;
+
+
+
+
+            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid)
+            {
+                return;
+            }
 
             //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(
@@ -125,16 +189,13 @@ namespace Unicom_TIC_Management_System.Views
         }
         private void buttonTogglePassword_Click_1(object sender, EventArgs e)
         {
-            if (textBoxPassword.UseSystemPasswordChar)
+            if (textBoxPassword.Text == "Enter the Password" && textBoxPassword.ForeColor == Color.Gray)
             {
-                textBoxPassword.UseSystemPasswordChar = false;
-                buttonTogglePassword.Text = "🔒";
+                return;
             }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-                buttonTogglePassword.Text = "👁️";
-            }
+
+            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
+            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
 
     }

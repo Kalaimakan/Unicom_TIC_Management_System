@@ -20,22 +20,87 @@ namespace Unicom_TIC_Management_System.Views
         public StaffCreation()
         {
             InitializeComponent();
-            clearFields();
+            SetPlaceholders();
         }
 
+        private void SetPlaceholders()
+        {
+            ApplyPlaceholder(textBoxFirstName, "Enter the First Name");
+            ApplyPlaceholder(textBoxLastName, "Enter the Last Name");
+            ApplyPlaceholder(textBoxUserName, "Enter the User Name");
+            ApplyPlaceholder(textBoxPassword, "Enter the Password");
+            ApplyPlaceholder(textBoxPhoneNumber, "Enter the Phone Number");
+            ApplyPlaceholder(textBoxEmail, "Enter the Email");
+            ApplyPlaceholder(textBoxSalary, "Enter the Salary");
+        }
+
+        private void ApplyPlaceholder(TextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = true;
+                    }
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                    if (textBox == textBoxPassword)
+                    {
+                        textBox.UseSystemPasswordChar = false;
+                    }
+                }
+            };
+
+            // Special handling for password field
+            if (textBox == textBoxPassword)
+            {
+                textBox.UseSystemPasswordChar = false;
+            }
+        }
         public void clearFields()
         {
             textBoxFirstName.Clear();
             textBoxLastName.Clear();
             textBoxUserName.Clear();
             textBoxPassword.Clear();
+            textBoxPhoneNumber.Clear();
             dateTimePickerDOB.ResetText();
             textBoxEmail.Clear();
-            textBoxPhoneNumber.Clear();
+            textBoxSalary.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
             checkBoxOther.Checked = false;
-            textBoxSalary.Clear();
+
+            buttonTogglePassword.Text = "👁️";
+
+            labelFillFirstName.Text = "";
+            labelFillFirstName.Visible = false;
+            labelFillLastName.Text = "";
+            labelFillLastName.Visible = false;
+            labelFillUserName.Text = "";
+            labelFillUserName.Visible = false;
+            labelFillPassword.Text = "";
+            labelFillPassword.Visible = false;
+            labelFillEmail.Text = "";
+            labelFillEmail.Visible = false;
+            labelFillPhoneNumber.Text = "";
+            labelFillPhoneNumber.Visible = false;
+            labelFillSalary.Text = "";
+            labelFillSalary.Visible = false;
         }
         private void buttonRegister_Click(object sender, EventArgs e)
         {
@@ -84,16 +149,13 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.UseSystemPasswordChar)
+            if (textBoxPassword.Text == "Enter the Password" && textBoxPassword.ForeColor == Color.Gray)
             {
-                textBoxPassword.UseSystemPasswordChar = false;
-                buttonTogglePassword.Text = "🔒";
+                return;
             }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-                buttonTogglePassword.Text = "👁️";
-            }
+
+            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
+            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
     }
 }

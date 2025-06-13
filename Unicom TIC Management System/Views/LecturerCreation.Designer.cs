@@ -71,9 +71,8 @@
             this.labelFillSalary.ForeColor = System.Drawing.Color.Red;
             this.labelFillSalary.Location = new System.Drawing.Point(323, 637);
             this.labelFillSalary.Name = "labelFillSalary";
-            this.labelFillSalary.Size = new System.Drawing.Size(37, 16);
+            this.labelFillSalary.Size = new System.Drawing.Size(0, 16);
             this.labelFillSalary.TabIndex = 137;
-            this.labelFillSalary.Text = "dfbdf";
             // 
             // textBoxSalary
             // 
@@ -145,9 +144,8 @@
             this.labelFillGender.ForeColor = System.Drawing.Color.Red;
             this.labelFillGender.Location = new System.Drawing.Point(322, 575);
             this.labelFillGender.Name = "labelFillGender";
-            this.labelFillGender.Size = new System.Drawing.Size(42, 16);
+            this.labelFillGender.Size = new System.Drawing.Size(0, 16);
             this.labelFillGender.TabIndex = 130;
-            this.labelFillGender.Text = "egefg";
             // 
             // labelGender
             // 
@@ -166,9 +164,8 @@
             this.labelFillDOB.ForeColor = System.Drawing.Color.Red;
             this.labelFillDOB.Location = new System.Drawing.Point(322, 387);
             this.labelFillDOB.Name = "labelFillDOB";
-            this.labelFillDOB.Size = new System.Drawing.Size(49, 16);
+            this.labelFillDOB.Size = new System.Drawing.Size(0, 16);
             this.labelFillDOB.TabIndex = 128;
-            this.labelFillDOB.Text = "gasfdg";
             // 
             // dateTimePickerDOB
             // 
@@ -195,9 +192,8 @@
             this.labelFillLastName.ForeColor = System.Drawing.Color.Red;
             this.labelFillLastName.Location = new System.Drawing.Point(322, 199);
             this.labelFillLastName.Name = "labelFillLastName";
-            this.labelFillLastName.Size = new System.Drawing.Size(55, 16);
+            this.labelFillLastName.Size = new System.Drawing.Size(0, 16);
             this.labelFillLastName.TabIndex = 125;
-            this.labelFillLastName.Text = "asdsfas";
             // 
             // textBoxUserName
             // 
@@ -243,9 +239,8 @@
             this.labelFillPhoneNumber.ForeColor = System.Drawing.Color.Red;
             this.labelFillPhoneNumber.Location = new System.Drawing.Point(322, 515);
             this.labelFillPhoneNumber.Name = "labelFillPhoneNumber";
-            this.labelFillPhoneNumber.Size = new System.Drawing.Size(44, 16);
+            this.labelFillPhoneNumber.Size = new System.Drawing.Size(0, 16);
             this.labelFillPhoneNumber.TabIndex = 121;
-            this.labelFillPhoneNumber.Text = "gasfgf";
             // 
             // textBoxPhoneNumber
             // 
@@ -288,9 +283,8 @@
             this.labelFillEmail.ForeColor = System.Drawing.Color.Red;
             this.labelFillEmail.Location = new System.Drawing.Point(320, 447);
             this.labelFillEmail.Name = "labelFillEmail";
-            this.labelFillEmail.Size = new System.Drawing.Size(53, 16);
+            this.labelFillEmail.Size = new System.Drawing.Size(0, 16);
             this.labelFillEmail.TabIndex = 117;
-            this.labelFillEmail.Text = "adfbgdf";
             // 
             // labelFillPassword
             // 
@@ -299,9 +293,8 @@
             this.labelFillPassword.ForeColor = System.Drawing.Color.Red;
             this.labelFillPassword.Location = new System.Drawing.Point(322, 323);
             this.labelFillPassword.Name = "labelFillPassword";
-            this.labelFillPassword.Size = new System.Drawing.Size(83, 16);
+            this.labelFillPassword.Size = new System.Drawing.Size(0, 16);
             this.labelFillPassword.TabIndex = 116;
-            this.labelFillPassword.Text = "gafsdgasfdg";
             // 
             // labelFillUserName
             // 
@@ -310,9 +303,8 @@
             this.labelFillUserName.ForeColor = System.Drawing.Color.Red;
             this.labelFillUserName.Location = new System.Drawing.Point(322, 261);
             this.labelFillUserName.Name = "labelFillUserName";
-            this.labelFillUserName.Size = new System.Drawing.Size(52, 16);
+            this.labelFillUserName.Size = new System.Drawing.Size(0, 16);
             this.labelFillUserName.TabIndex = 115;
-            this.labelFillUserName.Text = "gasfgfd";
             // 
             // labelFillFirstName
             // 
@@ -321,9 +313,9 @@
             this.labelFillFirstName.ForeColor = System.Drawing.Color.Red;
             this.labelFillFirstName.Location = new System.Drawing.Point(322, 137);
             this.labelFillFirstName.Name = "labelFillFirstName";
-            this.labelFillFirstName.Size = new System.Drawing.Size(41, 16);
+            this.labelFillFirstName.Size = new System.Drawing.Size(0, 16);
             this.labelFillFirstName.TabIndex = 114;
-            this.labelFillFirstName.Text = "sgafg";
+            this.labelFillFirstName.Visible = false;
             // 
             // buttonCancel
             // 
