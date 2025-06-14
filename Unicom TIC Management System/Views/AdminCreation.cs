@@ -15,6 +15,7 @@ namespace Unicom_TIC_Management_System.Views
 {
     public partial class AdminCreation : Form
     {
+        UserController userController =new UserController();
         AdminController adminController = new AdminController();
         User registerUser = new User();
         Admin registerAdmin = new Admin();
@@ -135,11 +136,11 @@ namespace Unicom_TIC_Management_System.Views
             labelFillLastName.Text = lastNameValidation.errorMessage;
             labelFillLastName.Visible = !lastNameValidation.isValid;
 
-            var userNameValidation = adminController.validateName(registerUser.User_Name, "User Name");
+            var userNameValidation = userController.validateName(registerUser.User_Name, "User Name");
             labelFillUserName.Text = userNameValidation.errorMessage;
             labelFillUserName.Visible = !userNameValidation.isValid;
 
-            var passwordValidation = adminController.validatePassword(registerUser.Password);
+            var passwordValidation = userController.validatePassword(registerUser.Password);
             labelFillPassword.Text = passwordValidation.errorMessage;
             labelFillPassword.Visible = !passwordValidation.isValid;
 

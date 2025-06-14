@@ -32,3 +32,21 @@ C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.pdb
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.StaffCreation.resources
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.LecturerCreation.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.exe.config
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.exe
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\bin\Debug\Unicom TIC Management System.pdb
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\bin\Debug\System.Data.SQLite.dll
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\bin\Debug\System.Data.SQLite.xml
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.AssemblyReference.cache
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Properties.Resources.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.AdminCreation.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.LecturerCreation.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.LoginForm.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.MainDashBoard.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.StaffCreation.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.StudentCreation.resources
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.GenerateResource.cache
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.csproj.CoreCompileInputs.cache
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom T.077940FC.Up2Date
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.exe
+Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.pdb

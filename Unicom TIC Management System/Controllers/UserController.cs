@@ -10,8 +10,29 @@ using Unicom_TIC_Management_System.Repositories;
 
 namespace Unicom_TIC_Management_System.Controllers
 {
-    class UserController
+    class UserController : Validation
     {
+
+
+        public (bool isValid,string errorMessage) validateUserData(User registerUser)
+        {
+            //validate User Name.
+            var userNameValidate = validateName(registerUser.User_Name, "User Name");
+            if (!userNameValidate.isValid)
+                return userNameValidate;
+
+            //validate Password.
+            var passwordValidate = validatePassword(registerUser.Password);
+            if (!passwordValidate.isValid)
+                return passwordValidate;
+
+            //validate Email.
+            var emailValidate = validateEmail(registerUser.User_Email);
+            if (!emailValidate.isValid)
+                return emailValidate;
+
+            return (true, string.Empty);
+        }
         public int createUser(User registerUser, SQLiteConnection connection, SQLiteTransaction transaction)
         {
             try

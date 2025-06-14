@@ -24,16 +24,6 @@ namespace Unicom_TIC_Management_System.Controllers
             if (!lastNameValidate.isValid)
                 return lastNameValidate;
 
-            //validate User Name.
-            var userNameValidate = validateName(registerUser.User_Name, "User Name");
-            if (!userNameValidate.isValid)
-                return userNameValidate;
-
-            //validate Password.
-            var passwordValidate = validatePassword(registerUser.Password);
-            if (!passwordValidate.isValid)
-                return passwordValidate;
-
             //validate Email.
             var emailValidate = validateEmail(registerUser.User_Email);
             if (!emailValidate.isValid)
