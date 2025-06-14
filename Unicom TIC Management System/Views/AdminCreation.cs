@@ -88,17 +88,17 @@ namespace Unicom_TIC_Management_System.Views
             checkBoxOther.Checked = false;
             buttonTogglePassword.Text = "👁️";
 
-            labelFillFirstName.Text = "";
+            //labelFillFirstName.Text = "";
             labelFillFirstName.Visible = false;
-            labelFillLastName.Text = "";
+            //labelFillLastName.Text = "";
             labelFillLastName.Visible = false;
-            labelFillUserName.Text = "";
+            //labelFillUserName.Text = "";
             labelFillUserName.Visible = false;
-            labelFillPassword.Text = "";
+            //labelFillPassword.Text = "";
             labelFillPassword.Visible = false;
-            labelFillEmail.Text = "";
+            //labelFillEmail.Text = "";
             labelFillEmail.Visible = false;
-            labelFillPhoneNumber.Text = "";
+            //labelFillPhoneNumber.Text = "";
             labelFillPhoneNumber.Visible = false;
             labelFillDOB.Visible = false;
             labelFillGender.Visible = false;
@@ -156,10 +156,15 @@ namespace Unicom_TIC_Management_System.Views
             labelFillDOB.Text = dateOfBirthValidation.errorMessage;
             labelFillDOB.Visible = !dateOfBirthValidation.isValid;
 
+            var genderValidation = adminController.validateGender(checkBoxMale.Checked, checkBoxFemale.Checked, checkBoxOther.Checked);
+            labelFillGender.Text = genderValidation.errorMessage;
+            labelFillGender.Visible = !genderValidation.isValid;
 
 
 
-            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid)
+
+
+            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid)
             {
                 return;
             }

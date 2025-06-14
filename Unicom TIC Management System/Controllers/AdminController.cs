@@ -44,10 +44,9 @@ namespace Unicom_TIC_Management_System.Controllers
                 return dateOfBirthValidate;
 
             //validate Gender.
-            //var genderValidate = validateGender(checkBoxMale.Checked,checkBoxFemale.Checked, checkBoxOther.Checked);
-            //var genderValidate = validateAdminData(registerAdmin.Gender);
-            //if (!genderValidate.isValid)
-            //    return genderValidate;
+            var genderValidate = validateGender(false, false, false);
+            if (!genderValidate.isValid)
+                return genderValidate;
 
 
 

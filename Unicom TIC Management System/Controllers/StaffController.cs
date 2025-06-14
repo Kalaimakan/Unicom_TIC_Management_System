@@ -10,8 +10,70 @@ using Unicom_TIC_Management_System.Repositories;
 
 namespace Unicom_TIC_Management_System.Controllers
 {
-    class StaffController
+    class StaffController : Validation
     {
+        public (bool isValid, string errorMessage) validateStaffData(User validateUser, Lecturer validateLecturer)
+        {
+            //First Name validate
+            var firstNameValidate = validateName(validateLecturer.First_Name, "First Name");
+            if (!firstNameValidate.isValid)
+            {
+                return firstNameValidate;
+            }
+            //Last Name validate
+            var lastNameValidate = validateName(validateLecturer.Last_Name, "Last Name");
+            if (!lastNameValidate.isValid)
+            {
+                return lastNameValidate;
+            }
+            //User Name validate
+            var userNameValidate = validateName(validateUser.User_Name, "User Name");
+            if (!userNameValidate.isValid)
+            {
+                return userNameValidate;
+            }
+            //Password validate
+            var passwordValidate = validatePassword(validateUser.Password);
+            if (!passwordValidate.isValid)
+            {
+                return passwordValidate;
+            }
+            //DOB validate
+            if (!DateTime.TryParse(validateLecturer.Date_of_Birth, out DateTime DOB))
+            {
+                return (false, "Invalid Date of Birth format.");
+            }
+            var dateOfBirthValidate = validateDateOfBirth(DOB);
+            if (!dateOfBirthValidate.isValid)
+            {
+                return dateOfBirthValidate;
+            }
+            //Email validate
+            var emailValidate = validateEmail(validateUser.User_Email);
+            if (!emailValidate.isValid)
+            {
+                return emailValidate;
+            }
+            //Phone Number validate
+            var phoneNumberValidate = validatePhoneNumber(validateLecturer.PhoneNumber);
+            if (!phoneNumberValidate.isValid)
+            {
+                return phoneNumberValidate;
+            }
+            //Gender validate.
+            var genderValidate = validateGender(false, false, false);
+            if (!genderValidate.isValid)
+            {
+                return genderValidate;
+            }
+            //Salary validate
+            var salaryValidate = validateSalary(Convert.ToString(validateLecturer.salary));
+            if (!salaryValidate.isValid)
+            {
+                return salaryValidate;
+            }
+            return (true, string.Empty);
+        }
         public void createStaff(User registerUser, Staff registerStaff)
         {
             try

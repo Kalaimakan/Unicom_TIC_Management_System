@@ -113,7 +113,6 @@ namespace Unicom_TIC_Management_System.Views
             registerLecturer.Email = textBoxEmail.Text.Trim();
             registerUser.User_Email = textBoxEmail.Text.Trim();
             registerLecturer.Date_of_Birth = dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
-            registerLecturer.salary = Convert.ToDouble(textBoxSalary.Text.Trim());
             registerUser.User_Role = "Lecturer";
             if (checkBoxMale.Checked)
                 registerLecturer.Gender = "Male";
@@ -121,6 +120,55 @@ namespace Unicom_TIC_Management_System.Views
                 registerLecturer.Gender = "Female";
             else
                 registerLecturer.Gender = "Other";
+
+            //validate the form field.
+            var firstnameValidate = lecturerController.validateName(registerLecturer.First_Name, "First Name");
+            labelFillFirstName.Text = firstnameValidate.errorMessage;
+            labelFillFirstName.Visible = !firstnameValidate.isValid;
+
+            var lastnameValidate = lecturerController.validateName(registerLecturer.Last_Name, "Last Name");
+            labelFillLastName.Text = lastnameValidate.errorMessage;
+            labelFillLastName.Visible = !lastnameValidate.isValid;
+
+            var usernameValidate = lecturerController.validateName(registerUser.User_Name, "User Name");
+            labelFillUserName.Text = usernameValidate.errorMessage;
+            labelFillUserName.Visible = !usernameValidate.isValid;
+
+            var passwordValidate = lecturerController.validatePassword(registerUser.Password);
+            labelFillPassword.Text = passwordValidate.errorMessage;
+            labelFillPassword.Visible = !passwordValidate.isValid;
+
+            var emailValidate = lecturerController.validateEmail(registerUser.User_Email);
+            labelFillEmail.Text = emailValidate.errorMessage;
+            labelFillEmail.Visible = !emailValidate.isValid;
+
+            var phoneNumberValidate = lecturerController.validatePhoneNumber(registerLecturer.PhoneNumber);
+            labelFillPhoneNumber.Text = phoneNumberValidate.errorMessage;
+            labelFillPhoneNumber.Visible = !phoneNumberValidate.isValid;
+
+            var dateOfBirthValidate = lecturerController.validateDateOfBirth(dateTimePickerDOB.Value);
+            labelFillDOB.Text = dateOfBirthValidate.errorMessage;
+            labelFillDOB.Visible = !dateOfBirthValidate.isValid;
+
+            var genderValidate = lecturerController.validateGender(checkBoxMale.Checked, checkBoxFemale.Checked, checkBoxOther.Checked);
+            labelFillGender.Text = genderValidate.errorMessage;
+            labelFillGender.Visible = !genderValidate.isValid;
+
+            var salaryValidate = lecturerController.validateSalary(textBoxSalary.Text.Trim());
+            labelFillSalary.Text = salaryValidate.errorMessage;
+            labelFillSalary.Visible = !salaryValidate.isValid;
+
+            if (!salaryValidate.isValid)
+            {
+                return;
+            }
+            registerLecturer.salary = double.Parse(textBoxSalary.Text.Trim());
+
+            //Check if all validations passed
+            if (!firstnameValidate.isValid || !lastnameValidate.isValid || !usernameValidate.isValid || !passwordValidate.isValid || !emailValidate.isValid || !phoneNumberValidate.isValid || !dateOfBirthValidate.isValid || !genderValidate.isValid)
+            {
+                return;
+            }
 
             //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(

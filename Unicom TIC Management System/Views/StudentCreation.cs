@@ -129,7 +129,51 @@ namespace Unicom_TIC_Management_System.Views
             else
                 registerStudent.Gender = "Other";
 
+            //Validate the form fields
+            var firstNameValidation = studentController.validateName(registerStudent.First_Name, "First Name");
+            labelFillFirstName.Text = firstNameValidation.errorMessage;
+            labelFillFirstName.Visible = !firstNameValidation.isValid;
 
+            var lastNameValidation = studentController.validateName(registerStudent.Last_Name, "Last Name");
+            labelFillLastName.Text = lastNameValidation.errorMessage;
+            labelFillLastName.Visible = !lastNameValidation.isValid;
+
+            var userNameValidation = studentController.validateName(registerUser.User_Name, "User Name");
+            labelFillUserName.Text = userNameValidation.errorMessage;
+            labelFillUserName.Visible = !userNameValidation.isValid;
+
+            var passwordValidation = studentController.validatePassword(registerUser.Password);
+            labelFillPassword.Text = passwordValidation.errorMessage;
+            labelFillPassword.Visible = !passwordValidation.isValid;
+
+            var emailValidation = studentController.validateEmail(registerUser.User_Email);
+            labelFillEmail.Text = emailValidation.errorMessage;
+            labelFillEmail.Visible = !emailValidation.isValid;
+
+            var phoneNumberValidation = studentController.validatePhoneNumber(registerStudent.PhoneNumber);
+            labelFillPhoneNumber.Text = phoneNumberValidation.errorMessage;
+            labelFillPhoneNumber.Visible = !phoneNumberValidation.isValid;
+
+            var dateOfBirthValidation = studentController.validateDateOfBirth(dateTimePickerDOB.Value);
+            labelFillDOB.Text = dateOfBirthValidation.errorMessage;
+            labelFillDOB.Visible = !dateOfBirthValidation.isValid;
+
+            var genderValidation = studentController.validateGender(checkBoxMale.Checked, checkBoxFemale.Checked, checkBoxOther.Checked);
+            labelFillGender.Text = genderValidation.errorMessage;
+            labelFillGender.Visible = !genderValidation.isValid;
+
+            var addressValidation = studentController.validateAddress(registerStudent.Address);
+            labelFillAddress.Text = addressValidation.errorMessage;
+            labelFillAddress.Visible = !addressValidation.isValid;
+
+
+
+
+
+            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid ||!addressValidation.isValid)
+            {
+                return;
+            }
 
             //Confirmation Dialog
             DialogResult confirm = MessageBox.Show(

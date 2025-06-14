@@ -112,7 +112,6 @@ namespace Unicom_TIC_Management_System.Views
             registerUser.User_Email = textBoxEmail.Text.Trim();
             registerStaff.Email = textBoxEmail.Text.Trim();
             registerStaff.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-            registerStaff.Salary=Convert.ToDouble(textBoxSalary.Text.Trim());
             registerUser.User_Role = "Staff";
 
             if (checkBoxMale.Checked)
@@ -121,7 +120,53 @@ namespace Unicom_TIC_Management_System.Views
                 registerStaff.Gender = "Female";
             else
                 registerStaff.Gender = "Other";
+            var firstnameValidate = staffController.validateName(registerStaff.First_Name, "First Name");
+            labelFillFirstName.Text = firstnameValidate.errorMessage;
+            labelFillFirstName.Visible = !firstnameValidate.isValid;
 
+            var lastnameValidate = staffController.validateName(registerStaff.Last_Name, "Last Name");
+            labelFillLastName.Text = lastnameValidate.errorMessage;
+            labelFillLastName.Visible = !lastnameValidate.isValid;
+
+            var usernameValidate = staffController.validateName(registerUser.User_Name, "User Name");
+            labelFillUserName.Text = usernameValidate.errorMessage;
+            labelFillUserName.Visible = !usernameValidate.isValid;
+
+            var passwordValidate = staffController.validatePassword(registerUser.Password);
+            labelFillPassword.Text = passwordValidate.errorMessage;
+            labelFillPassword.Visible = !passwordValidate.isValid;
+
+            var emailValidate = staffController.validateEmail(registerUser.User_Email);
+            labelFillEmail.Text = emailValidate.errorMessage;
+            labelFillEmail.Visible = !emailValidate.isValid;
+
+            var phoneNumberValidate = staffController.validatePhoneNumber(registerStaff.PhoneNumber);
+            labelFillPhoneNumber.Text = phoneNumberValidate.errorMessage;
+            labelFillPhoneNumber.Visible = !phoneNumberValidate.isValid;
+
+            var dateOfBirthValidate = staffController.validateDateOfBirth(dateTimePickerDOB.Value);
+            labelFillDOB.Text = dateOfBirthValidate.errorMessage;
+            labelFillDOB.Visible = !dateOfBirthValidate.isValid;
+
+            var genderValidate = staffController.validateGender(checkBoxMale.Checked, checkBoxFemale.Checked, checkBoxOther.Checked);
+            labelFillGender.Text = genderValidate.errorMessage;
+            labelFillGender.Visible = !genderValidate.isValid;
+
+            var salaryValidate = staffController.validateSalary(textBoxSalary.Text.Trim());
+            labelFillSalary.Text = salaryValidate.errorMessage;
+            labelFillSalary.Visible = !salaryValidate.isValid;
+
+            if (!salaryValidate.isValid)
+            {
+                return;
+            }
+            registerStaff.Salary = double.Parse(textBoxSalary.Text.Trim());
+
+            //Check if all validations passed
+            if (!firstnameValidate.isValid || !lastnameValidate.isValid || !usernameValidate.isValid || !passwordValidate.isValid || !emailValidate.isValid || !phoneNumberValidate.isValid || !dateOfBirthValidate.isValid || !genderValidate.isValid)
+            {
+                return;
+            }
             //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(
             $"Are you sure you want to register{registerStaff.Last_Name} ?\n\nUsername: {registerUser.User_Name}\nEmail: {registerUser.User_Email}\nRole: {registerUser.User_Role} ",

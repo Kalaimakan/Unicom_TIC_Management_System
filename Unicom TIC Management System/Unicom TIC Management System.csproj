@@ -72,7 +72,7 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\TimeTable.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Validation.cs" />
+    <Compile Include="Parent Class\Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Db_Config.cs" />

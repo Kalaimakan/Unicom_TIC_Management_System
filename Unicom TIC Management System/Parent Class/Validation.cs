@@ -19,7 +19,7 @@ namespace Unicom_TIC_Management_System.Models
             //if it's Empty
             if (string.IsNullOrWhiteSpace(name) || name == $"Enter the {fieldName}")
             {
-                return (false, $"{fieldName} is Required.");
+                return (false, $"{fieldName} is required.");
             }
 
             if (fieldName == "User Name")
@@ -52,7 +52,7 @@ namespace Unicom_TIC_Management_System.Models
                 string namePattern = @"^[a-zA-Z\s\-']+$";
                 if (!Regex.IsMatch(name, namePattern))
                 {
-                    return (false, $"{fieldName} can only contain letters, spaces, hyphens (-), and apostrophes (')");
+                    return (false, $"{fieldName} Cantain Invalid Characters.");
                 }
             }
             return (true, string.Empty);
@@ -64,7 +64,7 @@ namespace Unicom_TIC_Management_System.Models
             //if It's Empty
             if (string.IsNullOrWhiteSpace(password) || password == "Enter the Password")
             {
-                return (false, "Password is Required.");
+                return (false, "Password is required.");
             }
             //if its less lenth.
             if (password.Length < 8)
@@ -95,13 +95,13 @@ namespace Unicom_TIC_Management_System.Models
             //if It's Empty
             if (string.IsNullOrWhiteSpace(email) || email == "Enter the Email")
             {
-                return (false, "Email is Required.");
+                return (false, "Email is required.");
             }
 
             string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             if (!Regex.IsMatch(email, emailPattern))
             {
-                return (false, "Invalid email format.");
+                return (false, "Invalid Email format.");
             }
             return (true, string.Empty);
         }
@@ -112,7 +112,7 @@ namespace Unicom_TIC_Management_System.Models
             //if It's Empty
             if (string.IsNullOrWhiteSpace(phoneNumber) || phoneNumber == "Enter the Phone Number")
             {
-                return (false, "Phone Number is Required.");
+                return (false, "Phone Number is required.");
             }
 
             if (!phoneNumber.All(Char.IsDigit))
@@ -120,7 +120,7 @@ namespace Unicom_TIC_Management_System.Models
                 return (false, "Enter Numbers Only.");
             }
 
-            if (phoneNumber.Length < 10 | phoneNumber.Length > 10)
+            if (phoneNumber.Length < 10 || phoneNumber.Length > 10)
             {
                 return (false, "Phone Number must be 10 Numbers.");
             }
@@ -139,13 +139,13 @@ namespace Unicom_TIC_Management_System.Models
             //if the date in future
             if (dateOfBirth >= DateTime.Today)
             {
-                return (false, "Date of Birth cannot be in the future.");
+                return (false, "You can't predict a human born this date in the future.");
             }
             return(false, string.Empty);
         }
 
         //Gender Validation.
-        public static (bool isValid, string errorMessage) validateGender(bool isMaleChecked, bool isFemaleChecked, bool isOtherChecked)
+        public (bool isValid, string errorMessage) validateGender(bool isMaleChecked, bool isFemaleChecked, bool isOtherChecked)
         {
             int checkedCount = 0;
             if (isMaleChecked) 
@@ -165,6 +165,43 @@ namespace Unicom_TIC_Management_System.Models
             }
 
             return (true, string.Empty);
+        }
+
+        //Salary Validation.
+        public (bool isValid, string errorMessage) validateSalary(string salary)
+        {
+            //if it's Empty.
+            if (string.IsNullOrWhiteSpace(salary) || salary == "Enter the Salary")
+            {
+                return (false , "salary is required.");
+            } 
+            //if it not numbers
+            if (!double.TryParse(salary,out double Salary))
+            {
+                return(false, "salary must be a valid number.");
+            }
+
+            //if it less than 0
+            if (Salary<0)
+            {
+                return (false,"Salary must be positive Nuumber");
+            }
+            return (true ,string.Empty);
+        }
+
+        //Address Validation
+        public (bool isValid,string errorMessage) validateAddress(string address)
+        {
+            if (!string.IsNullOrWhiteSpace(address))
+            {
+                return (false, "Address is required.");
+            }
+
+            if (address.Length>30)
+            {
+                return (false ,"Address is toooo long.");
+            }
+            return (true ,string.Empty);
         }
     }
 

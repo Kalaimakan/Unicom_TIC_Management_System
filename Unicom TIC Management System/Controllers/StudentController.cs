@@ -10,8 +10,70 @@ using Unicom_TIC_Management_System.Repositories;
 
 namespace Unicom_TIC_Management_System.Controllers
 {
-    class StudentController
+    class StudentController : Validation
     {
+        public (bool isValid, string errorMessage) validateStudentData(User validateUser, Student validateStudent)
+        {
+            //First Name validate
+            var firstNameValidate = validateName(validateStudent.First_Name, "First Name");
+            if (!firstNameValidate.isValid)
+            {
+                return firstNameValidate;
+            }
+            //Last Name validate
+            var lastNameValidate = validateName(validateStudent.Last_Name, "Last Name");
+            if (!lastNameValidate.isValid)
+            {
+                return lastNameValidate;
+            }
+            //User Name validate
+            var userNameValidate = validateName(validateUser.User_Name, "User Name");
+            if (!userNameValidate.isValid)
+            {
+                return userNameValidate;
+            }
+            //Password validate
+            var passwordValidate = validatePassword(validateUser.Password);
+            if (!passwordValidate.isValid)
+            {
+                return passwordValidate;
+            }
+            //DOB validate
+            if (!DateTime.TryParse(validateStudent.Date_of_Birth, out DateTime DOB))
+            {
+                return (false, "Invalid Date of Birth format.");
+            }
+            var dateOfBirthValidate = validateDateOfBirth(DOB);
+            if (!dateOfBirthValidate.isValid)
+            {
+                return dateOfBirthValidate;
+            }
+            //Email validate
+            var emailValidate = validateEmail(validateUser.User_Email);
+            if (!emailValidate.isValid)
+            {
+                return emailValidate;
+            }
+            //Phone Number validate
+            var phoneNumberValidate = validatePhoneNumber(validateStudent.PhoneNumber);
+            if (!phoneNumberValidate.isValid)
+            {
+                return phoneNumberValidate;
+            }
+            //Gender validate.
+            var genderValidate = validateGender(false, false, false);
+            if (!genderValidate.isValid)
+            {
+                return genderValidate;
+            }
+            //Address validate.
+            var addressValidate = validateAddress(validateStudent.Address);
+            if (!addressValidate.isValid)
+            {
+                return addressValidate;
+            }
+            return (true,string.Empty);
+        }
         public void createStudent(Student registerStudent, User registerUser)
         {
             try
