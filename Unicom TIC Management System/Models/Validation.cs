@@ -115,9 +115,14 @@ namespace Unicom_TIC_Management_System.Models
                 return (false, "Phone Number is Required.");
             }
 
-            if (phoneNumber.Length < 10)
+            if (!phoneNumber.All(Char.IsDigit))
             {
-                return (false, "Phone Number must be at least 10 characters.");
+                return (false, "Enter Numbers Only.");
+            }
+
+            if (phoneNumber.Length < 10 | phoneNumber.Length > 10)
+            {
+                return (false, "Phone Number must be 10 Numbers.");
             }
             return (true, string.Empty);
         }
@@ -128,15 +133,15 @@ namespace Unicom_TIC_Management_System.Models
             //if It's Empty
             if (dateOfBirth == default(DateTime))
             {
-                return (false, "Date of Birth is Required.");
+                return (false, "Date of Birth is required.");
             }
+
             //if the date in future
-            if (dateOfBirth > DateTime.Now)
+            if (dateOfBirth >= DateTime.Today)
             {
                 return (false, "Date of Birth cannot be in the future.");
             }
-
-            return (true, string.Empty);
+            return(false, string.Empty);
         }
 
         //Gender Validation.
