@@ -203,14 +203,13 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.UseSystemPasswordChar)
+            if (textBoxPassword.Text == "Enter the Password" && textBoxPassword.ForeColor == Color.Gray)
             {
-                textBoxPassword.UseSystemPasswordChar = false;
+                return;
             }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-            }
+
+            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
+            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
     }
 }
