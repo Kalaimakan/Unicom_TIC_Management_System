@@ -106,6 +106,7 @@ namespace Unicom_TIC_Management_System.Views
         {
             //Data Assainment
             registerLecturer.First_Name = textBoxFirstName.Text.Trim();
+            registerLecturer.Employee_Id = Validation.autoGenerateLecturerId();
             registerLecturer.Last_Name = textBoxLastName.Text.Trim();
             registerUser.User_Name = textBoxUserName.Text.Trim();
             registerUser.Password = textBoxPassword.Text.Trim();
@@ -172,7 +173,7 @@ namespace Unicom_TIC_Management_System.Views
 
             //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(
-            $"Are you sure you want to register{registerLecturer.Last_Name} ?\n\nUsername: {registerUser.User_Name}\nEmail: {registerUser.User_Email}\nRole: Lecturer ",
+            $"Are you sure you want to register{registerLecturer.Last_Name} ?\n\nLecturer Id : {registerLecturer.Employee_Id}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Lecturer ",
             "Confirm Registration",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question

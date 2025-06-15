@@ -68,7 +68,6 @@ namespace Unicom_TIC_Management_System.Views
                 }
             };
 
-            // Special handling for password field
             if (textBox == textBoxPassword)
             {
                 textBox.UseSystemPasswordChar = false;
@@ -88,17 +87,17 @@ namespace Unicom_TIC_Management_System.Views
             checkBoxOther.Checked = false;
             buttonTogglePassword.Text = "👁️";
 
-            //labelFillFirstName.Text = "";
+            labelFillFirstName.Text = "";
             labelFillFirstName.Visible = false;
-            //labelFillLastName.Text = "";
+            labelFillLastName.Text = "";
             labelFillLastName.Visible = false;
-            //labelFillUserName.Text = "";
+            labelFillUserName.Text = "";
             labelFillUserName.Visible = false;
-            //labelFillPassword.Text = "";
+            labelFillPassword.Text = "";
             labelFillPassword.Visible = false;
-            //labelFillEmail.Text = "";
+            labelFillEmail.Text = "";
             labelFillEmail.Visible = false;
-            //labelFillPhoneNumber.Text = "";
+            labelFillPhoneNumber.Text = "";
             labelFillPhoneNumber.Visible = false;
             labelFillDOB.Visible = false;
             labelFillGender.Visible = false;
@@ -161,9 +160,6 @@ namespace Unicom_TIC_Management_System.Views
             labelFillGender.Visible = !genderValidation.isValid;
 
 
-
-
-
             if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid)
             {
                 return;
@@ -180,8 +176,16 @@ namespace Unicom_TIC_Management_System.Views
             {
                 return;
             }
-            adminController.createAdmin(registerUser, registerAdmin);
-            clearFormfield();
+            try
+            {
+                adminController.createAdmin(registerUser, registerAdmin);
+                clearFormfield();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error creating admin: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
 

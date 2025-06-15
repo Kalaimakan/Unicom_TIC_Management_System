@@ -85,14 +85,17 @@ namespace Unicom_TIC_Management_System.Controllers
                     {
                         try
                         {
+
                             string lecturerQuary = @"INSERT INTO Lecturers(
-                                               User_Id, First_Name, Last_Name, Email, PhoneNumber, Date_of_Birth, Gender, salary) VALUES (
-                                               @userId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary );";
+                                               User_Id, Employee_Id, First_Name, Last_Name, Email, PhoneNumber, Date_of_Birth, Gender, salary) VALUES (
+                                               @userId, @employeeId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary );";
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
+                            string employeeId = Validation.autoGenerateLecturerId();
                             using (var lecturerCommand = new SQLiteCommand(lecturerQuary, connection))
                             {
                                 lecturerCommand.Parameters.AddWithValue("@userId", userId);
+                                lecturerCommand.Parameters.AddWithValue("@employeeId", employeeId);
                                 lecturerCommand.Parameters.AddWithValue("@firstName", registerLecturer.First_Name);
                                 lecturerCommand.Parameters.AddWithValue("@lastName", registerLecturer.Last_Name);
                                 lecturerCommand.Parameters.AddWithValue("@email", registerLecturer.Email);
@@ -102,6 +105,21 @@ namespace Unicom_TIC_Management_System.Controllers
                                 lecturerCommand.Parameters.AddWithValue("@salary", registerLecturer.salary);
                                 lecturerCommand.ExecuteNonQuery();
                             }
+                            //string getIdQuery = "SELECT Employee_Id FROM Students ORDER BY Employee_Id DESC LIMIT 1";
+                            //using (SQLiteCommand getIdCommand = new SQLiteCommand(getIdQuery, connection))
+                            //{
+                            //    using (SQLiteDataReader reader = getIdCommand.ExecuteReader())
+                            //    {
+                            //        if (reader.Read())
+                            //        {
+                            //            registerLecturer.Employee_Id = reader["Employee_Id"].ToString();
+                            //        }
+                            //        else
+                            //        {
+                            //            MessageBox.Show("Failed to retrieve the last inserted Lecturer ID.");
+                            //        }
+                            //    }
+                            //}
                             transaction.Commit();
                             MessageBox.Show("Lecturer created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }

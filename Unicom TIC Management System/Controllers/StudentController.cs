@@ -84,15 +84,19 @@ namespace Unicom_TIC_Management_System.Controllers
                     {
                         try
                         {
+                            string studentQuary = @"INSERT INTO Students(
+                                                User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course)VALUES(
+                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse
+                                              );";
+                            
+
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
-                            string studentQuary = @"INSERT INTO Students(
-                                                User_Id, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course)VALUES(
-                                                @userId, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse
-                                              );";
+                            string admissionNumber = Validation.autoGenerateStudentId();
                             using (SQLiteCommand studentCommand = new SQLiteCommand(studentQuary, connection))
                             {
                                 studentCommand.Parameters.AddWithValue("@userId", userId);
+                                studentCommand.Parameters.AddWithValue("@admissionNo",admissionNumber);
                                 studentCommand.Parameters.AddWithValue("@firstName", registerStudent.First_Name);
                                 studentCommand.Parameters.AddWithValue("@lastName", registerStudent.Last_Name);
                                 studentCommand.Parameters.AddWithValue("@email", registerStudent.Email);
@@ -103,6 +107,21 @@ namespace Unicom_TIC_Management_System.Controllers
                                 studentCommand.Parameters.AddWithValue("@entrolledCourse", registerStudent.Entrolld_Course);
                                 studentCommand.ExecuteNonQuery();
                             }
+                            //string getIdQuery = "SELECT Admission_No FROM Students ORDER BY Admission_No DESC LIMIT 1";
+                            //using (SQLiteCommand getIdCommand = new SQLiteCommand(getIdQuery, connection))
+                            //{
+                            //    using (SQLiteDataReader reader = getIdCommand.ExecuteReader())
+                            //    {
+                            //        if (reader.Read())
+                            //        {
+                            //            registerStudent.Admission_No = reader["Admission_No"].ToString();
+                            //        }
+                            //        else
+                            //        {
+                            //            MessageBox.Show("Failed to retrieve the last inserted student ID.");
+                            //        }
+                            //    }
+                            //}
                             MessageBox.Show($"Mr/mrs.{registerStudent.Last_Name} registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             transaction.Commit();
                         }

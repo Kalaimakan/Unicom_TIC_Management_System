@@ -1,18 +1,76 @@
-﻿ using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Unicom_TIC_Management_System.Controllers;
+using Unicom_TIC_Management_System.Repositories;
 using Unicom_TIC_Management_System.Views;
 
 namespace Unicom_TIC_Management_System.Models
 {
     class Validation
     {
+        private static int lecturerAdmissionNo = 100;
+
+        public static string autoGenerateStudentId()
+        {
+            string lastId = null;
+            string newStudentId = "UT10000";
+
+            using (var connection = Db_Config.getConnection())
+            {
+                string query = "SELECT Admission_No FROM Students WHERE Admission_No LIKE 'UT%' ORDER BY Admission_No DESC LIMIT 1";
+                using (var cmd = new SQLiteCommand(query, connection))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        lastId = result.ToString(); 
+                        int lastNumber = int.Parse(lastId.Substring(2));
+                        newStudentId = "UT" + (lastNumber + 1);
+                    }
+                    else
+                    {
+                        newStudentId = "UT10001";
+                    }
+                }
+            }
+
+            return newStudentId;
+        }
+        public static string autoGenerateLecturerId()
+        {
+            string lastId = null;
+            string newLecturerId = "LT100";
+
+            using (var connection = Db_Config.getConnection())
+            {
+                string query = "SELECT Employee_Id FROM Lecturers WHERE Employee_Id LIKE 'LT%' ORDER BY Employee_Id DESC LIMIT 1";
+                using (var cmd = new SQLiteCommand(query, connection))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        lastId = result.ToString();
+                        int lastNumber = int.Parse(lastId.Substring(2));
+                        newLecturerId = "LT" + (lastNumber + 1);
+                    }
+                    else
+                    {
+                        newLecturerId = "LT101";
+                    }
+                }
+            }
+
+            return newLecturerId;
+        }
+
         // Name Validation.
         public (bool isValid, string errorMessage) validateName(string name, string fieldName)
         {
@@ -141,18 +199,18 @@ namespace Unicom_TIC_Management_System.Models
             {
                 return (false, "You can't predict a human born this date in the future.");
             }
-            return(false, string.Empty);
+            return (true, string.Empty);
         }
 
         //Gender Validation.
         public (bool isValid, string errorMessage) validateGender(bool isMaleChecked, bool isFemaleChecked, bool isOtherChecked)
         {
             int checkedCount = 0;
-            if (isMaleChecked) 
+            if (isMaleChecked)
                 checkedCount++;
-            if (isFemaleChecked) 
+            if (isFemaleChecked)
                 checkedCount++;
-            if (isOtherChecked) 
+            if (isOtherChecked)
                 checkedCount++;
 
             if (checkedCount == 0)
@@ -173,35 +231,35 @@ namespace Unicom_TIC_Management_System.Models
             //if it's Empty.
             if (string.IsNullOrWhiteSpace(salary) || salary == "Enter the Salary")
             {
-                return (false , "salary is required.");
-            } 
+                return (false, "salary is required.");
+            }
             //if it not numbers
-            if (!double.TryParse(salary,out double Salary))
+            if (!double.TryParse(salary, out double Salary))
             {
-                return(false, "salary must be a valid number.");
+                return (false, "salary must be a valid number.");
             }
 
             //if it less than 0
-            if (Salary<0)
+            if (Salary < 0)
             {
-                return (false,"Salary must be positive Nuumber");
+                return (false, "Salary must be positive Nuumber");
             }
-            return (true ,string.Empty);
+            return (true, string.Empty);
         }
 
         //Address Validation
-        public (bool isValid,string errorMessage) validateAddress(string address)
+        public (bool isValid, string errorMessage) validateAddress(string address)
         {
-            if (!string.IsNullOrWhiteSpace(address))
+            if (string.IsNullOrWhiteSpace(address))
             {
                 return (false, "Address is required.");
             }
 
-            if (address.Length>30)
+            if (address.Length > 30)
             {
-                return (false ,"Address is toooo long.");
+                return (false, "Address is toooo long.");
             }
-            return (true ,string.Empty);
+            return (true, string.Empty);
         }
     }
 

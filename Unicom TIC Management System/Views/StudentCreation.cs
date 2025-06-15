@@ -110,6 +110,7 @@ namespace Unicom_TIC_Management_System.Views
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             //Assain value to the table Property
+            registerStudent.Admission_No =Validation.autoGenerateStudentId();
             registerStudent.First_Name = textBoxFirstName.Text.Trim();
             registerStudent.Last_Name = textBoxLastName.Text.Trim();
             registerUser.User_Name = textBoxUserName.Text.Trim();
@@ -177,7 +178,7 @@ namespace Unicom_TIC_Management_System.Views
 
             //Confirmation Dialog
             DialogResult confirm = MessageBox.Show(
-            $"Are you sure you want to register{registerStudent.Last_Name} ?\n\nUsername: {registerUser.User_Name}\nEmail: {registerUser.User_Email}\nRole: Student\nSelected Course :{registerStudent.Entrolld_Course} ",
+            $"Are you sure you want to register {registerStudent.Last_Name} ?\n\nStudent Id : {registerStudent.Admission_No}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Student\nSelected Course : {registerStudent.Entrolld_Course} ",
             "Confirm Registration",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question

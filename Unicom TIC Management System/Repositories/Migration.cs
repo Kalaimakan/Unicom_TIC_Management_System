@@ -99,6 +99,7 @@ namespace Unicom_TIC_Management_System.Repositories
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Students(
                                     User_Id INTEGER,
                                     Student_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Admission_No TEXT NOT NULL UNIQUE,
                                     First_Name TEXT NOT NULL,
                                     Last_Name TEXT NOT NULL,
                                     Email TEXT NOT NULL UNIQUE,
@@ -121,6 +122,7 @@ namespace Unicom_TIC_Management_System.Repositories
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Lecturers(
                                     User_Id INTEGER,
                                     Lecturer_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Employee_Id TEXT NOT NULL UNIQUE,
                                     First_Name TEXT NOT NULL,
                                     Last_Name TEXT NOT NULL,
                                     Email TEXT NOT NULL UNIQUE,
