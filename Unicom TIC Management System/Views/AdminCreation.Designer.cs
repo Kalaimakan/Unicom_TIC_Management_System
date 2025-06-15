@@ -403,7 +403,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 703);
+            this.ClientSize = new System.Drawing.Size(802, 703);
             this.Controls.Add(this.labelheading);
             this.Controls.Add(this.checkBoxOther);
             this.Controls.Add(this.checkBoxFemale);
