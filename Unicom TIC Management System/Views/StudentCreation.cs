@@ -14,6 +14,7 @@ namespace Unicom_TIC_Management_System.Views
 {
     public partial class StudentCreation: Form
     {
+        CourseController CourseController = new CourseController();
         StudentController studentController = new StudentController();
         Student registerStudent =new Student();
         User registerUser=new User();
@@ -21,6 +22,7 @@ namespace Unicom_TIC_Management_System.Views
         {
             InitializeComponent();
             SetPlaceholders();
+            loadCourse();
         }
 
         private void SetPlaceholders()
@@ -72,6 +74,32 @@ namespace Unicom_TIC_Management_System.Views
             }
         }
 
+        //public void loadCourse()
+        //{
+        //    comboBoxCourse.Items.Clear();
+        //    var courses=CourseController.viewCourse();
+        //    foreach (var course in courses)
+        //    {
+        //        comboBoxCourse.Items.Add(course.Course_Name);
+        //    }
+        //    comboBoxCourse.SelectedIndex = -1;
+        //}
+
+        public void loadCourse()
+        {
+            comboBoxCourse.Items.Clear();
+            var courses = CourseController.viewCourse();
+
+            // Create a dictionary to store course names and IDs
+            comboBoxCourse.DisplayMember = "Text";
+            comboBoxCourse.ValueMember = "Value";
+
+            foreach (var course in courses)
+            {
+                comboBoxCourse.Items.Add(new { Text = course.Course_Name, Value = course.Course_Id });
+            }
+            comboBoxCourse.SelectedIndex = -1;
+        }
         public void clearFields()
         {
             textBoxFirstName.Clear();
@@ -166,20 +194,64 @@ namespace Unicom_TIC_Management_System.Views
             var addressValidation = studentController.validateAddress(registerStudent.Address);
             labelFillAddress.Text = addressValidation.errorMessage;
             labelFillAddress.Visible = !addressValidation.isValid;
+
             if (comboBoxCourse.SelectedItem==null)
             {
-                labelFillCourse.Visible = true;
-                labelFillCourse.Text = "Select the course";
+                if (!string.IsNullOrWhiteSpace(comboBoxCourse.Text))
+                {
+                    registerStudent.Entrolld_Course = comboBoxCourse.Text;
+                }
+                else
+                {
+                    labelFillCourse.Visible = true;
+                    labelFillCourse.Text = "Select the Course";
+                    return;
+                }
+
             }
             else
             {
-                labelFillCourse.Visible = false;
+                registerStudent.Entrolld_Course = comboBoxCourse.SelectedItem.ToString();
             }
 
             if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid || !addressValidation.isValid)
             {
                 return;
             }
+
+            // Get the selected course ID
+            int courseId = 0;
+            if (comboBoxCourse.SelectedItem != null)
+            {
+                dynamic selectedItem = comboBoxCourse.SelectedItem;
+                courseId = selectedItem.Value;
+                registerStudent.Entrolld_Course = selectedItem.Text;
+            }
+            else if (!string.IsNullOrWhiteSpace(comboBoxCourse.Text))
+            {
+                var existingCourse = CourseController.viewCourse()
+                    .FirstOrDefault(c => c.Course_Name.Equals(comboBoxCourse.Text, StringComparison.OrdinalIgnoreCase));
+
+                if (existingCourse != null)
+                {
+                    courseId = existingCourse.Course_Id;
+                    registerStudent.Entrolld_Course = existingCourse.Course_Name;
+                }
+                else
+                {
+                    labelFillCourse.Visible = true;
+                    labelFillCourse.Text = "Course not found";
+                    return;
+                }
+            }
+            else
+            {
+                labelFillCourse.Visible = true;
+                labelFillCourse.Text = "Select or enter a valid course";
+                return;
+            }
+
+            registerStudent.Course_Id = courseId;
 
             //Confirmation Dialog
             DialogResult confirm = MessageBox.Show(

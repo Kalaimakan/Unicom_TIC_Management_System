@@ -18,5 +18,6 @@ namespace Unicom_TIC_Management_System.Models
         public string Date_of_Birth { get; set; }
         public string Address { get; set; } 
         public string Entrolld_Course { get; set; }
+        public int Course_Id { get; set; }  
     }
 }

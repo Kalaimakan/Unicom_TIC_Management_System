@@ -14,7 +14,7 @@ namespace Unicom_TIC_Management_System.Controllers
     {
 
 
-        public (bool isValid,string errorMessage) validateUserData(User registerUser)
+        public (bool isValid, string errorMessage) validateUserData(User registerUser)
         {
             //validate User Name.
             var userNameValidate = validateName(registerUser.User_Name, "User Name");
@@ -33,6 +33,7 @@ namespace Unicom_TIC_Management_System.Controllers
 
             return (true, string.Empty);
         }
+        //Create User.
         public int createUser(User registerUser, SQLiteConnection connection, SQLiteTransaction transaction)
         {
             try
@@ -54,12 +55,39 @@ namespace Unicom_TIC_Management_System.Controllers
                     return userId;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error while creating the user: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
-            
+        }
+
+        //Get User
+        public List<User> getUser()
+        {
+            List<User> users = new List<User>();
+            using (var connection = Db_Config.getConnection())
+            {
+                string getQuary = "SELECT * FROM Users";
+                using (var command = new SQLiteCommand(getQuary, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(new User()
+                            {
+                                User_Id = reader.GetInt32(0),
+                                User_Name = reader.GetString(1),
+                                Password = reader.GetString(2),
+                                User_Email = reader.GetString(3),
+                                User_Role = reader.GetString(4)
+                            });
+                        }
+                    }
+                }
+            }
+            return users;
         }
     }
 }

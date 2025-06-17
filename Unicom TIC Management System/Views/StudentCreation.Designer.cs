@@ -453,9 +453,6 @@
             // comboBoxCourse
             // 
             this.comboBoxCourse.FormattingEnabled = true;
-            this.comboBoxCourse.Items.AddRange(new object[] {
-            "Software Development",
-            "AI"});
             this.comboBoxCourse.Location = new System.Drawing.Point(323, 657);
             this.comboBoxCourse.Name = "comboBoxCourse";
             this.comboBoxCourse.Size = new System.Drawing.Size(306, 24);

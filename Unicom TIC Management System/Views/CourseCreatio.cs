@@ -15,6 +15,7 @@ namespace Unicom_TIC_Management_System.Views
 {
     public partial class CourseCreatio : Form
     {
+        BindingSource courseBindingSource = new BindingSource();
         Course addCourse = new Course();
         CourseController courseController = new CourseController();
         public CourseCreatio()
@@ -54,7 +55,7 @@ namespace Unicom_TIC_Management_System.Views
                 {
                     textBox.Text = "";
                     textBox.ForeColor = Color.Black;
-                    
+
                 }
             };
 
@@ -64,16 +65,17 @@ namespace Unicom_TIC_Management_System.Views
                 {
                     textBox.Text = placeholder;
                     textBox.ForeColor = Color.Gray;
-                    
+
                 }
             };
 
-            
+
         }
         public void loadCourse()
         {
             List<Course> courses = courseController.viewCourse();
-            dataGridViewCourse.DataSource = courses;
+            courseBindingSource.DataSource = courses;
+            dataGridViewCourse.DataSource = courseBindingSource;
             dataGridViewCourse.ClearSelection();
         }
 
@@ -84,18 +86,18 @@ namespace Unicom_TIC_Management_System.Views
             labelFillCourse.Text = courseNameValidation.errorMessage;
             labelFillCourse.Visible = !courseNameValidation.isValid;
 
-            if (comboBoxDepartment.SelectedIndex <= 0)
+            if (comboBoxDepartment.SelectedIndex < 0)
             {
                 labelFillDepartment.Visible = true;
                 labelFillDepartment.Text = "Please select a department.";
                 return;
             }
-            else if (comboBoxDepartment.SelectedIndex <= 1)
+            else
             {
                 labelFillDepartment.Visible = false;
             }
 
-                var startDateValidation = courseController.validateStartDate(dateTimePickerStartDate.Value);
+            var startDateValidation = courseController.validateStartDate(dateTimePickerStartDate.Value);
             labelfillStartDate.Text = startDateValidation.errorMessage;
             labelfillStartDate.Visible = !startDateValidation.isValid;
             if (!courseNameValidation.isValid || !startDateValidation.isValid)
@@ -105,9 +107,8 @@ namespace Unicom_TIC_Management_System.Views
             addCourse.Course_Name = textBoxAddCourse.Text.Trim();
             addCourse.StartDate = dateTimePickerStartDate.Value.ToString();
             addCourse.Department = comboBoxDepartment.SelectedItem?.ToString();
-            textBoxAddCourse.ForeColor=Color.Black;
+            textBoxAddCourse.ForeColor = Color.Black;
 
-            MessageBox.Show($"{addCourse.Course_Name} Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             courseController.addCourse(addCourse);
             loadCourse();
             clearField();
@@ -146,7 +147,7 @@ namespace Unicom_TIC_Management_System.Views
 
                 //Get the Delete Id
                 int courseId = Convert.ToInt32(dataGridViewCourse.SelectedRows[0].Cells["Course_Id"].Value);
-                
+
                 //Ask confiromation to Delete
                 DialogResult result = MessageBox.Show(
                                 $"Are you sure you want to delete the {addCourse.Course_Name} course  ?",
@@ -180,7 +181,16 @@ namespace Unicom_TIC_Management_System.Views
         private void buttonClear_Click(object sender, EventArgs e)
         {
             //if (textBoxAddCourse.Text != "Enter the Course Name" )
-                clearField();
+            clearField();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBoxSearch.Text.Trim().ToLower();
+
+            List<Course> filteredCourses = courseController.viewCourse().Where(c => c.Course_Name.ToLower().StartsWith(searchText)).ToList();
+
+            courseBindingSource.DataSource = filteredCourses;
         }
     }
 }

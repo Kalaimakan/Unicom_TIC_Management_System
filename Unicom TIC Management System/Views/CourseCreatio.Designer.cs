@@ -45,6 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +112,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCourse.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewCourse.Location = new System.Drawing.Point(100, 379);
+            this.dataGridViewCourse.Location = new System.Drawing.Point(104, 409);
             this.dataGridViewCourse.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewCourse.Name = "dataGridViewCourse";
             this.dataGridViewCourse.RowHeadersWidth = 51;
@@ -241,11 +243,34 @@
             this.comboBoxDepartment.Size = new System.Drawing.Size(325, 24);
             this.comboBoxDepartment.TabIndex = 31;
             // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(331, 352);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(326, 28);
+            this.textBoxSearch.TabIndex = 32;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(144, 355);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 22);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Search                :";
+            // 
             // CourseCreatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 675);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.comboBoxDepartment);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePickerStartDate);
@@ -286,5 +311,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxDepartment;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label label4;
     }
 }

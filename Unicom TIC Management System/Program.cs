@@ -20,10 +20,11 @@ namespace Unicom_TIC_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AdminCreation());
-            Application.Run(new StudentCreation());
+            //Application.Run(new StudentCreation());
             //Application.Run(new StaffCreation());
             //Application.Run(new LecturerCreation());
-            Application.Run(new CourseCreatio());
+            //Application.Run(new CourseCreatio());
+            Application.Run(new LoginForm());
 
         }
     }

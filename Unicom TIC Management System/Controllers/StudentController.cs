@@ -85,8 +85,8 @@ namespace Unicom_TIC_Management_System.Controllers
                         try
                         {
                             string studentQuary = @"INSERT INTO Students(
-                                                User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course)VALUES(
-                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse
+                                                User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course, Course_Id)VALUES(
+                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse, @courseId
                                               );";
                             
 
@@ -105,6 +105,7 @@ namespace Unicom_TIC_Management_System.Controllers
                                 studentCommand.Parameters.AddWithValue("@dateofBirth", registerStudent.Date_of_Birth);
                                 studentCommand.Parameters.AddWithValue("@address", registerStudent.Address);
                                 studentCommand.Parameters.AddWithValue("@entrolledCourse", registerStudent.Entrolld_Course);
+                                studentCommand.Parameters.AddWithValue("@courseId", registerStudent.Course_Id);
                                 studentCommand.ExecuteNonQuery();
                             }
                             //string getIdQuery = "SELECT Admission_No FROM Students ORDER BY Admission_No DESC LIMIT 1";

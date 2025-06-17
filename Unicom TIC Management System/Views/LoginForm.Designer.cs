@@ -31,7 +31,6 @@
             this.labelIncorrectPassword = new System.Windows.Forms.Label();
             this.labelIncorrectUserName = new System.Windows.Forms.Label();
             this.buttonTogglePassword = new System.Windows.Forms.Button();
-            this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
             this.textBoxLoginUserName = new System.Windows.Forms.TextBox();
@@ -44,11 +43,10 @@
             this.labelIncorrectPassword.AutoSize = true;
             this.labelIncorrectPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIncorrectPassword.ForeColor = System.Drawing.Color.Red;
-            this.labelIncorrectPassword.Location = new System.Drawing.Point(311, 241);
+            this.labelIncorrectPassword.Location = new System.Drawing.Point(311, 257);
             this.labelIncorrectPassword.Name = "labelIncorrectPassword";
-            this.labelIncorrectPassword.Size = new System.Drawing.Size(46, 18);
+            this.labelIncorrectPassword.Size = new System.Drawing.Size(0, 18);
             this.labelIncorrectPassword.TabIndex = 38;
-            this.labelIncorrectPassword.Text = "label2";
             // 
             // labelIncorrectUserName
             // 
@@ -57,9 +55,8 @@
             this.labelIncorrectUserName.ForeColor = System.Drawing.Color.Red;
             this.labelIncorrectUserName.Location = new System.Drawing.Point(311, 152);
             this.labelIncorrectUserName.Name = "labelIncorrectUserName";
-            this.labelIncorrectUserName.Size = new System.Drawing.Size(19, 18);
+            this.labelIncorrectUserName.Size = new System.Drawing.Size(0, 18);
             this.labelIncorrectUserName.TabIndex = 37;
-            this.labelIncorrectUserName.Text = "hi";
             // 
             // buttonTogglePassword
             // 
@@ -74,20 +71,7 @@
             this.buttonTogglePassword.TabIndex = 36;
             this.buttonTogglePassword.Text = "👁️";
             this.buttonTogglePassword.UseVisualStyleBackColor = false;
-            // 
-            // buttonRegister
-            // 
-            this.buttonRegister.BackColor = System.Drawing.Color.DarkCyan;
-            this.buttonRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegister.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonRegister.Location = new System.Drawing.Point(137, 308);
-            this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(213, 43);
-            this.buttonRegister.TabIndex = 35;
-            this.buttonRegister.Text = "Register";
-            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonTogglePassword.Click += new System.EventHandler(this.buttonTogglePassword_Click);
             // 
             // buttonLogin
             // 
@@ -95,27 +79,28 @@
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(452, 306);
+            this.buttonLogin.Location = new System.Drawing.Point(137, 302);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(217, 45);
+            this.buttonLogin.Size = new System.Drawing.Size(530, 45);
             this.buttonLogin.TabIndex = 34;
             this.buttonLogin.Text = "Log in";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // textBoxLoginPassword
             // 
-            this.textBoxLoginPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLoginPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLoginPassword.Location = new System.Drawing.Point(314, 191);
             this.textBoxLoginPassword.Name = "textBoxLoginPassword";
-            this.textBoxLoginPassword.Size = new System.Drawing.Size(355, 30);
+            this.textBoxLoginPassword.Size = new System.Drawing.Size(355, 28);
             this.textBoxLoginPassword.TabIndex = 33;
             // 
             // textBoxLoginUserName
             // 
-            this.textBoxLoginUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLoginUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLoginUserName.Location = new System.Drawing.Point(314, 100);
             this.textBoxLoginUserName.Name = "textBoxLoginUserName";
-            this.textBoxLoginUserName.Size = new System.Drawing.Size(355, 30);
+            this.textBoxLoginUserName.Size = new System.Drawing.Size(355, 28);
             this.textBoxLoginUserName.TabIndex = 32;
             // 
             // labelLoginPassword
@@ -146,7 +131,6 @@
             this.Controls.Add(this.labelIncorrectPassword);
             this.Controls.Add(this.labelIncorrectUserName);
             this.Controls.Add(this.buttonTogglePassword);
-            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxLoginPassword);
             this.Controls.Add(this.textBoxLoginUserName);
@@ -164,7 +148,6 @@
         private System.Windows.Forms.Label labelIncorrectPassword;
         private System.Windows.Forms.Label labelIncorrectUserName;
         private System.Windows.Forms.Button buttonTogglePassword;
-        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox textBoxLoginPassword;
         private System.Windows.Forms.TextBox textBoxLoginUserName;
