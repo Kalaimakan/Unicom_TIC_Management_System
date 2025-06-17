@@ -298,10 +298,5 @@ namespace Unicom_TIC_Management_System.Models
             }
             return (true, string.Empty);
         }
-
-        
-
-
     }
-
 }
