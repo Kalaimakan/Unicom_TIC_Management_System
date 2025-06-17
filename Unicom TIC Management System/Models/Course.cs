@@ -10,6 +10,7 @@ namespace Unicom_TIC_Management_System.Models
     {
         public int Course_Id { get; set; }
         public string Course_Name { get; set; }
+        public string Department { get; set; }
         public string StartDate { get; set; }
     }
 }

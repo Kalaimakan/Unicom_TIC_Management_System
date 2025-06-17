@@ -50,4 +50,4 @@ Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TI
 Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom T.077940FC.Up2Date
 Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.exe
 Z:\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom TIC Management System.pdb
-C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.CourseCreation.resources
+C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.CourseCreatio.resources

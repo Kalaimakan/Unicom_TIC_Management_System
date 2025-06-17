@@ -83,11 +83,11 @@
     <Compile Include="Views\AdminCreation.Designer.cs">
       <DependentUpon>AdminCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CourseCreation.cs">
+    <Compile Include="Views\CourseCreatio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CourseCreation.Designer.cs">
-      <DependentUpon>CourseCreation.cs</DependentUpon>
+    <Compile Include="Views\CourseCreatio.Designer.cs">
+      <DependentUpon>CourseCreatio.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LecturerCreation.cs">
       <SubType>Form</SubType>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="Views\AdminCreation.resx">
       <DependentUpon>AdminCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CourseCreation.resx">
-      <DependentUpon>CourseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CourseCreatio.resx">
+      <DependentUpon>CourseCreatio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LecturerCreation.resx">
       <DependentUpon>LecturerCreation.cs</DependentUpon>

@@ -261,6 +261,47 @@ namespace Unicom_TIC_Management_System.Models
             }
             return (true, string.Empty);
         }
+
+        //Course Name Validation
+        public (bool isValid, string errorMessage) validateCourseName(string courseName , string fieldName)
+        {
+            //if it's Empty
+            if (string.IsNullOrWhiteSpace(courseName) || courseName == "Enter the Course Name")
+            {
+                return (false, $"{fieldName} is required.");
+            }
+            //if its less lenth.
+            if (courseName.Length < 5)
+            {
+                return (false, $"{fieldName} must be at least 2 characters.");
+            }
+            //if its more lenth.
+            if (courseName.Length > 30)
+            {
+                return (false, $"{fieldName} cannot be long 30 characters.");
+            }
+            return (true, string.Empty);
+        }
+
+        //Start Date Validation
+        public (bool isValid, string errorMessage) validateStartDate(DateTime startDate)
+        {
+            //if it's Empty
+            if (startDate == default(DateTime))
+            {
+                return (false, "Start Date is required.");
+            }
+            //if the date in future
+            if (startDate <= DateTime.Today)
+            {
+                return (false, "Start Date cannot be in the past.");
+            }
+            return (true, string.Empty);
+        }
+
+        
+
+
     }
 
 }

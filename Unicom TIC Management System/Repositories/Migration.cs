@@ -39,6 +39,7 @@ namespace Unicom_TIC_Management_System.Repositories
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Courses(
                                     Course_Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     Course_Name TEXT NOT NULL,
+                                    Department TEXT NOT NULL,
                                     StartDate TEXT NOT NULL
                                     )";
                     commend.ExecuteNonQuery();

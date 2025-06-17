@@ -166,12 +166,17 @@ namespace Unicom_TIC_Management_System.Views
             var addressValidation = studentController.validateAddress(registerStudent.Address);
             labelFillAddress.Text = addressValidation.errorMessage;
             labelFillAddress.Visible = !addressValidation.isValid;
+            if (comboBoxCourse.SelectedItem==null)
+            {
+                labelFillCourse.Visible = true;
+                labelFillCourse.Text = "Select the course";
+            }
+            else
+            {
+                labelFillCourse.Visible = false;
+            }
 
-
-
-
-
-            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid ||!addressValidation.isValid)
+            if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid || !addressValidation.isValid)
             {
                 return;
             }
@@ -193,7 +198,10 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            clearFields();
+            if (textBoxFirstName.Text != "Enter the First Name" || textBoxLastName.Text != "Enter the Last Name" || textBoxUserName.Text != "Enter the User Name" || textBoxPassword.Text != "Enter the Password" || textBoxPhoneNumber.Text != "Enter the Phone Number" || textBoxEmail.Text != "Enter the Email" || textBoxAddress.Text!= "Enter the Address")
+            {
+                clearFields();
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

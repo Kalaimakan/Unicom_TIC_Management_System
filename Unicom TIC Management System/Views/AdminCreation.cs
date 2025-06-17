@@ -191,7 +191,11 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            clearFormfield();
+            if (textBoxFirstName.Text!= "Enter the First Name" || textBoxLastName.Text!= "Enter the Last Name" || textBoxUserName.Text != "Enter the User Name" || textBoxPassword.Text != "Enter the Password" || textBoxPhoneNumber.Text != "Enter the Phone Number" || textBoxEmail.Text != "Enter the Email")
+            {
+                clearFormfield();
+
+            }
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
