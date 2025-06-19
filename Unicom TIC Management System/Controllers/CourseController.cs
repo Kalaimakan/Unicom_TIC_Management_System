@@ -30,7 +30,7 @@ namespace Unicom_TIC_Management_System.Controllers
             return (true, string.Empty);
         }
         //Add Course.
-        public void addCourse(Course addCourse)
+        public void addCourse(Course addCourse, Department department)
         {
             using (var connection = Db_Config.getConnection())
             {
@@ -41,13 +41,13 @@ namespace Unicom_TIC_Management_System.Controllers
                         try
                         {
                             string addcourseQuary = @"INSERT INTO Courses (
-                                                   Course_Name, StartDate, Department) VALUES (
-                                                   @courseName, @startDate, @deparment);";
+                                                   Course_Name, StartDate, Department_Id) VALUES (
+                                                   @courseName, @startDate, @departmentId);";
                             using (var courseCommand = new SQLiteCommand(addcourseQuary, connection))
                             {
                                 courseCommand.Parameters.AddWithValue("@courseName", addCourse.Course_Name);
                                 courseCommand.Parameters.AddWithValue("@startDate", addCourse.StartDate);
-                                courseCommand.Parameters.AddWithValue("@deparment", addCourse.Department);
+                                courseCommand.Parameters.AddWithValue("@departmentId", department.Id);
                                 courseCommand.ExecuteNonQuery();
                             }
                             MessageBox.Show($"{addCourse.Course_Name} Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,7 +76,9 @@ namespace Unicom_TIC_Management_System.Controllers
             List<Course> courses = new List<Course>();
             using (var connection = Db_Config.getConnection())
             {
-                string viewCourseQuery = @"SELECT * FROM Courses";
+                string viewCourseQuery = @"SELECT c.Course_Id, c.Course_Name, c.StartDate, d.Id, d.Department_Name
+                                         FROM Courses c
+                                         JOIN Departments d ON c.Department_Id = d.Id";
 
                 using (var cmd = new SQLiteCommand(viewCourseQuery, connection))
                 {
@@ -88,8 +90,9 @@ namespace Unicom_TIC_Management_System.Controllers
                             {
                                 Course_Id = reader.GetInt32(0),
                                 Course_Name = reader.GetString(1),
-                                Department = reader.GetString(2),
-                                StartDate = reader.GetString(3)
+                                StartDate = reader.GetString(2),
+                                Department_Id= reader.GetInt32(3),
+                                Department_Name = reader.GetString(4)
                             });
                         }
                     }

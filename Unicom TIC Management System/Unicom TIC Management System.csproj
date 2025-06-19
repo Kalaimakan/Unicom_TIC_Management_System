@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\LecturerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Lecturer.cs" />
     <Compile Include="Models\Mark.cs" />
@@ -88,6 +90,12 @@
     </Compile>
     <Compile Include="Views\CourseCreatio.Designer.cs">
       <DependentUpon>CourseCreatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentCeation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentCeation.Designer.cs">
+      <DependentUpon>DepartmentCeation.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LecturerCreation.cs">
       <SubType>Form</SubType>
@@ -133,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CourseCreatio.resx">
       <DependentUpon>CourseCreatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DepartmentCeation.resx">
+      <DependentUpon>DepartmentCeation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LecturerCreation.resx">
       <DependentUpon>LecturerCreation.cs</DependentUpon>

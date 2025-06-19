@@ -23,8 +23,9 @@ namespace Unicom_TIC_Management_System
             //Application.Run(new StudentCreation());
             //Application.Run(new StaffCreation());
             //Application.Run(new LecturerCreation());
-            //Application.Run(new CourseCreatio());
-            Application.Run(new LoginForm());
+            Application.Run(new CourseCreatio());
+            //Application.Run(new LoginForm());
+            //Application.Run(new DepartmentCeation());
 
         }
     }

@@ -15,6 +15,8 @@ namespace Unicom_TIC_Management_System.Views
 {
     public partial class CourseCreatio : Form
     {
+        Department department = new Department();
+        DepartmentController departmentController = new DepartmentController();
         BindingSource courseBindingSource = new BindingSource();
         Course addCourse = new Course();
         CourseController courseController = new CourseController();
@@ -24,6 +26,7 @@ namespace Unicom_TIC_Management_System.Views
             clearField();
             loadCourse();
             SetPlaceholders();
+            LoadDepartmentComboBox();
         }
         public void clearField()
         {
@@ -77,6 +80,14 @@ namespace Unicom_TIC_Management_System.Views
             courseBindingSource.DataSource = courses;
             dataGridViewCourse.DataSource = courseBindingSource;
             dataGridViewCourse.ClearSelection();
+            if (dataGridViewCourse.Columns.Contains("Department_Name"))
+            {
+                dataGridViewCourse.Columns["Department_Name"].HeaderText = "Department";
+            }
+            if (dataGridViewCourse.Columns.Contains("Department_Id"))
+            {
+                dataGridViewCourse.Columns["Department_Id"].Visible = false;
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -97,6 +108,16 @@ namespace Unicom_TIC_Management_System.Views
                 labelFillDepartment.Visible = false;
             }
 
+            if (comboBoxDepartment.SelectedItem is Department selectedDepartment)
+            {
+                department = selectedDepartment; 
+            }
+            else
+            {
+                MessageBox.Show("Invalid department selection.");
+                return;
+            }
+
             var startDateValidation = courseController.validateStartDate(dateTimePickerStartDate.Value);
             labelfillStartDate.Text = startDateValidation.errorMessage;
             labelfillStartDate.Visible = !startDateValidation.isValid;
@@ -106,34 +127,12 @@ namespace Unicom_TIC_Management_System.Views
             }
             addCourse.Course_Name = textBoxAddCourse.Text.Trim();
             addCourse.StartDate = dateTimePickerStartDate.Value.ToString();
-            addCourse.Department = comboBoxDepartment.SelectedItem?.ToString();
+            department = (Department)comboBoxDepartment.SelectedItem;
             textBoxAddCourse.ForeColor = Color.Black;
 
-            courseController.addCourse(addCourse);
+            courseController.addCourse(addCourse,department);
             loadCourse();
             clearField();
-        }
-        public void getItemInField()
-        {
-            if (dataGridViewCourse.SelectedRows.Count > 0)
-            {
-
-                DataGridViewRow selectedRow = dataGridViewCourse.SelectedRows[0];
-                textBoxAddCourse.ForeColor = Color.Black;
-                comboBoxDepartment.ForeColor = Color.Black;
-
-                textBoxAddCourse.Text = selectedRow.Cells["Course_Name"].Value?.ToString() ?? "";
-                comboBoxDepartment.SelectedItem = selectedRow.Cells["Department"].Value?.ToString() ?? "";
-                var startDateValue = selectedRow.Cells["StartDate"].Value;
-                if (startDateValue != null && DateTime.TryParse(startDateValue.ToString(), out DateTime startDate))
-                {
-                    dateTimePickerStartDate.Value = startDate;
-                }
-                else
-                {
-                    dateTimePickerStartDate.Value = DateTime.Today;
-                }
-            }
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -150,7 +149,7 @@ namespace Unicom_TIC_Management_System.Views
 
                 //Ask confiromation to Delete
                 DialogResult result = MessageBox.Show(
-                                $"Are you sure you want to delete the {addCourse.Course_Name} course  ?",
+                                $"Are you sure you want to delete the {addCourse.Course_Name} course ?",
                                 "Confirm Delete",
                                 MessageBoxButtons.YesNo
                                     );
@@ -166,21 +165,18 @@ namespace Unicom_TIC_Management_System.Views
                 {
                     MessageBox.Show("Course deletion was cancelled.");
                 }
-                else
-                {
-                    MessageBox.Show("Please Select the Course to Delete.");
-                }
             }
+            SetPlaceholders();
+
         }
 
         private void dataGridViewCourse_SelectionChanged(object sender, EventArgs e)
         {
-            getItemInField();
+           
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            //if (textBoxAddCourse.Text != "Enter the Course Name" )
             clearField();
         }
 
@@ -191,6 +187,57 @@ namespace Unicom_TIC_Management_System.Views
             List<Course> filteredCourses = courseController.viewCourse().Where(c => c.Course_Name.ToLower().StartsWith(searchText)).ToList();
 
             courseBindingSource.DataSource = filteredCourses;
+        }
+
+        private void buttonAddDepartment_Click(object sender, EventArgs e)
+        {
+            DepartmentCeation departmentCreation = new DepartmentCeation();
+            departmentCreation.ShowDialog();
+            LoadDepartmentComboBox();
+        }
+
+        private void dataGridViewCourse_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridViewCourse.SelectedRows.Count > 0)
+            {
+
+                DataGridViewRow selectedRow = dataGridViewCourse.SelectedRows[0];
+                textBoxAddCourse.ForeColor = Color.Black;
+                comboBoxDepartment.ForeColor = Color.Black;
+
+                textBoxAddCourse.Text = selectedRow.Cells["Course_Name"].Value?.ToString() ?? "";
+                string deptName = selectedRow.Cells["Department_Name"].Value?.ToString();
+                if (!string.IsNullOrEmpty(deptName))
+                {
+                    comboBoxDepartment.SelectedIndex = comboBoxDepartment.FindStringExact(deptName);
+                }
+
+                // Set Start Date
+                if (DateTime.TryParse(selectedRow.Cells["StartDate"].Value?.ToString(), out DateTime startDate))
+                {
+                    dateTimePickerStartDate.Value = startDate;
+                }
+                else
+                {
+                    dateTimePickerStartDate.Value = DateTime.Today;
+                }
+            }
+        }
+
+        public void LoadDepartmentComboBox()
+        {
+            var departments = departmentController.GetAllDepartment();
+            //foreach (var department in departments)
+            //{
+            //    comboBoxDepartment.Items.Add(department.Department_Name);
+            //}
+            comboBoxDepartment.DataSource = departments;
+            comboBoxDepartment.DisplayMember = "Department_Name";   
+            comboBoxDepartment.ValueMember = "Id"; 
+            comboBoxDepartment.SelectedIndex = -1;
+        }
+        private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

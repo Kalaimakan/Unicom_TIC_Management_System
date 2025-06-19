@@ -35,12 +35,22 @@ namespace Unicom_TIC_Management_System.Repositories
                                     )";
                     commend.ExecuteNonQuery();
 
+                    //Create Department Table.
+                    commend.CommandText = @"CREATE TABLE IF NOT EXISTS Departments(
+                                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Department_Name TEXT NOT NULL UNIQUE
+                                    )";
+                    commend.ExecuteNonQuery();
+
                     //Create Course Table.
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Courses(
                                     Course_Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    Course_Name TEXT NOT NULL,
-                                    Department TEXT NOT NULL,
-                                    StartDate TEXT NOT NULL
+                                    Course_Name TEXT NOT NULL UNIQUE,
+                                    StartDate TEXT NOT NULL,
+                                    Department_Id INTEGER,
+                                    FOREIGN KEY (Department_Id) REFERENCES Departments(Department_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE
                                     )";
                     commend.ExecuteNonQuery();
 
@@ -110,6 +120,10 @@ namespace Unicom_TIC_Management_System.Repositories
                                     Address TEXT NOT NULL,
                                     Entrolled_Course TEXT NOT NULL,
                                     Course_Id INTEGER,
+                                    Department_Id INTEGER,
+                                    FOREIGN KEY (Department_Id) REFERENCES Departments(Department_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
                                     FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE,
