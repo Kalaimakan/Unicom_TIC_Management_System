@@ -20,27 +20,57 @@ namespace Unicom_TIC_Management_System.Views
         {
             InitializeComponent();
             LoadDepartmentData();
+            SetPlaceholders();
         }
 
+        public void SetPlaceholders()
+        {
+            ApplyPlaceholder(textBoxAddDepartment, "Enter the Department Name");
+        }
+        // apply placeholder to TextBox
+        private void ApplyPlaceholder(TextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             addDepartment.Department_Name = textBoxAddDepartment.Text.Trim();
-            if (string.IsNullOrEmpty(addDepartment.Department_Name))
+
+            // Validate input
+            if (string.IsNullOrWhiteSpace(addDepartment.Department_Name) || addDepartment.Department_Name == "Enter the Department Name")
             {
                 labelFillDepartment.Text = "Please enter a department name.";
                 labelFillDepartment.Visible = true;
                 return;
             }
+
             try
             {
                 departmentController.CreateDepartment(addDepartment);
-                labelFillDepartment.Visible = false;
-                MessageBox.Show($"{addDepartment.Department_Name} Department created successfully.", "Success Message");
+                MessageBox.Show($"{addDepartment.Department_Name} Department created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error creating department: " + ex.Message);
+                MessageBox.Show("Error creating department: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             ClearFields();
             LoadDepartmentData();
         }
@@ -61,22 +91,26 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (addDepartment.Id==0)
+            if (dataGridViewDepartment.SelectedRows.Count == 0)
             {
                 labelFillDepartment.Text = "Please select a department to delete.";
                 labelFillDepartment.Visible = true;
             }
-            var confirm = MessageBox.Show($"Are you sure you want to delete {addDepartment.Department_Name} ?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (confirm==DialogResult.Yes)
+            if (dataGridViewDepartment.SelectedRows.Count > 0)
             {
-                departmentController.DeleteDepartment(addDepartment.Id);
-                ClearFields();
-                LoadDepartmentData();
+                var confirm = MessageBox.Show($"Are you sure you want to delete {addDepartment.Department_Name} ?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes)
+                {
+                    departmentController.DeleteDepartment(addDepartment.Id);
+                    ClearFields();
+                    LoadDepartmentData();
+                }
+                else if (confirm == DialogResult.No)
+                {
+                    MessageBox.Show($"Deletation Cancaled.", "Cancel Message", MessageBoxButtons.OK);
+                }
             }
-            else if (confirm == DialogResult.No)
-            {
-                MessageBox.Show($"Deletation Cancaled." , "Cancel Message",  MessageBoxButtons.OK);
-            }
+            SetPlaceholders();
         }
 
         private void dataGridViewDepartment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

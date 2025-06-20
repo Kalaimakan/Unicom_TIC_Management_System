@@ -67,6 +67,10 @@ namespace Unicom_TIC_Management_System.Repositories
                                     Course_Id INTEGER,
                                     Subject_Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     Subject_Name TEXT NOT NULL,
+                                    Department_Id INTEGER,
+                                    FOREIGN KEY (Department_Id) REFERENCES Departments(Department_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
                                     FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE
@@ -219,6 +223,20 @@ namespace Unicom_TIC_Management_System.Repositories
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE,
                                     FOREIGN KEY (Student_Id) REFERENCES Students(Student_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE
+                                    )";
+                    commend.ExecuteNonQuery();
+
+                    //Create Course_Subjects Table.
+                    commend.CommandText = @"CREATE TABLE IF NOT EXISTS Course_Subjects(
+                                    Course_Subject_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Course_Id INTEGER,
+                                    Subject_Id INTEGER,
+                                    FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
+                                    FOREIGN KEY (Subject_Id) REFERENCES Subjects(Subject_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE
                                     )";

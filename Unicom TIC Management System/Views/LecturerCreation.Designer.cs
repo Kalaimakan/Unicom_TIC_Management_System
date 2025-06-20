@@ -62,6 +62,9 @@
             this.buttonRegister = new System.Windows.Forms.Button();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.labelFirstName = new System.Windows.Forms.Label();
+            this.labelFillSubject = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelFillSalary
@@ -267,7 +270,7 @@
             this.buttonClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonClear.Location = new System.Drawing.Point(348, 664);
+            this.buttonClear.Location = new System.Drawing.Point(348, 730);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(113, 38);
@@ -323,7 +326,7 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(516, 664);
+            this.buttonCancel.Location = new System.Drawing.Point(516, 730);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(113, 38);
@@ -396,7 +399,7 @@
             this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegister.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonRegister.Location = new System.Drawing.Point(174, 664);
+            this.buttonRegister.Location = new System.Drawing.Point(174, 730);
             this.buttonRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(113, 38);
@@ -424,11 +427,43 @@
             this.labelFirstName.TabIndex = 104;
             this.labelFirstName.Text = "First Name      :";
             // 
+            // labelFillSubject
+            // 
+            this.labelFillSubject.AutoSize = true;
+            this.labelFillSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFillSubject.ForeColor = System.Drawing.Color.Red;
+            this.labelFillSubject.Location = new System.Drawing.Point(323, 699);
+            this.labelFillSubject.Name = "labelFillSubject";
+            this.labelFillSubject.Size = new System.Drawing.Size(0, 16);
+            this.labelFillSubject.TabIndex = 140;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(171, 663);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 22);
+            this.label3.TabIndex = 138;
+            this.label3.Text = "Subject           :";
+            // 
+            // comboBoxSubject
+            // 
+            this.comboBoxSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubject.FormattingEnabled = true;
+            this.comboBoxSubject.Location = new System.Drawing.Point(327, 662);
+            this.comboBoxSubject.Name = "comboBoxSubject";
+            this.comboBoxSubject.Size = new System.Drawing.Size(302, 28);
+            this.comboBoxSubject.TabIndex = 141;
+            // 
             // LecturerCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 745);
+            this.ClientSize = new System.Drawing.Size(800, 798);
+            this.Controls.Add(this.comboBoxSubject);
+            this.Controls.Add(this.labelFillSubject);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.labelFillSalary);
             this.Controls.Add(this.textBoxSalary);
             this.Controls.Add(this.label2);
@@ -506,5 +541,8 @@
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.Label labelFillSubject;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxSubject;
     }
 }
