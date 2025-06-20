@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -75,7 +76,7 @@ namespace Unicom_TIC_Management_System.Controllers
             }
             return (true,string.Empty);
         }
-        public void createLecture(User registerUser, Lecturer registerLecturer)
+        public void createLecture(User registerUser, Lecturer registerLecturer, Subject addSubject)
         {
             try
             {
@@ -87,8 +88,8 @@ namespace Unicom_TIC_Management_System.Controllers
                         {
 
                             string lecturerQuary = @"INSERT INTO Lecturers(
-                                               User_Id, Employee_Id, First_Name, Last_Name, Email, PhoneNumber, Date_of_Birth, Gender, salary) VALUES (
-                                               @userId, @employeeId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary );";
+                                               User_Id, Employee_Id, First_Name, Last_Name, Email, PhoneNumber, Date_of_Birth, Gender, salary,subject_Id) VALUES (
+                                               @userId, @employeeId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary,@subjectId );";
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
                             string employeeId = Validation.autoGenerateLecturerId();
@@ -103,6 +104,7 @@ namespace Unicom_TIC_Management_System.Controllers
                                 lecturerCommand.Parameters.AddWithValue("@dateOfBirth", registerLecturer.Date_of_Birth);
                                 lecturerCommand.Parameters.AddWithValue("@gender", registerLecturer.Gender);
                                 lecturerCommand.Parameters.AddWithValue("@salary", registerLecturer.salary);
+                                lecturerCommand.Parameters.AddWithValue("@subjectId",addSubject.Subject_Id);
                                 lecturerCommand.ExecuteNonQuery();
                             }
                             //string getIdQuery = "SELECT Employee_Id FROM Students ORDER BY Employee_Id DESC LIMIT 1";

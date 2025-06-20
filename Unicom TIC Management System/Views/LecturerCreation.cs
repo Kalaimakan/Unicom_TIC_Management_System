@@ -14,13 +14,17 @@ namespace Unicom_TIC_Management_System.Views
 {
     public partial class LecturerCreation : Form
     {
-        LecturerController lecturerController = new LecturerController();
+        Subject subject =new Subject();
+        SubjectController subjectController = new SubjectController();
         Lecturer registerLecturer = new Lecturer();
         User registerUser = new User();
+        LecturerController lecturerController = new LecturerController();
         public LecturerCreation()
         {
             InitializeComponent();
             SetPlaceholders();
+            LoadSubject();
+            //clearFields();
         }
 
         private void SetPlaceholders()
@@ -71,6 +75,14 @@ namespace Unicom_TIC_Management_System.Views
                 textBox.UseSystemPasswordChar = false;
             }
         }
+
+        public void LoadSubject()
+        {
+            List<Subject> subjects =subjectController.GetSubjects();
+            comboBoxSubject.DataSource = subjects;
+            comboBoxSubject.DisplayMember = "Subject_Name";
+            comboBoxSubject.ValueMember = "Subject_Id";
+        }
         public void clearFields()
         {
             textBoxFirstName.Clear();
@@ -84,6 +96,7 @@ namespace Unicom_TIC_Management_System.Views
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
             checkBoxOther.Checked = false;
+            comboBoxSubject.SelectedIndex = -1;
 
             buttonTogglePassword.Text = "👁️";
 
@@ -101,6 +114,7 @@ namespace Unicom_TIC_Management_System.Views
             labelFillPhoneNumber.Visible = false;
             labelFillSalary.Text = "";
             labelFillSalary.Visible = false;
+            labelFillSubject.Visible = false;
         }
         private void buttonRegister_Click(object sender, EventArgs e)
         {
@@ -121,6 +135,9 @@ namespace Unicom_TIC_Management_System.Views
                 registerLecturer.Gender = "Female";
             else
                 registerLecturer.Gender = "Other";
+            //registerLecturer.subject_Id =comboBoxSubject.SelectedIndex;
+            //comboBoxSubject.SelectedIndex = -1;
+            subject = (Subject)comboBoxSubject.SelectedItem;
 
             //validate the form field.
             var firstnameValidate = lecturerController.validateName(registerLecturer.First_Name, "First Name");
@@ -173,7 +190,7 @@ namespace Unicom_TIC_Management_System.Views
 
             //Ask user to Confirm creation?
             DialogResult confirm = MessageBox.Show(
-            $"Are you sure you want to register{registerLecturer.Last_Name} ?\n\nLecturer Id : {registerLecturer.Employee_Id}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Lecturer ",
+            $"Are you sure you want to register{registerLecturer.Last_Name} ?\n\nLecturer Id : {registerLecturer.Employee_Id}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Lecturer\nSubject : {subject.Subject_Name}",
             "Confirm Registration",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question
@@ -183,7 +200,7 @@ namespace Unicom_TIC_Management_System.Views
                 return;
             }
 
-            lecturerController.createLecture(registerUser, registerLecturer);
+            lecturerController.createLecture(registerUser, registerLecturer, subject);
             clearFields();
 
         }

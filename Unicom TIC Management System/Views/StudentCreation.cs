@@ -12,17 +12,19 @@ using Unicom_TIC_Management_System.Models;
 
 namespace Unicom_TIC_Management_System.Views
 {
-    public partial class StudentCreation: Form
+    public partial class StudentCreation : Form
     {
+        Course addCourse = new Course();
+        Department addDepartment = new Department();
         CourseController CourseController = new CourseController();
         StudentController studentController = new StudentController();
-        Student registerStudent =new Student();
-        User registerUser=new User();
+        Student registerStudent = new Student();
+        User registerUser = new User();
         public StudentCreation()
         {
             InitializeComponent();
             SetPlaceholders();
-            loadCourse();
+            LoadCourse();
         }
 
         private void SetPlaceholders()
@@ -85,19 +87,12 @@ namespace Unicom_TIC_Management_System.Views
         //    comboBoxCourse.SelectedIndex = -1;
         //}
 
-        public void loadCourse()
+        public void LoadCourse()
         {
-            comboBoxCourse.Items.Clear();
-            var courses = CourseController.viewCourse();
-
-            // Create a dictionary to store course names and IDs
-            comboBoxCourse.DisplayMember = "Text";
-            comboBoxCourse.ValueMember = "Value";
-
-            foreach (var course in courses)
-            {
-                comboBoxCourse.Items.Add(new { Text = course.Course_Name, Value = course.Course_Id });
-            }
+            List<Course> courses = CourseController.viewCourse();
+            comboBoxCourse.DataSource=courses;
+            comboBoxCourse.DisplayMember = "Course_Name";
+            comboBoxCourse.ValueMember = "Course_Id";
             comboBoxCourse.SelectedIndex = -1;
         }
         public void clearFields()
@@ -138,18 +133,18 @@ namespace Unicom_TIC_Management_System.Views
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             //Assain value to the table Property
-            registerStudent.Admission_No =Validation.autoGenerateStudentId();
+            registerStudent.Admission_No = Validation.autoGenerateStudentId();
             registerStudent.First_Name = textBoxFirstName.Text.Trim();
             registerStudent.Last_Name = textBoxLastName.Text.Trim();
             registerUser.User_Name = textBoxUserName.Text.Trim();
             registerUser.Password = textBoxPassword.Text.Trim();
             registerStudent.Date_of_Birth = dateTimePickerDOB.Value.ToString("yyyy-MM-dd");
-            registerStudent.Email= textBoxEmail.Text.Trim();
+            registerStudent.Email = textBoxEmail.Text.Trim();
             registerUser.User_Email = textBoxEmail.Text.Trim();
             registerUser.User_Role = "Student";
             registerStudent.Address = textBoxAddress.Text.Trim();
             registerStudent.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-            registerStudent.Entrolld_Course=comboBoxCourse.SelectedItem?.ToString();
+            registerStudent.Entrolld_Course = comboBoxCourse.SelectedItem?.ToString();
             //Assin gender
             if (checkBoxMale.Checked)
                 registerStudent.Gender = "Male";
@@ -195,23 +190,17 @@ namespace Unicom_TIC_Management_System.Views
             labelFillAddress.Text = addressValidation.errorMessage;
             labelFillAddress.Visible = !addressValidation.isValid;
 
-            if (comboBoxCourse.SelectedItem==null)
+            if (comboBoxCourse.SelectedItem != null)
             {
-                if (!string.IsNullOrWhiteSpace(comboBoxCourse.Text))
-                {
-                    registerStudent.Entrolld_Course = comboBoxCourse.Text;
-                }
-                else
-                {
-                    labelFillCourse.Visible = true;
-                    labelFillCourse.Text = "Select the Course";
-                    return;
-                }
-
+                addCourse = (Course)comboBoxCourse.SelectedItem;
+                registerStudent.Entrolld_Course = addCourse.Course_Name;
+                registerStudent.Course_Id = addCourse.Course_Id;
             }
             else
             {
-                registerStudent.Entrolld_Course = comboBoxCourse.SelectedItem.ToString();
+                labelFillCourse.Visible = true;
+                labelFillCourse.Text = "Select the Course";
+                return;
             }
 
             if (!firstNameValidation.isValid || !lastNameValidation.isValid || !userNameValidation.isValid || !passwordValidation.isValid || !emailValidation.isValid || !phoneNumberValidation.isValid || !dateOfBirthValidation.isValid || !genderValidation.isValid || !addressValidation.isValid)
@@ -219,43 +208,12 @@ namespace Unicom_TIC_Management_System.Views
                 return;
             }
 
-            // Get the selected course ID
-            int courseId = 0;
-            if (comboBoxCourse.SelectedItem != null)
-            {
-                dynamic selectedItem = comboBoxCourse.SelectedItem;
-                courseId = selectedItem.Value;
-                registerStudent.Entrolld_Course = selectedItem.Text;
-            }
-            else if (!string.IsNullOrWhiteSpace(comboBoxCourse.Text))
-            {
-                var existingCourse = CourseController.viewCourse()
-                    .FirstOrDefault(c => c.Course_Name.Equals(comboBoxCourse.Text, StringComparison.OrdinalIgnoreCase));
 
-                if (existingCourse != null)
-                {
-                    courseId = existingCourse.Course_Id;
-                    registerStudent.Entrolld_Course = existingCourse.Course_Name;
-                }
-                else
-                {
-                    labelFillCourse.Visible = true;
-                    labelFillCourse.Text = "Course not found";
-                    return;
-                }
-            }
-            else
-            {
-                labelFillCourse.Visible = true;
-                labelFillCourse.Text = "Select or enter a valid course";
-                return;
-            }
-
-            registerStudent.Course_Id = courseId;
+            
 
             //Confirmation Dialog
             DialogResult confirm = MessageBox.Show(
-            $"Are you sure you want to register {registerStudent.Last_Name} ?\n\nStudent Id : {registerStudent.Admission_No}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Student\nSelected Course : {registerStudent.Entrolld_Course} ",
+            $"Are you sure you want to register {registerStudent.Last_Name} ?\n\nStudent Id : {registerStudent.Admission_No}\nUsername : {registerUser.User_Name}\nEmail : {registerUser.User_Email}\nRole : Student\nSelected Course : {addCourse.Course_Name} ",
             "Confirm Registration",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question
@@ -264,13 +222,13 @@ namespace Unicom_TIC_Management_System.Views
             {
                 return;
             }
-            studentController.createStudent(registerStudent, registerUser);
+            studentController.createStudent(registerStudent, registerUser, addCourse, addDepartment);
             clearFields();
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            if (textBoxFirstName.Text != "Enter the First Name" || textBoxLastName.Text != "Enter the Last Name" || textBoxUserName.Text != "Enter the User Name" || textBoxPassword.Text != "Enter the Password" || textBoxPhoneNumber.Text != "Enter the Phone Number" || textBoxEmail.Text != "Enter the Email" || textBoxAddress.Text!= "Enter the Address")
+            if (textBoxFirstName.Text != "Enter the First Name" || textBoxLastName.Text != "Enter the Last Name" || textBoxUserName.Text != "Enter the User Name" || textBoxPassword.Text != "Enter the Password" || textBoxPhoneNumber.Text != "Enter the Phone Number" || textBoxEmail.Text != "Enter the Email" || textBoxAddress.Text != "Enter the Address")
             {
                 clearFields();
             }

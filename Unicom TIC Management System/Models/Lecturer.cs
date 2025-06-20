@@ -17,5 +17,7 @@ namespace Unicom_TIC_Management_System.Models
         public string Gender { get; set; }
         public string Date_of_Birth { get; set; }
         public double salary { get; set; }
+        public int subject_Id { get; set; }
+        public string Subject_Name { get; set; }
     }
 }

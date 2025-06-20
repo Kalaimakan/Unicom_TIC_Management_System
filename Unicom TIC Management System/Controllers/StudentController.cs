@@ -72,9 +72,9 @@ namespace Unicom_TIC_Management_System.Controllers
             {
                 return addressValidate;
             }
-            return (true,string.Empty);
+            return (true, string.Empty);
         }
-        public void createStudent(Student registerStudent, User registerUser)
+        public void createStudent(Student registerStudent, User registerUser, Course course, Department department)
         {
             try
             {
@@ -85,10 +85,10 @@ namespace Unicom_TIC_Management_System.Controllers
                         try
                         {
                             string studentQuary = @"INSERT INTO Students(
-                                                User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course, Course_Id)VALUES(
-                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse, @courseId
+                                                User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course, Course_Id,Department_Id)VALUES(
+                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse, @courseId, @departmentId
                                               );";
-                            
+
 
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
@@ -96,7 +96,7 @@ namespace Unicom_TIC_Management_System.Controllers
                             using (SQLiteCommand studentCommand = new SQLiteCommand(studentQuary, connection))
                             {
                                 studentCommand.Parameters.AddWithValue("@userId", userId);
-                                studentCommand.Parameters.AddWithValue("@admissionNo",admissionNumber);
+                                studentCommand.Parameters.AddWithValue("@admissionNo", admissionNumber);
                                 studentCommand.Parameters.AddWithValue("@firstName", registerStudent.First_Name);
                                 studentCommand.Parameters.AddWithValue("@lastName", registerStudent.Last_Name);
                                 studentCommand.Parameters.AddWithValue("@email", registerStudent.Email);
@@ -104,8 +104,9 @@ namespace Unicom_TIC_Management_System.Controllers
                                 studentCommand.Parameters.AddWithValue("@phoneNumber", registerStudent.PhoneNumber);
                                 studentCommand.Parameters.AddWithValue("@dateofBirth", registerStudent.Date_of_Birth);
                                 studentCommand.Parameters.AddWithValue("@address", registerStudent.Address);
-                                studentCommand.Parameters.AddWithValue("@entrolledCourse", registerStudent.Entrolld_Course);
-                                studentCommand.Parameters.AddWithValue("@courseId", registerStudent.Course_Id);
+                                studentCommand.Parameters.AddWithValue("@entrolledCourse", course.Course_Name);
+                                studentCommand.Parameters.AddWithValue("@courseId", course.Course_Id);
+                                studentCommand.Parameters.AddWithValue("@departmentId", course.Department_Id);
                                 studentCommand.ExecuteNonQuery();
                             }
                             //string getIdQuery = "SELECT Admission_No FROM Students ORDER BY Admission_No DESC LIMIT 1";

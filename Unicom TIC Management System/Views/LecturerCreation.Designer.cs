@@ -63,7 +63,7 @@
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelFillSubject = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelSubject = new System.Windows.Forms.Label();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -80,6 +80,7 @@
             // textBoxSalary
             // 
             this.textBoxSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSalary.ForeColor = System.Drawing.Color.Black;
             this.textBoxSalary.Location = new System.Drawing.Point(325, 598);
             this.textBoxSalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSalary.Name = "textBoxSalary";
@@ -201,6 +202,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserName.ForeColor = System.Drawing.Color.Black;
             this.textBoxUserName.Location = new System.Drawing.Point(323, 226);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUserName.Name = "textBoxUserName";
@@ -248,6 +250,7 @@
             // textBoxPhoneNumber
             // 
             this.textBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(324, 476);
             this.textBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
@@ -338,6 +341,7 @@
             // textBoxLastName
             // 
             this.textBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLastName.ForeColor = System.Drawing.Color.Black;
             this.textBoxLastName.Location = new System.Drawing.Point(323, 164);
             this.textBoxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLastName.Name = "textBoxLastName";
@@ -347,6 +351,7 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.ForeColor = System.Drawing.Color.Black;
             this.textBoxPassword.Location = new System.Drawing.Point(323, 287);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -357,6 +362,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.ForeColor = System.Drawing.Color.Black;
             this.textBoxEmail.Location = new System.Drawing.Point(324, 412);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -411,6 +417,7 @@
             // textBoxFirstName
             // 
             this.textBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFirstName.ForeColor = System.Drawing.Color.Black;
             this.textBoxFirstName.Location = new System.Drawing.Point(323, 100);
             this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFirstName.Name = "textBoxFirstName";
@@ -437,19 +444,20 @@
             this.labelFillSubject.Size = new System.Drawing.Size(0, 16);
             this.labelFillSubject.TabIndex = 140;
             // 
-            // label3
+            // labelSubject
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(171, 663);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 22);
-            this.label3.TabIndex = 138;
-            this.label3.Text = "Subject           :";
+            this.labelSubject.AutoSize = true;
+            this.labelSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubject.Location = new System.Drawing.Point(171, 663);
+            this.labelSubject.Name = "labelSubject";
+            this.labelSubject.Size = new System.Drawing.Size(130, 22);
+            this.labelSubject.TabIndex = 138;
+            this.labelSubject.Text = "Subject           :";
             // 
             // comboBoxSubject
             // 
             this.comboBoxSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubject.ForeColor = System.Drawing.Color.Black;
             this.comboBoxSubject.FormattingEnabled = true;
             this.comboBoxSubject.Location = new System.Drawing.Point(327, 662);
             this.comboBoxSubject.Name = "comboBoxSubject";
@@ -463,7 +471,7 @@
             this.ClientSize = new System.Drawing.Size(800, 798);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.labelFillSubject);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelSubject);
             this.Controls.Add(this.labelFillSalary);
             this.Controls.Add(this.textBoxSalary);
             this.Controls.Add(this.label2);
@@ -542,7 +550,7 @@
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Label labelFillSubject;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelSubject;
         private System.Windows.Forms.ComboBox comboBoxSubject;
     }
 }
