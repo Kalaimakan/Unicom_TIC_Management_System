@@ -137,5 +137,27 @@ namespace Unicom_TIC_Management_System.Controllers
                 throw;
             }
         }
+
+        public void AssignLecturersToStudentByCourse(Student student, int courseId)
+        {
+            try
+            {
+                using (var connection = Db_Config.getConnection())
+                {
+                    LecturerController lecturerController = new LecturerController();
+                    List<Lecturer> lecturers = lecturerController.GetLecturersByCourseId(courseId, connection);
+
+                    Lecturer_StudentController lsController = new Lecturer_StudentController();
+                    foreach (var lecturer in lecturers)
+                    {
+                        lsController.AddLecturertoStudent(lecturer, student);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error assigning lecturers to student: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -204,6 +204,7 @@ namespace Unicom_TIC_Management_System.Repositories
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Lecturer_Students(
                                     Lecturer_Student_Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     Lecturer_Id INTEGER,
+                                    Subject_Name TEXT,
                                     Student_Id INTEGER,
                                     FOREIGN KEY (Lecturer_Id) REFERENCES Lecturers(Lecturer_Id)
                                         ON DELETE SET NULL
