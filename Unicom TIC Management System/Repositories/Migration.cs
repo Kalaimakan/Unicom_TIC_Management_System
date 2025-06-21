@@ -217,8 +217,9 @@ namespace Unicom_TIC_Management_System.Repositories
                     //Create Subject_Students Table.
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Subject_Students(
                                     Subject_Student_Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    Subject_Id INTEGER,
                                     Student_Id INTEGER,
+                                    Subject_Name TEXT,
+                                    Subject_Id INTEGER,
                                     FOREIGN KEY (Subject_Id) REFERENCES Subjects(Subject_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE,

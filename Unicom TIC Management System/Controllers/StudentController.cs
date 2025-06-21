@@ -86,13 +86,15 @@ namespace Unicom_TIC_Management_System.Controllers
                         {
                             string studentQuary = @"INSERT INTO Students(
                                                 User_Id, Admission_No, First_Name, Last_Name, Email, Gender, PhoneNumber, Date_of_Birth, Address, Entrolled_Course, Course_Id,Department_Id)VALUES(
-                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse, @courseId, @departmentId
-                                              );";
+                                                @userId, @admissionNo, @firstName, @lastName, @email, @gender, @phoneNumber, @dateofBirth, @address, @entrolledCourse, @courseId, @departmentId);
+                                              SELECT last_insert_rowid();
+                                                ";
 
 
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
                             string admissionNumber = Validation.autoGenerateStudentId();
+                            int studentId;
                             using (SQLiteCommand studentCommand = new SQLiteCommand(studentQuary, connection))
                             {
                                 studentCommand.Parameters.AddWithValue("@userId", userId);
@@ -107,24 +109,18 @@ namespace Unicom_TIC_Management_System.Controllers
                                 studentCommand.Parameters.AddWithValue("@entrolledCourse", course.Course_Name);
                                 studentCommand.Parameters.AddWithValue("@courseId", course.Course_Id);
                                 studentCommand.Parameters.AddWithValue("@departmentId", course.Department_Id);
-                                studentCommand.ExecuteNonQuery();
+                                studentId = Convert.ToInt32(studentCommand.ExecuteScalar());
+                                registerStudent.Student_Id = studentId;
                             }
-                            //string getIdQuery = "SELECT Admission_No FROM Students ORDER BY Admission_No DESC LIMIT 1";
-                            //using (SQLiteCommand getIdCommand = new SQLiteCommand(getIdQuery, connection))
-                            //{
-                            //    using (SQLiteDataReader reader = getIdCommand.ExecuteReader())
-                            //    {
-                            //        if (reader.Read())
-                            //        {
-                            //            registerStudent.Admission_No = reader["Admission_No"].ToString();
-                            //        }
-                            //        else
-                            //        {
-                            //            MessageBox.Show("Failed to retrieve the last inserted student ID.");
-                            //        }
-                            //    }
-                            //}
-                            MessageBox.Show($"Mr/mrs.{registerStudent.Last_Name} registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            SubjectController subjectController = new SubjectController();
+                            List<Subject> subjects = subjectController.GetSubjectsByCourseId(course.Course_Id, connection, transaction);
+                            Subject_StudentController subjectStudentController = new Subject_StudentController();
+                            foreach (var subject in subjects)
+                            {
+                                subjectStudentController.AssignSubjectsToStudent(subject, registerStudent, connection, transaction);
+                            }
+                            MessageBox.Show($"Mr/mrs.{registerStudent.Last_Name} registered successfully! and Entrolled in {course.Course_Name} with {subjects.Count} Subjects", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             transaction.Commit();
                         }
                         catch (Exception ex)

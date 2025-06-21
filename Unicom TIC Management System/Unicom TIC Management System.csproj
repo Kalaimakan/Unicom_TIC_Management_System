@@ -62,6 +62,7 @@
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\Subject_StudentController.cs" />
     <Compile Include="Controllers\TimetableController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Subject_Student.cs" />
     <Compile Include="Models\TimeTable.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Parent Class\Validation.cs" />
