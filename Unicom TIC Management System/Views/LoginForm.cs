@@ -154,5 +154,11 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLoginPassword.UseSystemPasswordChar = !textBoxLoginPassword.UseSystemPasswordChar;
             buttonTogglePassword.Text = textBoxLoginPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
+
+        private void buttonForgotPassword_Click(object sender, EventArgs e)
+        {
+            ForgetPassword forgetPasswordForm = new ForgetPassword();
+            forgetPasswordForm.ShowDialog();
+        }
     }
 }

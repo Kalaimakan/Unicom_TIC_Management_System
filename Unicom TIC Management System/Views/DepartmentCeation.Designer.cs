@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentCeation));
             this.labelFillCourse = new System.Windows.Forms.Label();
             this.textBoxAddDepartment = new System.Windows.Forms.TextBox();
             this.labelDepartmentName = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewDepartment = new System.Windows.Forms.DataGridView();
             this.labelFillDepartment = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFillCourse
@@ -180,11 +183,22 @@
             this.labelFillDepartment.Size = new System.Drawing.Size(0, 16);
             this.labelFillDepartment.TabIndex = 30;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            // 
             // DepartmentCeation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 466);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelFillDepartment);
             this.Controls.Add(this.dataGridViewDepartment);
             this.Controls.Add(this.buttonClear);
@@ -198,6 +212,7 @@
             this.Name = "DepartmentCeation";
             this.Text = "DepartmentCeation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +230,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridViewDepartment;
         private System.Windows.Forms.Label labelFillDepartment;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

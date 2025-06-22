@@ -23,13 +23,13 @@ namespace Unicom_TIC_Management_System.Controllers
                 return firstNameValidate;
             }
             //Last Name validate
-            var lastNameValidate = validateName(validateLecturer.Last_Name,"Last Name");
+            var lastNameValidate = validateName(validateLecturer.Last_Name, "Last Name");
             if (!lastNameValidate.isValid)
             {
                 return lastNameValidate;
             }
             //User Name validate
-            var userNameValidate = validateName(validateUser.User_Name,"User Name");
+            var userNameValidate = validateName(validateUser.User_Name, "User Name");
             if (!userNameValidate.isValid)
             {
                 return userNameValidate;
@@ -63,7 +63,7 @@ namespace Unicom_TIC_Management_System.Controllers
                 return phoneNumberValidate;
             }
             //Gender validate.
-            var genderValidate = validateGender(false,false,false);
+            var genderValidate = validateGender(false, false, false);
             if (!genderValidate.isValid)
             {
                 return genderValidate;
@@ -74,7 +74,7 @@ namespace Unicom_TIC_Management_System.Controllers
             {
                 return salaryValidate;
             }
-            return (true,string.Empty);
+            return (true, string.Empty);
         }
         public void createLecture(User registerUser, Lecturer registerLecturer, Subject addSubject)
         {
@@ -89,10 +89,12 @@ namespace Unicom_TIC_Management_System.Controllers
 
                             string lecturerQuary = @"INSERT INTO Lecturers(
                                                User_Id, Employee_Id, First_Name, Last_Name, Email, PhoneNumber, Date_of_Birth, Gender, salary,subject_Id) VALUES (
-                                               @userId, @employeeId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary,@subjectId );";
+                                               @userId, @employeeId, @firstName, @lastName, @email, @phoneNumber, @dateOfBirth, @gender, @salary,@subjectId );
+                                                SELECT last_insert_rowid() ;";
                             UserController userController = new UserController();
                             int userId = userController.createUser(registerUser, connection, transaction);
                             string employeeId = Validation.autoGenerateLecturerId();
+                            int lecturerId;
                             using (var lecturerCommand = new SQLiteCommand(lecturerQuary, connection))
                             {
                                 lecturerCommand.Parameters.AddWithValue("@userId", userId);
@@ -104,9 +106,14 @@ namespace Unicom_TIC_Management_System.Controllers
                                 lecturerCommand.Parameters.AddWithValue("@dateOfBirth", registerLecturer.Date_of_Birth);
                                 lecturerCommand.Parameters.AddWithValue("@gender", registerLecturer.Gender);
                                 lecturerCommand.Parameters.AddWithValue("@salary", registerLecturer.salary);
-                                lecturerCommand.Parameters.AddWithValue("@subjectId",addSubject.Subject_Id);
-                                lecturerCommand.ExecuteNonQuery();
+                                lecturerCommand.Parameters.AddWithValue("@subjectId", addSubject.Subject_Id);
+                                lecturerId = Convert.ToInt32(lecturerCommand.ExecuteScalar());
+                                registerLecturer.Lecturer_Id = lecturerId;
+                                registerLecturer.Subject_Id = addSubject.Subject_Id;
+                                registerLecturer.Subject_Name = addSubject.Subject_Name;
                             }
+                            Lecturer_StudentController lecturerStudentController = new Lecturer_StudentController();
+                            lecturerStudentController.AssignLecturerToStudents(registerLecturer, connection, transaction);
                             transaction.Commit();
                             MessageBox.Show("Lecturer created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -123,34 +130,5 @@ namespace Unicom_TIC_Management_System.Controllers
                 MessageBox.Show($"Database connection error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        public List<Lecturer> GetLecturersByCourseId(int courseId, SQLiteConnection connection)
-        {
-            List<Lecturer> lecturers = new List<Lecturer>();
-            string query = @"SELECT l.Lecturer_Id, l.Subject_Id, l.First_Name, l.Last_Name
-                        FROM Lecturers l
-                        JOIN Subjects s ON s.Subject_Id = l.Subject_Id
-                        WHERE s.Course_Id = @courseId";
-
-            using (var command = new SQLiteCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@courseId", courseId);
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        lecturers.Add(new Lecturer
-                        {
-                            Lecturer_Id = Convert.ToInt32(reader["Lecturer_Id"]),
-                            Subject_Id = Convert.ToInt32(reader["Subject_Id"]),
-                            First_Name = reader["First_Name"].ToString(),
-                            Last_Name = reader["Last_Name"].ToString()
-                        });
-                    }
-                }
-            }
-            return lecturers;
-        }
-
     }
 }

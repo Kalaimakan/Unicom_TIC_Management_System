@@ -52,6 +52,8 @@ namespace Unicom_TIC_Management_System.Controllers
 
             return (true, string.Empty);
         }
+
+        //Create Admin.
         public void createAdmin(User registerUser, Admin registerAdmin)
         {
             try
@@ -99,5 +101,34 @@ namespace Unicom_TIC_Management_System.Controllers
             }
         }
 
+        //View Admin
+        public List<Admin> GetAllAdmin()
+        {
+            List<Admin> admins = new List<Admin>();
+            using (var connection = Db_Config.getConnection())
+            {
+                string getAdminQuery = "SELECT * FROM Admins";
+                using (var getCommand = new SQLiteCommand(getAdminQuery, connection))
+                {
+                    using (SQLiteDataReader reader =getCommand.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            admins.Add(new Admin()
+                            {
+                                Admin_Id = reader.GetInt32(0),
+                                First_Name = reader.GetString(1),
+                                Last_Name = reader.GetString(2),
+                                Email = reader.GetString(3),
+                                Date_Of_Birth = reader.GetString(4),
+                                Gender = reader.GetString(5),
+                                PhoneNumber = reader.GetString(6)
+                            });
+                        }
+                    }
+                }
+            }
+            return admins;
+        }
     }
 }

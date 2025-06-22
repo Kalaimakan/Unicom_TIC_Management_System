@@ -37,5 +37,21 @@ namespace Unicom_TIC_Management_System.Controllers
             }
             return users;
         }
+
+        //reset password
+        public bool UpdatePassword(int userId , string newPassword)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                string UpdatePasswordQuery = "UPDATE Users SET Password = @Password WHERE User_Id = @UserId";
+                using (var command = new SQLiteCommand(UpdatePasswordQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Password", newPassword);
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0; 
+                }
+            }
+        }
     }
 }

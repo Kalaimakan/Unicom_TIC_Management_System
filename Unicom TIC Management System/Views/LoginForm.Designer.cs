@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.labelIncorrectPassword = new System.Windows.Forms.Label();
             this.labelIncorrectUserName = new System.Windows.Forms.Label();
             this.buttonTogglePassword = new System.Windows.Forms.Button();
@@ -36,6 +37,9 @@
             this.textBoxLoginUserName = new System.Windows.Forms.TextBox();
             this.labelLoginPassword = new System.Windows.Forms.Label();
             this.labelLoginUserName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonForgotPassword = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelIncorrectPassword
@@ -43,7 +47,7 @@
             this.labelIncorrectPassword.AutoSize = true;
             this.labelIncorrectPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIncorrectPassword.ForeColor = System.Drawing.Color.Red;
-            this.labelIncorrectPassword.Location = new System.Drawing.Point(311, 257);
+            this.labelIncorrectPassword.Location = new System.Drawing.Point(311, 241);
             this.labelIncorrectPassword.Name = "labelIncorrectPassword";
             this.labelIncorrectPassword.Size = new System.Drawing.Size(0, 18);
             this.labelIncorrectPassword.TabIndex = 38;
@@ -53,7 +57,7 @@
             this.labelIncorrectUserName.AutoSize = true;
             this.labelIncorrectUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIncorrectUserName.ForeColor = System.Drawing.Color.Red;
-            this.labelIncorrectUserName.Location = new System.Drawing.Point(311, 152);
+            this.labelIncorrectUserName.Location = new System.Drawing.Point(311, 159);
             this.labelIncorrectUserName.Name = "labelIncorrectUserName";
             this.labelIncorrectUserName.Size = new System.Drawing.Size(0, 18);
             this.labelIncorrectUserName.TabIndex = 37;
@@ -65,7 +69,7 @@
             this.buttonTogglePassword.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonTogglePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTogglePassword.ForeColor = System.Drawing.Color.Black;
-            this.buttonTogglePassword.Location = new System.Drawing.Point(635, 191);
+            this.buttonTogglePassword.Location = new System.Drawing.Point(635, 190);
             this.buttonTogglePassword.Name = "buttonTogglePassword";
             this.buttonTogglePassword.Size = new System.Drawing.Size(34, 31);
             this.buttonTogglePassword.TabIndex = 36;
@@ -79,7 +83,7 @@
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(137, 302);
+            this.buttonLogin.Location = new System.Drawing.Point(137, 276);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(530, 45);
             this.buttonLogin.TabIndex = 34;
@@ -98,7 +102,7 @@
             // textBoxLoginUserName
             // 
             this.textBoxLoginUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLoginUserName.Location = new System.Drawing.Point(314, 100);
+            this.textBoxLoginUserName.Location = new System.Drawing.Point(314, 116);
             this.textBoxLoginUserName.Name = "textBoxLoginUserName";
             this.textBoxLoginUserName.Size = new System.Drawing.Size(355, 28);
             this.textBoxLoginUserName.TabIndex = 32;
@@ -107,6 +111,7 @@
             // 
             this.labelLoginPassword.AutoSize = true;
             this.labelLoginPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginPassword.ForeColor = System.Drawing.Color.White;
             this.labelLoginPassword.Location = new System.Drawing.Point(134, 194);
             this.labelLoginPassword.Name = "labelLoginPassword";
             this.labelLoginPassword.Size = new System.Drawing.Size(149, 25);
@@ -117,17 +122,43 @@
             // 
             this.labelLoginUserName.AutoSize = true;
             this.labelLoginUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginUserName.Location = new System.Drawing.Point(132, 103);
+            this.labelLoginUserName.ForeColor = System.Drawing.Color.White;
+            this.labelLoginUserName.Location = new System.Drawing.Point(132, 119);
             this.labelLoginUserName.Name = "labelLoginUserName";
             this.labelLoginUserName.Size = new System.Drawing.Size(151, 25);
             this.labelLoginUserName.TabIndex = 30;
             this.labelLoginUserName.Text = "User Name       :";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(176, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 39;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonForgotPassword
+            // 
+            this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForgotPassword.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonForgotPassword.Location = new System.Drawing.Point(278, 358);
+            this.buttonForgotPassword.Name = "buttonForgotPassword";
+            this.buttonForgotPassword.Size = new System.Drawing.Size(255, 33);
+            this.buttonForgotPassword.TabIndex = 40;
+            this.buttonForgotPassword.Text = "Forgot Password  ?";
+            this.buttonForgotPassword.UseVisualStyleBackColor = true;
+            this.buttonForgotPassword.Click += new System.EventHandler(this.buttonForgotPassword_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonForgotPassword);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelIncorrectPassword);
             this.Controls.Add(this.labelIncorrectUserName);
             this.Controls.Add(this.buttonTogglePassword);
@@ -138,6 +169,7 @@
             this.Controls.Add(this.labelLoginUserName);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +185,7 @@
         private System.Windows.Forms.TextBox textBoxLoginUserName;
         private System.Windows.Forms.Label labelLoginPassword;
         private System.Windows.Forms.Label labelLoginUserName;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonForgotPassword;
     }
 }

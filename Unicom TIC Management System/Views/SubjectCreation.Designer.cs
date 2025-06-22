@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectCreation));
             this.label1 = new System.Windows.Forms.Label();
             this.labelSubjectName = new System.Windows.Forms.Label();
             this.labelCourseName = new System.Windows.Forms.Label();
@@ -43,7 +44,9 @@
             this.labelFillCourseName = new System.Windows.Forms.Label();
             this.labelFillDepartmentName = new System.Windows.Forms.Label();
             this.dataGridViewSubject = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -207,11 +210,22 @@
             this.dataGridViewSubject.TabIndex = 32;
             this.dataGridViewSubject.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSubject_CellMouseClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 105;
+            this.pictureBox1.TabStop = false;
+            // 
             // SubjectCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 694);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridViewSubject);
             this.Controls.Add(this.labelFillDepartmentName);
             this.Controls.Add(this.labelFillCourseName);
@@ -230,6 +244,7 @@
             this.Name = "SubjectCreation";
             this.Text = "SubjectCreation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,5 +267,6 @@
         private System.Windows.Forms.Label labelFillCourseName;
         private System.Windows.Forms.Label labelFillDepartmentName;
         private System.Windows.Forms.DataGridView dataGridViewSubject;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
