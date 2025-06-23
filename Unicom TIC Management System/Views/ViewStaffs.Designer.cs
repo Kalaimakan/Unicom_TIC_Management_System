@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(314, 35);
+            this.label1.Location = new System.Drawing.Point(315, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 29);
             this.label1.TabIndex = 3;
@@ -49,7 +49,7 @@
             // dataGridViewStaffs
             // 
             this.dataGridViewStaffs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStaffs.Location = new System.Drawing.Point(12, 114);
+            this.dataGridViewStaffs.Location = new System.Drawing.Point(13, 113);
             this.dataGridViewStaffs.Name = "dataGridViewStaffs";
             this.dataGridViewStaffs.RowHeadersWidth = 51;
             this.dataGridViewStaffs.RowTemplate.Height = 24;
@@ -59,7 +59,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

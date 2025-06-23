@@ -104,6 +104,12 @@
     <Compile Include="Views\DepartmentCeation.Designer.cs">
       <DependentUpon>DepartmentCeation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditLecturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditLecturer.Designer.cs">
+      <DependentUpon>EditLecturer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditStaffs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     <Compile Include="Views\ViewAdmin.Designer.cs">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewLecturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewLecturer.Designer.cs">
+      <DependentUpon>ViewLecturer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewStaffs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DepartmentCeation.resx">
       <DependentUpon>DepartmentCeation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditLecturer.resx">
+      <DependentUpon>EditLecturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditStaffs.resx">
       <DependentUpon>EditStaffs.cs</DependentUpon>
@@ -232,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewAdmin.resx">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewLecturer.resx">
+      <DependentUpon>ViewLecturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewStaffs.resx">
       <DependentUpon>ViewStaffs.cs</DependentUpon>

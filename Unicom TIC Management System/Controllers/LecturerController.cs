@@ -112,8 +112,6 @@ namespace Unicom_TIC_Management_System.Controllers
                                 registerLecturer.Subject_Id = addSubject.Subject_Id;
                                 registerLecturer.Subject_Name = addSubject.Subject_Name;
                             }
-                            Lecturer_StudentController lecturerStudentController = new Lecturer_StudentController();
-                            lecturerStudentController.AssignLecturerToStudents(registerLecturer, connection, transaction);
                             transaction.Commit();
                             MessageBox.Show("Lecturer created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -128,6 +126,156 @@ namespace Unicom_TIC_Management_System.Controllers
             catch (Exception ex)
             {
                 MessageBox.Show($"Database connection error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //get all lecturers
+        public List<Lecturer> GetAllLecturer()
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+            using (var connection = Db_Config.getConnection())
+            {
+                string getLecturerQuary = "SELECT * FROM Lecturers;";
+                using (var getCommand = new SQLiteCommand(getLecturerQuary, connection))
+                {
+                    using (SQLiteDataReader reader = getCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lecturers.Add(new Lecturer()
+                            {
+                                Lecturer_Id = Convert.ToInt32(reader["Lecturer_Id"]),
+                                Employee_Id = reader["Employee_Id"].ToString(),
+                                First_Name = reader["First_Name"].ToString(),
+                                Last_Name = reader["Last_Name"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString(),
+                                Date_of_Birth = reader["Date_of_Birth"].ToString(),
+                                Gender = reader["Gender"].ToString(),
+                                salary = Convert.ToDouble(reader["salary"]),
+                                Subject_Id = Convert.ToInt32(reader["Subject_Id"])
+                            });
+                        }
+                    }
+                }
+            }
+            return lecturers;
+        }
+
+        //Update Lecturer
+        public bool UpdateLecturer(Lecturer lecturer)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Update query - excluding Date_of_Birth
+                        string updateLecturerQuery = @"UPDATE Lecturers 
+                                        SET First_Name = @firstName,
+                                            Last_Name = @lastName,
+                                            Email = @email,
+                                            PhoneNumber = @phoneNumber,
+                                            Gender = @gender,
+                                            Salary = @salary,
+                                            Subject_Id = @subjectId
+                                        WHERE Lecturer_Id = @lecturerId";
+
+                        using (var updateCommand = new SQLiteCommand(updateLecturerQuery, connection, transaction))
+                        {
+                            updateCommand.Parameters.AddWithValue("@firstName", lecturer.First_Name);
+                            updateCommand.Parameters.AddWithValue("@lastName", lecturer.Last_Name);
+                            updateCommand.Parameters.AddWithValue("@email", lecturer.Email);
+                            updateCommand.Parameters.AddWithValue("@phoneNumber", lecturer.PhoneNumber);
+                            updateCommand.Parameters.AddWithValue("@gender", lecturer.Gender);
+                            updateCommand.Parameters.AddWithValue("@salary", lecturer.salary);
+                            updateCommand.Parameters.AddWithValue("@subjectId", lecturer.Subject_Id);
+                            updateCommand.Parameters.AddWithValue("@lecturerId", lecturer.Lecturer_Id);
+
+                            int rowsAffected = updateCommand.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                            {
+                                throw new Exception("No lecturer records were updated");
+                            }
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"Error updating lecturer: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        //Delete lecturer
+        public bool DeleteLecturer(int lecturerId)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Verify lecturerId exists
+                        if (lecturerId <= 0)
+                        {
+                            throw new Exception("Invalid Lecturer ID");
+                        }
+
+                        string getUserQuery = "SELECT User_Id FROM Lecturers WHERE Lecturer_Id = @lecturerId";
+                        int userId;
+
+                        using (var getUserCmd = new SQLiteCommand(getUserQuery, connection, transaction))
+                        {
+                            getUserCmd.Parameters.AddWithValue("@lecturerId", lecturerId);
+                            var result = getUserCmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("No matching Lecturer found");
+                            }
+                            userId = Convert.ToInt32(result);
+                        }
+
+                        //Delete from Lecturer_Student table
+                        string deleteLecturerStudentQuary = "DELETE FROM Lecturer_Students WHERE Lecturer_Id= @lecturerId";
+                        using (var deletecommand = new SQLiteCommand(deleteLecturerStudentQuary, connection, transaction))
+                        {
+                            deletecommand.Parameters.AddWithValue("@lecturerId", lecturerId);
+                            deletecommand.ExecuteScalar();
+                        }
+
+                        //Delete from lecturer Table
+                        string deleteLecturerQuary = "DELETE FROM Lecturers WHERE Lecturer_Id = @lecturerId";
+                        using (var deletecommand = new SQLiteCommand(deleteLecturerQuary, connection, transaction))
+                        {
+                            deletecommand.Parameters.AddWithValue("@lecturerId", lecturerId);
+                            int rowAffected = deletecommand.ExecuteNonQuery();
+                            if (rowAffected == 0)
+                            {
+                                throw new Exception("No Lecturer record was deleted");
+                            }
+                        }
+
+                        //Delete FRom User Table
+                        UserController userController = new UserController();
+                        userController.DeleteUser(userId, connection, transaction);
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception($"Delete failed: {ex.Message}");
+                    }
+                }
             }
         }
     }

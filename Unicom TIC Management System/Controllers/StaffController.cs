@@ -208,7 +208,7 @@ namespace Unicom_TIC_Management_System.Controllers
                             int rowsAffected = staffCommand.ExecuteNonQuery();
                             if (rowsAffected == 0)
                             {
-                                throw new Exception("No admin record was updated");
+                                throw new Exception("No Staff record was updated");
                             }
                         }
 

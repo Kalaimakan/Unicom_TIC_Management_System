@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Unicom_TIC_Management_System.Models;
 using Unicom_TIC_Management_System.Repositories;
 
@@ -116,10 +117,21 @@ namespace Unicom_TIC_Management_System.Controllers
                             SubjectController subjectController = new SubjectController();
                             List<Subject> subjects = subjectController.GetSubjectsByCourseId(course.Course_Id, connection, transaction);
                             Subject_StudentController subjectStudentController = new Subject_StudentController();
+                            Lecturer_StudentController lecturerStudentController = new Lecturer_StudentController();
                             foreach (var subject in subjects)
                             {
                                 subjectStudentController.AssignSubjectsToStudent(subject, registerStudent, connection, transaction);
+
+                                // Get lecturers for this subject
+                                List<Lecturer> subjectLecturers = GetLecturersBySubjectId(subject.Subject_Id, connection, transaction);
+
+                                // Assign each lecturer to the student for this subject
+                                foreach (var lecturer in subjectLecturers)
+                                {
+                                    lecturerStudentController.AssignLecturerToStudent(lecturer, registerStudent, subject, connection, transaction);
+                                }
                             }
+
                             MessageBox.Show($"Mr/mrs.{registerStudent.Last_Name} registered successfully! and Entrolled in {course.Course_Name} with {subjects.Count} Subjects", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             transaction.Commit();
                         }
@@ -178,6 +190,34 @@ namespace Unicom_TIC_Management_System.Controllers
             return students;
         }
 
+        //Get lecturers by subject ID
+        private List<Lecturer> GetLecturersBySubjectId(int subjectId, SQLiteConnection connection, SQLiteTransaction transaction)
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+            string query = "SELECT * FROM Lecturers WHERE Subject_Id = @subjectId";
+
+            using (var command = new SQLiteCommand(query, connection, transaction))
+            {
+                command.Parameters.AddWithValue("@subjectId", subjectId);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lecturers.Add(new Lecturer()
+                        {
+                            Lecturer_Id = Convert.ToInt32(reader["Lecturer_Id"]),
+                            Employee_Id = reader["Employee_Id"].ToString(),
+                            First_Name = reader["First_Name"].ToString(),
+                            Last_Name = reader["Last_Name"].ToString(),
+                            Subject_Id = Convert.ToInt32(reader["Subject_Id"]),
+                            Subject_Name = "" // You might want to populate this too
+                        });
+                    }
+                }
+            }
+            return lecturers;
+        }
 
         //update student
         public bool UpdateAdmin(Student student, User user)
@@ -239,12 +279,6 @@ namespace Unicom_TIC_Management_System.Controllers
                                 throw new Exception("No Student record was updated");
                             }
                         }
-
-                        // Update User table
-                        user.User_Id = userId;
-                        UserController userController = new UserController();
-                        userController.UpdateUser(user, connection, transaction);
-
                         transaction.Commit();
                         return true;
                     }

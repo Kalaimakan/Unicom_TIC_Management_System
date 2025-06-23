@@ -17,6 +17,7 @@ namespace Unicom_TIC_Management_System.Views
         StudentController studentController = new StudentController();
         Student student = new Student();
         User user = new User();
+        private Student selectedStudent = null;
         public EditStudent()
         {
             InitializeComponent();
@@ -38,48 +39,60 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Clear();
             textBoxEmail.Clear();
             textBoxPhoneNumber.Clear();
-            textBoxUserName.Clear();
-            textBoxPassword.Clear();
             textBoxAddress.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
         }
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            try
+            if (selectedStudent == null)
             {
-                // Validate selection
-                if (dataGridViewUpdate.SelectedRows.Count == 0 ||
-                dataGridViewUpdate.SelectedRows[0].Cells["Student_Id"]?.Value == null)
-                {
-                    MessageBox.Show("Please select a Student to update");
-                    return;
-                }
-                //get data from form
-                student.First_Name = textBoxFirstName.Text.Trim();
-                student.Last_Name = textBoxLastName.Text.Trim();
-                student.User_Name = textBoxUserName.Text.Trim();
-                student.Password = textBoxPassword.Text.Trim();
-                student.Email = textBoxEmail.Text.Trim();
-                student.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-                student.Address = textBoxAddress.Text.Trim();
-                student.Gender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
+                MessageBox.Show("Please select a Student to Update first.");
+                return;
+            }
 
-                user.User_Name = textBoxUserName.Text.Trim();
-                user.Password = textBoxPassword.Text.Trim();
-                user.User_Email = textBoxEmail.Text.Trim();
+            // Get new values from the form
+            string newFirstName = textBoxFirstName.Text.Trim();
+            string newLastName = textBoxLastName.Text.Trim();
+            string newEmail = textBoxEmail.Text.Trim();
+            string newPhone = textBoxPhoneNumber.Text.Trim();
+            string newAddress = textBoxAddress.Text.Trim();
+            string newGender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
 
-                //validate data
-                if (string.IsNullOrEmpty(student.First_Name) || string.IsNullOrEmpty(student.Last_Name) ||
-                    string.IsNullOrEmpty(student.User_Name) || string.IsNullOrEmpty(student.Password) ||
-                    string.IsNullOrEmpty(student.Email) || string.IsNullOrEmpty(student.PhoneNumber) ||
-                    string.IsNullOrEmpty(student.Address))
-                {
-                    MessageBox.Show("Please fill all fields");
-                    return;
-                }
-                // Confirm update
-                if (MessageBox.Show($"Confirm update {student.Last_Name} ?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            // Check for empty fields
+            if (string.IsNullOrWhiteSpace(newFirstName) || string.IsNullOrWhiteSpace(newLastName) ||
+                string.IsNullOrWhiteSpace(newEmail) || string.IsNullOrWhiteSpace(newPhone) ||
+                string.IsNullOrWhiteSpace(newAddress) || string.IsNullOrWhiteSpace(newGender))
+            {
+                MessageBox.Show("Please fill all required fields.");
+                return;
+            }
+
+            // Check for changes
+            if (selectedStudent.First_Name == newFirstName &&
+                selectedStudent.Last_Name == newLastName &&
+                selectedStudent.Email == newEmail &&
+                selectedStudent.PhoneNumber == newPhone &&
+                selectedStudent.Address == newAddress &&
+                selectedStudent.Gender == newGender)
+            {
+                MessageBox.Show("No changes detected to update.");
+                return;
+            }
+
+            // Assign new values
+            student.First_Name = newFirstName;
+            student.Last_Name = newLastName;
+            student.Email = newEmail;
+            student.PhoneNumber = newPhone;
+            student.Address = newAddress;
+            student.Gender = newGender;
+            student.Student_Id = selectedStudent.Student_Id;
+
+            // Confirm update
+            if (MessageBox.Show($"Confirm update {student.Last_Name}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
                 {
                     bool success = studentController.UpdateAdmin(student, user);
                     if (success)
@@ -87,14 +100,20 @@ namespace Unicom_TIC_Management_System.Views
                         MessageBox.Show($"{student.Last_Name} updated successfully!");
                         loadStudentData();
                         clearField();
+                        selectedStudent = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update student.");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error updating Student: {ex.Message}");
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error updating lecturer: {ex.Message}");
+                }
             }
         }
+
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -131,8 +150,7 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
-            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
+
         }
 
         private void dataGridViewUpdate_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -141,8 +159,6 @@ namespace Unicom_TIC_Management_System.Views
 
             textBoxFirstName.Text = row.Cells["First_Name"].Value.ToString();
             textBoxLastName.Text = row.Cells["Last_Name"].Value.ToString();
-            textBoxUserName.Text = row.Cells["User_Name"].Value.ToString();
-            textBoxPassword.Text = row.Cells["Password"].Value.ToString();
             textBoxEmail.Text = row.Cells["Email"].Value.ToString();
             textBoxPhoneNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
             textBoxAddress.Text = row.Cells["Address"].Value.ToString();
@@ -153,6 +169,17 @@ namespace Unicom_TIC_Management_System.Views
 
             student.Student_Id = Convert.ToInt32(row.Cells["Student_Id"].Value);
 
+            selectedStudent = new Student
+            {
+                Student_Id = Convert.ToInt32(row.Cells["Student_Id"].Value),
+                First_Name = textBoxFirstName.Text,
+                Last_Name = textBoxLastName.Text,
+                Email = textBoxEmail.Text,
+                PhoneNumber = textBoxPhoneNumber.Text,
+                Address = textBoxAddress.Text,
+                Gender = gender
+            };
+
         }
     }
-    }
+}
