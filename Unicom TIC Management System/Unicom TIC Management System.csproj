@@ -104,6 +104,12 @@
     <Compile Include="Views\DepartmentCeation.Designer.cs">
       <DependentUpon>DepartmentCeation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditStaffs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditStaffs.Designer.cs">
+      <DependentUpon>EditStaffs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,17 +152,23 @@
     <Compile Include="Views\SubjectCreation.Designer.cs">
       <DependentUpon>SubjectCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UpdateAdmin.cs">
+    <Compile Include="Views\EditAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UpdateAdmin.Designer.cs">
-      <DependentUpon>UpdateAdmin.cs</DependentUpon>
+    <Compile Include="Views\EditAdmin.Designer.cs">
+      <DependentUpon>EditAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ViewAdmin.Designer.cs">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewStaffs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewStaffs.Designer.cs">
+      <DependentUpon>ViewStaffs.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DepartmentCeation.resx">
       <DependentUpon>DepartmentCeation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditStaffs.resx">
+      <DependentUpon>EditStaffs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
@@ -197,11 +212,14 @@
     <EmbeddedResource Include="Views\SubjectCreation.resx">
       <DependentUpon>SubjectCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UpdateAdmin.resx">
-      <DependentUpon>UpdateAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EditAdmin.resx">
+      <DependentUpon>EditAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewAdmin.resx">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewStaffs.resx">
+      <DependentUpon>ViewStaffs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\UnicomTICManagementSystem.db" />
     <None Include="packages.config" />

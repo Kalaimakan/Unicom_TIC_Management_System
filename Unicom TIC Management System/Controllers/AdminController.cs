@@ -151,6 +151,7 @@ namespace Unicom_TIC_Management_System.Controllers
                                 First_Name = reader["First_Name"].ToString(),
                                 Last_Name = reader["Last_Name"].ToString(),
                                 Email = reader["Email"].ToString(),
+                                Date_Of_Birth = reader["Date_Of_Birth"].ToString(),
                                 Gender = reader["Gender"].ToString(),
                                 PhoneNumber = reader["PhoneNumber"].ToString(),
                                 User_Name = reader["User_Name"].ToString(),  

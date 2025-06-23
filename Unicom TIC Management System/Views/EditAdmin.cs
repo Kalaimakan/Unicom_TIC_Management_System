@@ -14,14 +14,14 @@ using Unicom_TIC_Management_System.Repositories;
 
 namespace Unicom_TIC_Management_System.Views
 {
-    public partial class UpdateAdmin : Form
+    public partial class EditAdmin : Form
     {
         UserController userController = new UserController();
         AdminController adminController = new AdminController();
         Admin admin = new Admin();
         User user = new User();
 
-        public UpdateAdmin()
+        public EditAdmin()
         {
             InitializeComponent();
             loadAdminData();
@@ -48,51 +48,50 @@ namespace Unicom_TIC_Management_System.Views
         }
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            // Validate selection
-            if (dataGridViewUpdate.SelectedRows.Count == 0 ||
+            try
+            {
+                // Validate selection
+                if (dataGridViewUpdate.SelectedRows.Count == 0 ||
                 dataGridViewUpdate.SelectedRows[0].Cells["Admin_Id"]?.Value == null)
-            {
-                MessageBox.Show("Please select a valid admin to update");
-                return;
-            }
-
-            // Get data from form
-            admin.First_Name = textBoxFirstName.Text.Trim();
-            admin.Last_Name = textBoxLastName.Text.Trim();
-            admin.Email = textBoxEmail.Text.Trim();
-            admin.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-            admin.Gender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
-
-            user.User_Name = textBoxUserName.Text.Trim();
-            user.Password = textBoxPassword.Text.Trim();
-            user.User_Email = textBoxEmail.Text.Trim();
-
-            // Validate required fields
-            if (string.IsNullOrWhiteSpace(admin.First_Name) ||
-                string.IsNullOrWhiteSpace(user.User_Name) ||
-                string.IsNullOrWhiteSpace(user.Password))
-            {
-                MessageBox.Show("First Name, Username and Password are required");
-                return;
-            }
-
-            // Confirm update
-            if (MessageBox.Show("Confirm update this admin?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                bool success = adminController.UpdateAdmin(admin, user);
-                if (success)
                 {
-                    MessageBox.Show("Admin updated successfully!");
-                    loadAdminData(); // Refresh grid
+                    MessageBox.Show("Please select a valid admin to update");
+                    return;
+                }
+
+                // Get data from form
+                admin.First_Name = textBoxFirstName.Text.Trim();
+                admin.Last_Name = textBoxLastName.Text.Trim();
+                admin.Email = textBoxEmail.Text.Trim();
+                admin.PhoneNumber = textBoxPhoneNumber.Text.Trim();
+                admin.Gender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
+
+                user.User_Name = textBoxUserName.Text.Trim();
+                user.Password = textBoxPassword.Text.Trim();
+                user.User_Email = textBoxEmail.Text.Trim();
+
+                //Validate required fields
+                if (string.IsNullOrWhiteSpace(admin.First_Name) ||string.IsNullOrWhiteSpace(user.User_Name) ||string.IsNullOrWhiteSpace(user.Password)|| string.IsNullOrWhiteSpace(admin.Email) || string.IsNullOrWhiteSpace(admin.PhoneNumber) || string.IsNullOrWhiteSpace(admin.Gender))
+                {
+                    MessageBox.Show("First Name, Username and Password are required");
+                    return;
+                }
+
+
+                // Confirm update
+                if (MessageBox.Show($"Confirm update {admin.Last_Name} ?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bool success = adminController.UpdateAdmin(admin, user);
+                    if (success)
+                    {
+                        MessageBox.Show("Admin updated successfully!");
+                        loadAdminData();
+                    }
                 }
             }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Error updating admin: {ex.Message}");
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating admin: {ex.Message}");
+            }
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -151,12 +150,12 @@ namespace Unicom_TIC_Management_System.Views
                 {
                     adminController.DeleteAdmin(adminId);
 
-                    MessageBox.Show("Delete functionality to be implemented", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Delete {adminName} Successful", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error deleting admin: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error deleting Admin: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
