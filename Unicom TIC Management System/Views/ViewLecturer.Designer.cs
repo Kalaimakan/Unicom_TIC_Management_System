@@ -58,6 +58,7 @@
             // 
             // dataGridViewLecturers
             // 
+            this.dataGridViewLecturers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewLecturers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLecturers.Location = new System.Drawing.Point(12, 112);
             this.dataGridViewLecturers.Name = "dataGridViewLecturers";

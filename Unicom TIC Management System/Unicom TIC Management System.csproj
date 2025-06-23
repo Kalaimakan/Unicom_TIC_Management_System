@@ -177,11 +177,17 @@
     <Compile Include="Views\EditAdmin.Designer.cs">
       <DependentUpon>EditAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimetableManagement.cs">
+    <Compile Include="Views\Timetable_Creation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\TimetableManagement.Designer.cs">
-      <DependentUpon>TimetableManagement.cs</DependentUpon>
+    <Compile Include="Views\Timetable_Creation.Designer.cs">
+      <DependentUpon>Timetable_Creation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewTimetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewTimetable.Designer.cs">
+      <DependentUpon>ViewTimetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewAdmin.cs">
       <SubType>Form</SubType>
@@ -261,8 +267,11 @@
     <EmbeddedResource Include="Views\EditAdmin.resx">
       <DependentUpon>EditAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TimetableManagement.resx">
-      <DependentUpon>TimetableManagement.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Timetable_Creation.resx">
+      <DependentUpon>Timetable_Creation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewTimetable.resx">
+      <DependentUpon>ViewTimetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewAdmin.resx">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
@@ -276,7 +285,6 @@
     <EmbeddedResource Include="Views\ViewStudents.resx">
       <DependentUpon>ViewStudents.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="bin\Debug\UnicomTICManagementSystem.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -292,6 +300,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\" />
     <Folder Include="Img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

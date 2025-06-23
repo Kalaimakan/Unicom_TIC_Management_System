@@ -271,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 867);
+            this.ClientSize = new System.Drawing.Size(748, 867);
             this.Controls.Add(this.textBoxSalary);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelete);
