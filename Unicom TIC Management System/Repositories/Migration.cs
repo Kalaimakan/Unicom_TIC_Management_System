@@ -188,10 +188,20 @@ namespace Unicom_TIC_Management_System.Repositories
                     //Create Timetable Table.
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Timetables(
                                     Timetable_Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    Time_Slot TEXT NOT NULL,
+                                    Date TEXT NOT NULL,
+                                    Start_Time NOT NULL,
+                                    End_Time NOT NULL,
                                     Subject_Id INTEGER,
+                                    Course_Id INTEGER,
+                                    Department_Id INTEGER,
                                     Room_Id INTEGER,
                                     FOREIGN KEY (Subject_Id) REFERENCES Subjects(Subject_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE                                    
+                                    FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
+                                    FOREIGN KEY (Department_Id) REFERENCES Departments(Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE,
                                     FOREIGN KEY (Room_Id) REFERENCES Rooms(Room_Id)

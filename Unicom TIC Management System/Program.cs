@@ -19,22 +19,24 @@ namespace Unicom_TIC_Management_System
             Migration.createTable();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new RoomCreation());
+            Application.Run(new TimetableManagement());
             //Application.Run(new ViewLecturer());
             //Application.Run(new EditLecturer());
             //Application.Run(new ViewStudents());
             //Application.Run(new EditStudent());
             //Application.Run(new ViewStaffs());
             //Application.Run(new EditStaffs());
-            Application.Run(new ViewAdmin());
-            Application.Run(new EditAdmin());
+            //Application.Run(new ViewAdmin());
+            //Application.Run(new EditAdmin());
             //Application.Run(new AdminCreation());
             //Application.Run(new LecturerCreation());
             //Application.Run(new StudentCreation());
             //Application.Run(new StaffCreation());
-            //Application.Run(new CourseCreatio());
+            Application.Run(new CourseCreatio());
             //Application.Run(new LoginForm());
             //Application.Run(new DepartmentCeation());
-            //Application.Run(new SubjectCreation());
+            Application.Run(new SubjectCreation());
         }
     }
 }

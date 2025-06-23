@@ -9,6 +9,12 @@ namespace Unicom_TIC_Management_System.Models
     class TimeTable
     {
         public int Timetable_Id { get; set; }
-        public string Time_Slot { get; set; }
+        public string Date {  get; set; }
+        public string Start_Time { get; set; }
+        public string End_Time { get; set; }
+        public string Subject_Name { get; set; }
+        public string Course_Name { get; set; }
+        public string Department_Name { get; set; }
+        public string Room {  get; set; }
     }
 }

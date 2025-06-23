@@ -85,7 +85,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(187, 35);
             this.button13.TabIndex = 86;
-            this.button13.Text = "Admin Management";
+            this.button13.Text = "Admin Manage";
             this.button13.UseVisualStyleBackColor = false;
             // 
             // buttonStudentManage
@@ -97,7 +97,7 @@
             this.buttonStudentManage.Name = "buttonStudentManage";
             this.buttonStudentManage.Size = new System.Drawing.Size(187, 35);
             this.buttonStudentManage.TabIndex = 73;
-            this.buttonStudentManage.Text = "Student Management";
+            this.buttonStudentManage.Text = "Student Manage";
             this.buttonStudentManage.UseVisualStyleBackColor = false;
             // 
             // buttonLecturerManage
@@ -109,7 +109,7 @@
             this.buttonLecturerManage.Name = "buttonLecturerManage";
             this.buttonLecturerManage.Size = new System.Drawing.Size(187, 35);
             this.buttonLecturerManage.TabIndex = 72;
-            this.buttonLecturerManage.Text = "Lecturer Management";
+            this.buttonLecturerManage.Text = "Lecturer Manage";
             this.buttonLecturerManage.UseVisualStyleBackColor = false;
             // 
             // buttonStaffManage
@@ -121,7 +121,7 @@
             this.buttonStaffManage.Name = "buttonStaffManage";
             this.buttonStaffManage.Size = new System.Drawing.Size(187, 35);
             this.buttonStaffManage.TabIndex = 71;
-            this.buttonStaffManage.Text = "Staff Management";
+            this.buttonStaffManage.Text = "Staff Manage";
             this.buttonStaffManage.UseVisualStyleBackColor = false;
             // 
             // labelRoleBasedAccess
@@ -139,7 +139,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(5, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(298, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(246, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 69;
             this.pictureBox1.TabStop = false;
@@ -300,7 +300,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.Silver;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(806, 211);
+            this.button9.Location = new System.Drawing.Point(263, 538);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(138, 33);
             this.button9.TabIndex = 90;
@@ -311,7 +311,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.Silver;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(644, 211);
+            this.button10.Location = new System.Drawing.Point(263, 499);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(138, 33);
             this.button10.TabIndex = 89;
@@ -322,7 +322,7 @@
             // 
             this.button11.BackColor = System.Drawing.Color.Silver;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(806, 172);
+            this.button11.Location = new System.Drawing.Point(263, 460);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(138, 33);
             this.button11.TabIndex = 88;
@@ -333,7 +333,7 @@
             // 
             this.button12.BackColor = System.Drawing.Color.Silver;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(644, 172);
+            this.button12.Location = new System.Drawing.Point(263, 421);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(138, 33);
             this.button12.TabIndex = 87;

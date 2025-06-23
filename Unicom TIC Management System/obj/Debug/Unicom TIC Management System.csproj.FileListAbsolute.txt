@@ -62,3 +62,5 @@ C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.EditStudent.resources
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.ViewLecturer.resources
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.EditLecturer.resources
+C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.TimetableManagement.resources
+C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.RoomCreation.resources

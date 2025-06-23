@@ -60,6 +60,7 @@
     <Compile Include="Controllers\Lecturer_StudentController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarkController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
@@ -146,6 +147,12 @@
     <Compile Include="Views\MainDashBoard.Designer.cs">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RoomCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RoomCreation.Designer.cs">
+      <DependentUpon>RoomCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StaffCreation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +176,12 @@
     </Compile>
     <Compile Include="Views\EditAdmin.Designer.cs">
       <DependentUpon>EditAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimetableManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TimetableManagement.Designer.cs">
+      <DependentUpon>TimetableManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewAdmin.cs">
       <SubType>Form</SubType>
@@ -233,6 +246,9 @@
     <EmbeddedResource Include="Views\MainDashBoard.resx">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RoomCreation.resx">
+      <DependentUpon>RoomCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\StaffCreation.resx">
       <DependentUpon>StaffCreation.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditAdmin.resx">
       <DependentUpon>EditAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TimetableManagement.resx">
+      <DependentUpon>TimetableManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewAdmin.resx">
       <DependentUpon>ViewAdmin.cs</DependentUpon>
