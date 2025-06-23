@@ -146,6 +146,12 @@
     <Compile Include="Views\SubjectCreation.Designer.cs">
       <DependentUpon>SubjectCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateAdmin.Designer.cs">
+      <DependentUpon>UpdateAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SubjectCreation.resx">
       <DependentUpon>SubjectCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpdateAdmin.resx">
+      <DependentUpon>UpdateAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewAdmin.resx">
       <DependentUpon>ViewAdmin.cs</DependentUpon>

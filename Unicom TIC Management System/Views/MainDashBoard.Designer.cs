@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDashBoard));
             this.panelAdmin = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
+            this.buttonStudentManage = new System.Windows.Forms.Button();
+            this.buttonLecturerManage = new System.Windows.Forms.Button();
+            this.buttonStaffManage = new System.Windows.Forms.Button();
+            this.labelRoleBasedAccess = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -42,18 +48,12 @@
             this.buttonUpdateStaff = new System.Windows.Forms.Button();
             this.buttonViewStaff = new System.Windows.Forms.Button();
             this.buttonRegisterStaff = new System.Windows.Forms.Button();
-            this.buttonStudentManage = new System.Windows.Forms.Button();
-            this.buttonLecturerManage = new System.Windows.Forms.Button();
-            this.buttonStaffManage = new System.Windows.Forms.Button();
-            this.labelRoleBasedAccess = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,6 +75,74 @@
             this.panelAdmin.Size = new System.Drawing.Size(257, 660);
             this.panelAdmin.TabIndex = 0;
             this.panelAdmin.Visible = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button13.Location = new System.Drawing.Point(26, 421);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(187, 35);
+            this.button13.TabIndex = 86;
+            this.button13.Text = "Admin Management";
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // buttonStudentManage
+            // 
+            this.buttonStudentManage.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonStudentManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStudentManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.buttonStudentManage.Location = new System.Drawing.Point(26, 209);
+            this.buttonStudentManage.Name = "buttonStudentManage";
+            this.buttonStudentManage.Size = new System.Drawing.Size(187, 35);
+            this.buttonStudentManage.TabIndex = 73;
+            this.buttonStudentManage.Text = "Student Management";
+            this.buttonStudentManage.UseVisualStyleBackColor = false;
+            // 
+            // buttonLecturerManage
+            // 
+            this.buttonLecturerManage.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonLecturerManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLecturerManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.buttonLecturerManage.Location = new System.Drawing.Point(26, 278);
+            this.buttonLecturerManage.Name = "buttonLecturerManage";
+            this.buttonLecturerManage.Size = new System.Drawing.Size(187, 35);
+            this.buttonLecturerManage.TabIndex = 72;
+            this.buttonLecturerManage.Text = "Lecturer Management";
+            this.buttonLecturerManage.UseVisualStyleBackColor = false;
+            // 
+            // buttonStaffManage
+            // 
+            this.buttonStaffManage.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonStaffManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStaffManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.buttonStaffManage.Location = new System.Drawing.Point(26, 350);
+            this.buttonStaffManage.Name = "buttonStaffManage";
+            this.buttonStaffManage.Size = new System.Drawing.Size(187, 35);
+            this.buttonStaffManage.TabIndex = 71;
+            this.buttonStaffManage.Text = "Staff Management";
+            this.buttonStaffManage.UseVisualStyleBackColor = false;
+            // 
+            // labelRoleBasedAccess
+            // 
+            this.labelRoleBasedAccess.AutoSize = true;
+            this.labelRoleBasedAccess.Font = new System.Drawing.Font("Mongolian Baiti", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRoleBasedAccess.Location = new System.Drawing.Point(12, 145);
+            this.labelRoleBasedAccess.Name = "labelRoleBasedAccess";
+            this.labelRoleBasedAccess.Size = new System.Drawing.Size(201, 24);
+            this.labelRoleBasedAccess.TabIndex = 70;
+            this.labelRoleBasedAccess.Text = "Admin DashBoard";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(298, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
             // 
             // button5
             // 
@@ -208,62 +276,6 @@
             this.buttonRegisterStaff.Text = "Register Staff";
             this.buttonRegisterStaff.UseVisualStyleBackColor = false;
             // 
-            // buttonStudentManage
-            // 
-            this.buttonStudentManage.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonStudentManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStudentManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonStudentManage.Location = new System.Drawing.Point(32, 459);
-            this.buttonStudentManage.Name = "buttonStudentManage";
-            this.buttonStudentManage.Size = new System.Drawing.Size(187, 35);
-            this.buttonStudentManage.TabIndex = 73;
-            this.buttonStudentManage.Text = "Student Management";
-            this.buttonStudentManage.UseVisualStyleBackColor = false;
-            // 
-            // buttonLecturerManage
-            // 
-            this.buttonLecturerManage.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonLecturerManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLecturerManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonLecturerManage.Location = new System.Drawing.Point(32, 375);
-            this.buttonLecturerManage.Name = "buttonLecturerManage";
-            this.buttonLecturerManage.Size = new System.Drawing.Size(187, 35);
-            this.buttonLecturerManage.TabIndex = 72;
-            this.buttonLecturerManage.Text = "Lecturer Management";
-            this.buttonLecturerManage.UseVisualStyleBackColor = false;
-            // 
-            // buttonStaffManage
-            // 
-            this.buttonStaffManage.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonStaffManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStaffManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonStaffManage.Location = new System.Drawing.Point(32, 290);
-            this.buttonStaffManage.Name = "buttonStaffManage";
-            this.buttonStaffManage.Size = new System.Drawing.Size(187, 35);
-            this.buttonStaffManage.TabIndex = 71;
-            this.buttonStaffManage.Text = "Staff Management";
-            this.buttonStaffManage.UseVisualStyleBackColor = false;
-            // 
-            // labelRoleBasedAccess
-            // 
-            this.labelRoleBasedAccess.AutoSize = true;
-            this.labelRoleBasedAccess.Font = new System.Drawing.Font("Mongolian Baiti", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRoleBasedAccess.Location = new System.Drawing.Point(12, 145);
-            this.labelRoleBasedAccess.Name = "labelRoleBasedAccess";
-            this.labelRoleBasedAccess.Size = new System.Drawing.Size(201, 24);
-            this.labelRoleBasedAccess.TabIndex = 70;
-            this.labelRoleBasedAccess.Text = "Admin DashBoard";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(298, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
@@ -327,18 +339,6 @@
             this.button12.TabIndex = 87;
             this.button12.Text = "Register Admin";
             this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button13.Location = new System.Drawing.Point(32, 207);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(187, 35);
-            this.button13.TabIndex = 86;
-            this.button13.Text = "Admin Management";
-            this.button13.UseVisualStyleBackColor = false;
             // 
             // MainDashBoard
             // 

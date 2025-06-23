@@ -89,5 +89,44 @@ namespace Unicom_TIC_Management_System.Controllers
             }
             return users;
         }
+
+        //Update User
+        public void UpdateUser(User user, SQLiteConnection connection, SQLiteTransaction transaction)
+        {
+            string updateQuery = @"UPDATE Users 
+                           SET User_Name = @UserName, 
+                               Password = @Password, 
+                               User_Email = @userEmail
+                           WHERE User_Id = @UserId";
+
+            using (SQLiteCommand command = new SQLiteCommand(updateQuery, connection, transaction))
+            {
+                command.Parameters.AddWithValue("@UserName", user.User_Name);
+                command.Parameters.AddWithValue("@Password", user.Password);
+                command.Parameters.AddWithValue("@userEmail", user.User_Email);
+                command.Parameters.AddWithValue("@UserId", user.User_Id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No user record was updated");
+                }
+            }
+        }
+
+        //Delete User
+        public void DeleteUser(int userId, SQLiteConnection connection, SQLiteTransaction transaction)
+        {
+            string deleteQuery = "DELETE FROM Users WHERE User_Id = @UserId";
+            using (SQLiteCommand command = new SQLiteCommand(deleteQuery, connection, transaction))
+            {
+                command.Parameters.AddWithValue("@UserId", userId);
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No user record was deleted");
+                }
+            }
+        }
     }
 }

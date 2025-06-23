@@ -55,3 +55,4 @@ C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.SubjectCreation.resources
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.ForgetPassword.resources
 C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.ViewAdmin.resources
+C:\Users\ASUS\Desktop\Unicom_TIC_Management_System\Unicom TIC Management System\obj\Debug\Unicom_TIC_Management_System.Views.UpdateAdmin.resources
