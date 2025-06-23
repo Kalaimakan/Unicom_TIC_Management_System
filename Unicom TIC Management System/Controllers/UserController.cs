@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unicom_TIC_Management_System.Models;
 using Unicom_TIC_Management_System.Repositories;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Unicom_TIC_Management_System.Controllers
 {
@@ -113,6 +114,22 @@ namespace Unicom_TIC_Management_System.Controllers
                 }
             }
         }
+        public void UpdateEmailUser(int userId, string email, SQLiteConnection connection, SQLiteTransaction transaction)
+        {
+            string updateUserEmailQuery = @"UPDATE Users 
+                                            SET User_Email = @email
+                                            WHERE User_Id = @userId";
+
+            using (var updateUserCmd = new SQLiteCommand(updateUserEmailQuery, connection, transaction))
+            {
+                updateUserCmd.Parameters.AddWithValue("@email", email);
+                updateUserCmd.Parameters.AddWithValue("@userId", userId);
+                updateUserCmd.ExecuteNonQuery();
+            }
+
+        }
+
+
 
         //Delete User
         public void DeleteUser(int userId, SQLiteConnection connection, SQLiteTransaction transaction)

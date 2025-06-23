@@ -28,6 +28,10 @@ namespace Unicom_TIC_Management_System.Views
             {
                 dataGridViewAdmin.DataSource = admins;
                 dataGridViewAdmin.RowHeadersVisible = false;
+                dataGridViewAdmin.Columns["User_Name"].Visible = false;
+                dataGridViewAdmin.Columns["Password"].Visible = false;
+                dataGridViewAdmin.Columns["User_Email"].Visible = false;
+
             }
             else
             {

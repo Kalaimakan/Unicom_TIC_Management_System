@@ -17,7 +17,7 @@ namespace Unicom_TIC_Management_System.Views
         StaffController staffController = new StaffController();
         Staff staff = new Staff();
         User user = new User();
-
+        private Staff selectedStaff = null;
         public EditStaffs()
         {
             InitializeComponent();
@@ -28,6 +28,9 @@ namespace Unicom_TIC_Management_System.Views
         {
             List<Staff> staffs = staffController.GetAllStaff();
             dataGridViewUpdate.DataSource = staffs;
+            dataGridViewUpdate.Columns["User_Name"].Visible = false;
+            dataGridViewUpdate.Columns["Password"].Visible = false;
+            dataGridViewUpdate.Columns["User_Email"].Visible = false;
         }
         public void clearField()
         {
@@ -35,8 +38,6 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Clear();
             textBoxEmail.Clear();
             textBoxPhoneNumber.Clear();
-            textBoxUserName.Clear();
-            textBoxPassword.Clear();
             textBoxSalary.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
@@ -45,47 +46,71 @@ namespace Unicom_TIC_Management_System.Views
         {
             try
             {
-                if (dataGridViewUpdate.SelectedRows.Count == 0 ||
-                dataGridViewUpdate.SelectedRows[0].Cells["Staff_Id"]?.Value == null)
+                if (selectedStaff == null)
                 {
-                    MessageBox.Show("Please select a valid Staff to update");
+                    MessageBox.Show("Please select a staff member first.");
                     return;
                 }
-                staff.First_Name = textBoxFirstName.Text.Trim();
-                staff.Last_Name = textBoxLastName.Text.Trim();
-                staff.Email = textBoxEmail.Text.Trim();
-                staff.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-                staff.Gender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
-                staff.Salary = Convert.ToDouble(textBoxSalary.Text.Trim());
 
-                user.User_Name = textBoxUserName.Text.Trim();
-                user.Password = textBoxPassword.Text.Trim();
-                user.User_Email = textBoxEmail.Text.Trim();
+                // Get new values from form
+                string newFirstName = textBoxFirstName.Text.Trim();
+                string newLastName = textBoxLastName.Text.Trim();
+                string newEmail = textBoxEmail.Text.Trim();
+                string newPhone = textBoxPhoneNumber.Text.Trim();
+                string newGender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
+                double newSalary = double.TryParse(textBoxSalary.Text.Trim(), out double salaryVal) ? salaryVal : 0;
 
-                //validate fields
-                if (string.IsNullOrEmpty(staff.First_Name) || string.IsNullOrEmpty(staff.Last_Name) ||
-                    string.IsNullOrEmpty(staff.Email) || string.IsNullOrEmpty(staff.PhoneNumber) ||
-                    string.IsNullOrEmpty(user.User_Name) || string.IsNullOrEmpty(user.Password) || string.IsNullOrWhiteSpace(Convert.ToString(staff.Salary)))
+                // Validate required fields
+                if (string.IsNullOrWhiteSpace(newFirstName) ||
+                    string.IsNullOrWhiteSpace(newLastName) ||
+                    string.IsNullOrWhiteSpace(newEmail) ||
+                    string.IsNullOrWhiteSpace(newPhone))
                 {
-                    MessageBox.Show("Please fill all required fields.");
+                    MessageBox.Show("All fields are required.");
                     return;
                 }
+
+                // Check for changes
+                if (selectedStaff.First_Name == newFirstName &&
+                    selectedStaff.Last_Name == newLastName &&
+                    selectedStaff.Email == newEmail &&
+                    selectedStaff.PhoneNumber == newPhone &&
+                    selectedStaff.Gender == newGender &&
+                    selectedStaff.Salary == newSalary )
+                {
+                    MessageBox.Show("No changes detected to update.");
+                    return;
+                }
+
+                staff.First_Name = newFirstName;
+                staff.Last_Name = newLastName;
+                staff.Email = newEmail;
+                staff.PhoneNumber = newPhone;
+                staff.Gender = newGender;
+                staff.Salary = newSalary;
+                
 
                 // Confirm update
-                if (MessageBox.Show($"Confirm update {staff.Last_Name} ?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"Confirm update {staff.Last_Name}?",
+                    "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     bool success = staffController.UpdateStaff(staff, user);
                     if (success)
                     {
                         MessageBox.Show("Staff updated successfully!");
-                        loadAdminData(); // Refresh grid
+                        loadAdminData();
                         clearField();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update staff.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating staff: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error updating staff: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -97,21 +122,28 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Text = selectedRow.Cells["Last_Name"].Value.ToString();
             textBoxEmail.Text = selectedRow.Cells["Email"].Value.ToString();
             textBoxPhoneNumber.Text = selectedRow.Cells["PhoneNumber"].Value.ToString();
-            textBoxUserName.Text = selectedRow.Cells["User_Name"].Value.ToString();
-            textBoxPassword.Text = selectedRow.Cells["Password"].Value.ToString();
-            textBoxSalary.Text= selectedRow.Cells["Salary"].Value.ToString();
+            textBoxSalary.Text = selectedRow.Cells["Salary"].Value.ToString();
 
             string gender = selectedRow.Cells["Gender"].Value.ToString();
             checkBoxMale.Checked = gender.Equals("Male", StringComparison.OrdinalIgnoreCase);
             checkBoxFemale.Checked = gender.Equals("Female", StringComparison.OrdinalIgnoreCase);
 
             staff.Staff_Id = Convert.ToInt32(selectedRow.Cells["Staff_Id"].Value);
+
+            selectedStaff = new Staff()
+            {
+                Staff_Id = Convert.ToInt32(selectedRow.Cells["Staff_Id"].Value),
+                First_Name = textBoxFirstName.Text,
+                Last_Name = textBoxLastName.Text,
+                Email = textBoxEmail.Text,
+                PhoneNumber = textBoxPhoneNumber.Text,
+                Gender = gender,
+                Salary = Convert.ToDouble(textBoxSalary.Text),
+            };
         }
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
-            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)

@@ -31,6 +31,9 @@ namespace Unicom_TIC_Management_System.Views
             dataGridViewUpdate.DataSource = students;
             dataGridViewUpdate.Columns["Department_Id"].Visible = false;
             dataGridViewUpdate.Columns["Course_Id"].Visible = false;
+            dataGridViewUpdate.Columns["User_Name"].Visible=false;
+            dataGridViewUpdate.Columns["Password"].Visible=false;
+            dataGridViewUpdate.Columns["User_Email"].Visible=false;
         }
 
         public void clearField()

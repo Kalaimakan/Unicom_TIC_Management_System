@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unicom_TIC_Management_System.Models;
 using Unicom_TIC_Management_System.Repositories;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Unicom_TIC_Management_System.Controllers
 {
@@ -171,6 +172,20 @@ namespace Unicom_TIC_Management_System.Controllers
                 {
                     try
                     {
+                        // First get the User_Id for this lecturer
+                        string getUserIdQuery = "SELECT User_Id FROM Lecturers WHERE Lecturer_Id = @lecturerId";
+                        int userId;
+
+                        using (var getUserIdCmd = new SQLiteCommand(getUserIdQuery, connection, transaction))
+                        {
+                            getUserIdCmd.Parameters.AddWithValue("@lecturerId", lecturer.Lecturer_Id);
+                            var result = getUserIdCmd.ExecuteScalar();
+                            if (result == null || result == DBNull.Value)
+                            {
+                                throw new Exception("No matching lecturer found");
+                            }
+                            userId = Convert.ToInt32(result);
+                        }
                         // Update query - excluding Date_of_Birth
                         string updateLecturerQuery = @"UPDATE Lecturers 
                                         SET First_Name = @firstName,
@@ -199,6 +214,8 @@ namespace Unicom_TIC_Management_System.Controllers
                                 throw new Exception("No lecturer records were updated");
                             }
                         }
+                        UserController userController = new UserController();
+                        userController.UpdateEmailUser(userId, lecturer.Email, connection, transaction);
 
                         transaction.Commit();
                         return true;

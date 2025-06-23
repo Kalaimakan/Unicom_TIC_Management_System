@@ -136,9 +136,7 @@ namespace Unicom_TIC_Management_System.Controllers
             List<Admin> admins = new List<Admin>();
             using (var connection = Db_Config.getConnection())
             {
-                string getAdminQuery = @"SELECT a.*, u.User_Name, u.Password, u.User_Email 
-                                FROM Admins a
-                                JOIN Users u ON a.User_Id = u.User_Id";
+                string getAdminQuery = "SELECT * FROM Admins";
                 using (var getCommand = new SQLiteCommand(getAdminQuery, connection))
                 {
                     using (SQLiteDataReader reader = getCommand.ExecuteReader())
@@ -153,10 +151,7 @@ namespace Unicom_TIC_Management_System.Controllers
                                 Email = reader["Email"].ToString(),
                                 Date_Of_Birth = reader["Date_Of_Birth"].ToString(),
                                 Gender = reader["Gender"].ToString(),
-                                PhoneNumber = reader["PhoneNumber"].ToString(),
-                                User_Name = reader["User_Name"].ToString(),  
-                                Password = reader["Password"].ToString(),     
-                                User_Email = reader["User_Email"].ToString()
+                                PhoneNumber = reader["PhoneNumber"].ToString()
                             });
                         }
                     }
@@ -219,12 +214,8 @@ namespace Unicom_TIC_Management_System.Controllers
                                 throw new Exception("No admin record was updated");
                             }
                         }
-
-                        // Update User table
-                        user.User_Id = userId;
                         UserController userController = new UserController();
-                        userController.UpdateUser(user, connection, transaction);
-
+                        userController.UpdateEmailUser(userId, admin.Email, connection, transaction);
                         transaction.Commit();
                         return true;
                     }

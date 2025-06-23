@@ -125,9 +125,7 @@ namespace Unicom_TIC_Management_System.Controllers
             List<Staff> staffs = new List<Staff>();
             using (var connection = Db_Config.getConnection())
             {
-                string getAdminQuery = @"SELECT s.*, u.User_Name, u.Password, u.User_Email 
-                                FROM Staffs s
-                                JOIN Users u ON s.User_Id = u.User_Id";
+                string getAdminQuery = @"SELECT * FROM Staffs";
                 using (var getCommand = new SQLiteCommand(getAdminQuery, connection))
                 {
                     using (SQLiteDataReader reader = getCommand.ExecuteReader())
@@ -143,9 +141,6 @@ namespace Unicom_TIC_Management_System.Controllers
                                 Date_Of_Birth = reader["Date_Of_Birth"].ToString(),
                                 Gender = reader["Gender"].ToString(),
                                 PhoneNumber = reader["PhoneNumber"].ToString(),
-                                User_Name = reader["User_Name"].ToString(),
-                                Password = reader["Password"].ToString(),
-                                User_Email = reader["User_Email"].ToString(),
                                 Salary = Convert.ToDouble(reader["Salary"])
                             });
                         }
@@ -213,9 +208,8 @@ namespace Unicom_TIC_Management_System.Controllers
                         }
 
                         // Update User table
-                        user.User_Id = userId;
                         UserController userController = new UserController();
-                        userController.UpdateUser(user, connection, transaction);
+                        userController.UpdateEmailUser(userId, staff.Email, connection, transaction);
 
                         transaction.Commit();
                         return true;

@@ -28,6 +28,9 @@ namespace Unicom_TIC_Management_System.Views
             {
                 dataGridViewStaffs.DataSource = staffs;
                 dataGridViewStaffs.RowHeadersVisible = false;
+                dataGridViewStaffs.Columns["User_Name"].Visible = false;
+                dataGridViewStaffs.Columns["Password"].Visible = false;
+                dataGridViewStaffs.Columns["User_Email"].Visible = false;
             }
             else
             {

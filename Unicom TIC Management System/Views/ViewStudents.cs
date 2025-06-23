@@ -28,6 +28,9 @@ namespace Unicom_TIC_Management_System.Views
             dataGridViewStudents.RowHeadersVisible = false;
             dataGridViewStudents.Columns["Department_Id"].Visible = false;
             dataGridViewStudents.Columns["Course_Id"].Visible = false;
+            dataGridViewStudents.Columns["User_Name"].Visible = false;
+            dataGridViewStudents.Columns["Password"].Visible = false;
+            dataGridViewStudents.Columns["User_Email"].Visible = false;
         }
     }
 }

@@ -156,9 +156,7 @@ namespace Unicom_TIC_Management_System.Controllers
             List<Student> students = new List<Student>();
             using (var connection = Db_Config.getConnection())
             {
-                string getStudentQuery = @"SELECT s.*, u.User_Name, u.Password, u.User_Email 
-                                FROM Students s
-                                JOIN Users u ON s.User_Id = u.User_Id";
+                string getStudentQuery = "SELECT * FROM Students";
                 using (var getCommand = new SQLiteCommand(getStudentQuery, connection))
                 {
                     using (SQLiteDataReader reader = getCommand.ExecuteReader())
@@ -177,11 +175,8 @@ namespace Unicom_TIC_Management_System.Controllers
                                 Date_of_Birth = reader["Date_Of_Birth"].ToString(),
                                 Address = reader["Address"].ToString(),
                                 Entrolld_Course = reader["Entrolled_Course"].ToString(),
-                                User_Name = reader["User_Name"].ToString(),
                                 Course_Id = Convert.ToInt32(reader["Course_Id"]),
                                 Department_Id = Convert.ToInt32(reader["Department_Id"]),
-                                Password = reader["Password"].ToString(),
-                                User_Email = reader["User_Email"].ToString()
                             });
                         }
                     }
@@ -279,6 +274,8 @@ namespace Unicom_TIC_Management_System.Controllers
                                 throw new Exception("No Student record was updated");
                             }
                         }
+                        UserController userController = new UserController();
+                        userController.UpdateEmailUser(userId, student.Email, connection, transaction);
                         transaction.Commit();
                         return true;
                     }

@@ -20,7 +20,7 @@ namespace Unicom_TIC_Management_System.Views
         AdminController adminController = new AdminController();
         Admin admin = new Admin();
         User user = new User();
-
+        private Admin selectedAdmin = null;
         public EditAdmin()
         {
             InitializeComponent();
@@ -32,6 +32,9 @@ namespace Unicom_TIC_Management_System.Views
         {
             List<Admin> admins = adminController.GetAllAdmin();
             dataGridViewUpdate.DataSource = admins;
+            dataGridViewUpdate.Columns["User_Name"].Visible = false;
+            dataGridViewUpdate.Columns["Password"].Visible = false;
+            dataGridViewUpdate.Columns["User_Email"].Visible = false;
 
         }
 
@@ -41,8 +44,6 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Clear();
             textBoxEmail.Clear();
             textBoxPhoneNumber.Clear();
-            textBoxUserName.Clear();
-            textBoxPassword.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
 
@@ -51,35 +52,51 @@ namespace Unicom_TIC_Management_System.Views
         {
             try
             {
-                // Validate selection
-                if (dataGridViewUpdate.SelectedRows.Count == 0 ||
-                dataGridViewUpdate.SelectedRows[0].Cells["Admin_Id"]?.Value == null)
+                if (selectedAdmin == null)
                 {
-                    MessageBox.Show("Please select a valid admin to update");
+                    MessageBox.Show("Please select an admin to Update.");
                     return;
                 }
 
-                // Get data from form
-                admin.First_Name = textBoxFirstName.Text.Trim();
-                admin.Last_Name = textBoxLastName.Text.Trim();
-                admin.Email = textBoxEmail.Text.Trim();
-                admin.PhoneNumber = textBoxPhoneNumber.Text.Trim();
-                admin.Gender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
+                // Get new values from form
+                string newFirstName = textBoxFirstName.Text.Trim();
+                string newLastName = textBoxLastName.Text.Trim();
+                string newEmail = textBoxEmail.Text.Trim();
+                string newPhone = textBoxPhoneNumber.Text.Trim();
+                string newGender = checkBoxMale.Checked ? "Male" : checkBoxFemale.Checked ? "Female" : "Other";
 
-                user.User_Name = textBoxUserName.Text.Trim();
-                user.Password = textBoxPassword.Text.Trim();
-                user.User_Email = textBoxEmail.Text.Trim();
-
-                //Validate required fields
-                if (string.IsNullOrWhiteSpace(admin.First_Name) ||string.IsNullOrWhiteSpace(user.User_Name) ||string.IsNullOrWhiteSpace(user.Password)|| string.IsNullOrWhiteSpace(admin.Email) || string.IsNullOrWhiteSpace(admin.PhoneNumber) || string.IsNullOrWhiteSpace(admin.Gender))
+                // Validate required fields
+                if (string.IsNullOrWhiteSpace(newFirstName) ||
+                    string.IsNullOrWhiteSpace(newLastName) ||
+                    string.IsNullOrWhiteSpace(newEmail) ||
+                    string.IsNullOrWhiteSpace(newPhone))
                 {
-                    MessageBox.Show("First Name, Username and Password are required");
+                    MessageBox.Show("All fields are required.");
                     return;
                 }
+
+                // Check for changes
+                if (selectedAdmin.First_Name == newFirstName &&
+                    selectedAdmin.Last_Name == newLastName &&
+                    selectedAdmin.Email == newEmail &&
+                    selectedAdmin.PhoneNumber == newPhone &&
+                    selectedAdmin.Gender == newGender )
+                {
+                    MessageBox.Show("No changes detected to update.");
+                    return;
+                }
+
+                admin.First_Name = newFirstName;
+                admin.Last_Name = newLastName;
+                admin.Email = newEmail;
+                admin.PhoneNumber = newPhone;
+                admin.Gender = newGender;
+
 
 
                 // Confirm update
-                if (MessageBox.Show($"Confirm update {admin.Last_Name} ?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"Confirm update {admin.Last_Name}?",
+                    "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     bool success = adminController.UpdateAdmin(admin, user);
                     if (success)
@@ -87,6 +104,10 @@ namespace Unicom_TIC_Management_System.Views
                         MessageBox.Show("Admin updated successfully!");
                         loadAdminData();
                         clearField();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update admin.");
                     }
                 }
             }
@@ -107,8 +128,6 @@ namespace Unicom_TIC_Management_System.Views
             textBoxLastName.Text = row.Cells["Last_Name"].Value.ToString();
             textBoxEmail.Text = row.Cells["Email"].Value.ToString();
             textBoxPhoneNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
-            textBoxUserName.Text = row.Cells["User_Name"].Value.ToString();
-            textBoxPassword.Text = row.Cells["Password"].Value.ToString();
 
             // Handle gender selection
             string gender = row.Cells["Gender"].Value.ToString();
@@ -117,17 +136,21 @@ namespace Unicom_TIC_Management_System.Views
 
             // Store Admin_ID for update
             admin.Admin_Id = Convert.ToInt32(row.Cells["Admin_Id"].Value);
+
+            selectedAdmin = new Admin()
+            {
+                Admin_Id = Convert.ToInt32(row.Cells["Admin_Id"].Value),
+                First_Name = textBoxFirstName.Text,
+                Last_Name = textBoxLastName.Text,
+                Email = textBoxEmail.Text,
+                PhoneNumber = textBoxPhoneNumber.Text,
+                Gender = gender
+            };
+
         }
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.Text == "Enter the Password" && textBoxPassword.ForeColor == Color.Gray)
-            {
-                return;
-            }
-
-            textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
-            buttonTogglePassword.Text = textBoxPassword.UseSystemPasswordChar ? "👁️" : "🔒";
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
