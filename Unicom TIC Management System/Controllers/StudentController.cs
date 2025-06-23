@@ -138,6 +138,196 @@ namespace Unicom_TIC_Management_System.Controllers
             }
         }
 
-        
+        // Get Students
+        public List<Student> GetAllStudents()
+        {
+            List<Student> students = new List<Student>();
+            using (var connection = Db_Config.getConnection())
+            {
+                string getStudentQuery = @"SELECT s.*, u.User_Name, u.Password, u.User_Email 
+                                FROM Students s
+                                JOIN Users u ON s.User_Id = u.User_Id";
+                using (var getCommand = new SQLiteCommand(getStudentQuery, connection))
+                {
+                    using (SQLiteDataReader reader = getCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            students.Add(new Student()
+                            {
+                                Student_Id = Convert.ToInt32(reader["Student_Id"]),
+                                Admission_No = reader["Admission_No"].ToString(),
+                                First_Name = reader["First_Name"].ToString(),
+                                Last_Name = reader["Last_Name"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                Gender = reader["Gender"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString(),
+                                Date_of_Birth = reader["Date_Of_Birth"].ToString(),
+                                Address = reader["Address"].ToString(),
+                                Entrolld_Course = reader["Entrolled_Course"].ToString(),
+                                User_Name = reader["User_Name"].ToString(),
+                                Course_Id = Convert.ToInt32(reader["Course_Id"]),
+                                Department_Id = Convert.ToInt32(reader["Department_Id"]),
+                                Password = reader["Password"].ToString(),
+                                User_Email = reader["User_Email"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return students;
+        }
+
+
+        //update student
+        public bool UpdateAdmin(Student student, User user)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Verify Admin_Id exists
+                        if (student.Student_Id <= 0)
+                        {
+                            throw new Exception("Invalid student ID");
+                        }
+
+                        // Get User_Id for this student
+                        string getUserQuery = "SELECT User_Id FROM Students WHERE Student_Id = @studentId";
+                        int userId;
+
+                        using (var getUserCmd = new SQLiteCommand(getUserQuery, connection, transaction))
+                        {
+                            getUserCmd.Parameters.AddWithValue("@studentId", student.Student_Id);
+                            var result = getUserCmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("No matching Student found");
+                            }
+                            userId = Convert.ToInt32(result);
+                        }
+
+                        // Update Student table
+                        string updateStudentQuery = @"UPDATE Students 
+                                   SET First_Name = @firstName,
+                                       Last_Name = @lastName,
+                                       Email = @email,
+                                       Gender = @gender,
+                                       PhoneNumber = @phoneNumber,
+                                       Address= @address,
+                                       Course_Id = @courseId,
+                                       Department_Id = @departmentId   
+                                      WHERE Student_Id = @studentId";
+
+                        using (var studentCommand = new SQLiteCommand(updateStudentQuery, connection, transaction))
+                        {
+                            studentCommand.Parameters.AddWithValue("@firstName", student.First_Name);
+                            studentCommand.Parameters.AddWithValue("@lastName", student.Last_Name);
+                            studentCommand.Parameters.AddWithValue("@email", student.Email);
+                            studentCommand.Parameters.AddWithValue("@gender", student.Gender);
+                            studentCommand.Parameters.AddWithValue("@phoneNumber", student.PhoneNumber);
+                            studentCommand.Parameters.AddWithValue("@address", student.Address);
+                            studentCommand.Parameters.AddWithValue("@courseId", student.Course_Id);
+                            studentCommand.Parameters.AddWithValue("@departmentId", student.Department_Id);
+                            studentCommand.Parameters.AddWithValue("@studentId", student.Student_Id);
+
+                            int rowsAffected = studentCommand.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                            {
+                                throw new Exception("No Student record was updated");
+                            }
+                        }
+
+                        // Update User table
+                        user.User_Id = userId;
+                        UserController userController = new UserController();
+                        userController.UpdateUser(user, connection, transaction);
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception($"Update failed: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        // Delete Student
+        public bool DeleteStudent(int studentId)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Verify Student_Id exists
+                        if (studentId <= 0)
+                        {
+                            throw new Exception("Invalid student ID");
+                        }
+
+                        // FIRST get the User_Id before deleting anything
+                        string getUserQuery = "SELECT User_Id FROM Students WHERE Student_Id = @studentId";
+                        int userId;
+
+                        using (var getUserCmd = new SQLiteCommand(getUserQuery, connection, transaction))
+                        {
+                            getUserCmd.Parameters.AddWithValue("@studentId", studentId);
+                            var result = getUserCmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("No matching Student found");
+                            }
+                            userId = Convert.ToInt32(result);
+                        }
+
+                        // Now delete from dependent tables
+                        string deleteSubjectStudentQuery = "DELETE FROM Subject_Students WHERE Student_Id = @studentId";
+                        using (var deleteCommand = new SQLiteCommand(deleteSubjectStudentQuery, connection, transaction))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@studentId", studentId);
+                            deleteCommand.ExecuteNonQuery();
+                        }
+
+                        string deleteLecturerStudentQuery = "DELETE FROM Lecturer_Students WHERE Student_Id = @studentId";
+                        using (var deleteLecturerCommand = new SQLiteCommand(deleteLecturerStudentQuery, connection, transaction))
+                        {
+                            deleteLecturerCommand.Parameters.AddWithValue("@studentId", studentId);
+                            deleteLecturerCommand.ExecuteNonQuery();
+                        }
+
+                        // Finally delete from Students table
+                        string deleteStudentQuery = "DELETE FROM Students WHERE Student_Id = @studentId";
+                        using (var deleteCommand = new SQLiteCommand(deleteStudentQuery, connection, transaction))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@studentId", studentId);
+                            int rowsAffected = deleteCommand.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                            {
+                                throw new Exception("No Student record was deleted");
+                            }
+                        }
+
+                        // Delete from Users table using the userId we got earlier
+                        UserController userController = new UserController();
+                        userController.DeleteUser(userId, connection, transaction);
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception($"Delete failed: {ex.Message}");
+                    }
+                }
+            }
+        }
     }
 }

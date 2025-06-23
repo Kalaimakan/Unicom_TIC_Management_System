@@ -156,7 +156,7 @@ namespace Unicom_TIC_Management_System.Controllers
                                 PhoneNumber = reader["PhoneNumber"].ToString(),
                                 User_Name = reader["User_Name"].ToString(),  
                                 Password = reader["Password"].ToString(),     
-                                User_Email = reader["User_Email"].ToString() 
+                                User_Email = reader["User_Email"].ToString()
                             });
                         }
                     }

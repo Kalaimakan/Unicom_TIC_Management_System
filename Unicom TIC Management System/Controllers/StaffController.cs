@@ -167,7 +167,7 @@ namespace Unicom_TIC_Management_System.Controllers
                         // Verify Staff_Id exists
                         if (staff.Staff_Id <= 0)
                         {
-                            throw new Exception("Invalid Admin ID");
+                            throw new Exception("Invalid Staff ID");
                         }
 
                         // Get User_Id for this staff

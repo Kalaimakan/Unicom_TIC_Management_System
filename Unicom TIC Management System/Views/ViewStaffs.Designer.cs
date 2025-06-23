@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewStaffs));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewStaffs = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStaffs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(303, 14);
+            this.label1.Location = new System.Drawing.Point(314, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 29);
             this.label1.TabIndex = 3;
@@ -46,23 +49,35 @@
             // dataGridViewStaffs
             // 
             this.dataGridViewStaffs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStaffs.Location = new System.Drawing.Point(13, 71);
+            this.dataGridViewStaffs.Location = new System.Drawing.Point(12, 114);
             this.dataGridViewStaffs.Name = "dataGridViewStaffs";
             this.dataGridViewStaffs.RowHeadersWidth = 51;
             this.dataGridViewStaffs.RowTemplate.Height = 24;
             this.dataGridViewStaffs.Size = new System.Drawing.Size(774, 365);
             this.dataGridViewStaffs.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 106;
+            this.pictureBox1.TabStop = false;
+            // 
             // ViewStaffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewStaffs);
             this.Name = "ViewStaffs";
             this.Text = "ViewStaffs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStaffs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +87,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewStaffs;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

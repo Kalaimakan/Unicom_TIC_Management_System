@@ -32,6 +32,7 @@ namespace Unicom_TIC_Management_System.Views
         {
             List<Admin> admins = adminController.GetAllAdmin();
             dataGridViewUpdate.DataSource = admins;
+
         }
 
         public void clearField()
@@ -44,7 +45,7 @@ namespace Unicom_TIC_Management_System.Views
             textBoxPassword.Clear();
             checkBoxMale.Checked = false;
             checkBoxFemale.Checked = false;
-            admin.Admin_Id = 0;
+
         }
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
@@ -85,6 +86,7 @@ namespace Unicom_TIC_Management_System.Views
                     {
                         MessageBox.Show("Admin updated successfully!");
                         loadAdminData();
+                        clearField();
                     }
                 }
             }
@@ -149,7 +151,8 @@ namespace Unicom_TIC_Management_System.Views
                 if (confirmResult == DialogResult.Yes)
                 {
                     adminController.DeleteAdmin(adminId);
-
+                    loadAdminData();
+                    clearField();
                     MessageBox.Show($"Delete {adminName} Successful", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
