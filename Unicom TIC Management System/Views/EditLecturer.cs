@@ -18,11 +18,21 @@ namespace Unicom_TIC_Management_System.Views
         LecturerController lecturerController = new LecturerController();
         private Lecturer selectedLecturer = null;
 
-        public EditLecturer()
+        public EditLecturer(string mode)
         {
             InitializeComponent();
             loadLecturerData();
             clearField();
+            if (mode == "Update")
+            {
+                labelheading.Text = "Update Lecturer";
+                buttonUpdate.Visible = true;
+            }
+            if (mode == "Delete")
+            {
+                labelheading.Text = "Delete Lecturer";
+                buttonDelete.Visible = true;
+            }
         }
 
         public void loadLecturerData()
@@ -174,6 +184,11 @@ namespace Unicom_TIC_Management_System.Views
             {
                 MessageBox.Show($"Error deleting Lecturer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

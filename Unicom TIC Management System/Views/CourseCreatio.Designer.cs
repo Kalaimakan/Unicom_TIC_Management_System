@@ -58,7 +58,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(264, 52);
+            this.label3.Location = new System.Drawing.Point(304, 68);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(254, 29);
@@ -68,7 +68,7 @@
             // dateTimePickerStartDate
             // 
             this.dateTimePickerStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(331, 176);
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(371, 192);
             this.dateTimePickerStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(326, 27);
@@ -80,7 +80,7 @@
             this.labelFillDepartment.BackColor = System.Drawing.SystemColors.Control;
             this.labelFillDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFillDepartment.ForeColor = System.Drawing.Color.Red;
-            this.labelFillDepartment.Location = new System.Drawing.Point(328, 266);
+            this.labelFillDepartment.Location = new System.Drawing.Point(368, 282);
             this.labelFillDepartment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFillDepartment.Name = "labelFillDepartment";
             this.labelFillDepartment.Size = new System.Drawing.Size(0, 16);
@@ -90,7 +90,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(144, 236);
+            this.label6.Location = new System.Drawing.Point(184, 252);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(153, 22);
@@ -116,7 +116,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCourse.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewCourse.Location = new System.Drawing.Point(99, 409);
+            this.dataGridViewCourse.Location = new System.Drawing.Point(139, 425);
             this.dataGridViewCourse.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewCourse.Name = "dataGridViewCourse";
             this.dataGridViewCourse.RowHeadersWidth = 51;
@@ -131,7 +131,7 @@
             this.buttonClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonClear.Location = new System.Drawing.Point(429, 296);
+            this.buttonClear.Location = new System.Drawing.Point(469, 312);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(95, 33);
@@ -145,7 +145,7 @@
             this.buttonBack.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonBack.Location = new System.Drawing.Point(562, 296);
+            this.buttonBack.Location = new System.Drawing.Point(602, 312);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(95, 33);
@@ -158,7 +158,7 @@
             this.buttonDelete.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(289, 296);
+            this.buttonDelete.Location = new System.Drawing.Point(329, 312);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(95, 33);
@@ -172,7 +172,7 @@
             this.buttonAdd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd.Location = new System.Drawing.Point(147, 296);
+            this.buttonAdd.Location = new System.Drawing.Point(187, 312);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(95, 33);
@@ -187,7 +187,7 @@
             this.labelfillStartDate.BackColor = System.Drawing.SystemColors.Control;
             this.labelfillStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelfillStartDate.ForeColor = System.Drawing.Color.Red;
-            this.labelfillStartDate.Location = new System.Drawing.Point(329, 209);
+            this.labelfillStartDate.Location = new System.Drawing.Point(369, 225);
             this.labelfillStartDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelfillStartDate.Name = "labelfillStartDate";
             this.labelfillStartDate.Size = new System.Drawing.Size(0, 16);
@@ -199,7 +199,7 @@
             this.labelFillCourse.BackColor = System.Drawing.SystemColors.Control;
             this.labelFillCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFillCourse.ForeColor = System.Drawing.Color.Red;
-            this.labelFillCourse.Location = new System.Drawing.Point(329, 150);
+            this.labelFillCourse.Location = new System.Drawing.Point(369, 166);
             this.labelFillCourse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFillCourse.Name = "labelFillCourse";
             this.labelFillCourse.Size = new System.Drawing.Size(0, 16);
@@ -208,7 +208,7 @@
             // textBoxAddCourse
             // 
             this.textBoxAddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddCourse.Location = new System.Drawing.Point(331, 118);
+            this.textBoxAddCourse.Location = new System.Drawing.Point(371, 134);
             this.textBoxAddCourse.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAddCourse.Name = "textBoxAddCourse";
             this.textBoxAddCourse.Size = new System.Drawing.Size(326, 28);
@@ -218,7 +218,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(144, 179);
+            this.label2.Location = new System.Drawing.Point(184, 195);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 22);
@@ -229,7 +229,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(144, 118);
+            this.label1.Location = new System.Drawing.Point(184, 134);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 22);
@@ -241,7 +241,7 @@
             this.comboBoxDepartment.FormattingEnabled = true;
             this.comboBoxDepartment.Items.AddRange(new object[] {
             ""});
-            this.comboBoxDepartment.Location = new System.Drawing.Point(332, 238);
+            this.comboBoxDepartment.Location = new System.Drawing.Point(372, 254);
             this.comboBoxDepartment.Name = "comboBoxDepartment";
             this.comboBoxDepartment.Size = new System.Drawing.Size(227, 24);
             this.comboBoxDepartment.TabIndex = 31;
@@ -250,7 +250,7 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(331, 352);
+            this.textBoxSearch.Location = new System.Drawing.Point(371, 368);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(326, 28);
@@ -261,7 +261,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(144, 355);
+            this.label4.Location = new System.Drawing.Point(184, 371);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 22);
@@ -273,7 +273,7 @@
             this.buttonAddDepartment.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonAddDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddDepartment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAddDepartment.Location = new System.Drawing.Point(564, 235);
+            this.buttonAddDepartment.Location = new System.Drawing.Point(604, 251);
             this.buttonAddDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddDepartment.Name = "buttonAddDepartment";
             this.buttonAddDepartment.Size = new System.Drawing.Size(95, 29);
@@ -296,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 675);
+            this.ClientSize = new System.Drawing.Size(887, 755);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonAddDepartment);
             this.Controls.Add(this.label4);
@@ -316,6 +316,7 @@
             this.Controls.Add(this.textBoxAddCourse);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CourseCreatio";
             this.Text = "CourseCreation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourse)).EndInit();

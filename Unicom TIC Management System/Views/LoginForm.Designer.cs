@@ -39,6 +39,8 @@
             this.labelLoginUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonForgotPassword = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             this.buttonTogglePassword.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonTogglePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTogglePassword.ForeColor = System.Drawing.Color.Black;
-            this.buttonTogglePassword.Location = new System.Drawing.Point(635, 190);
+            this.buttonTogglePassword.Location = new System.Drawing.Point(635, 189);
             this.buttonTogglePassword.Name = "buttonTogglePassword";
             this.buttonTogglePassword.Size = new System.Drawing.Size(34, 31);
             this.buttonTogglePassword.TabIndex = 36;
@@ -83,9 +85,9 @@
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(137, 276);
+            this.buttonLogin.Location = new System.Drawing.Point(446, 276);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(530, 45);
+            this.buttonLogin.Size = new System.Drawing.Size(223, 45);
             this.buttonLogin.TabIndex = 34;
             this.buttonLogin.Text = "Log in";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -143,7 +145,7 @@
             // 
             this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonForgotPassword.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonForgotPassword.Location = new System.Drawing.Point(278, 358);
+            this.buttonForgotPassword.Location = new System.Drawing.Point(272, 353);
             this.buttonForgotPassword.Name = "buttonForgotPassword";
             this.buttonForgotPassword.Size = new System.Drawing.Size(255, 33);
             this.buttonForgotPassword.TabIndex = 40;
@@ -151,12 +153,40 @@
             this.buttonForgotPassword.UseVisualStyleBackColor = true;
             this.buttonForgotPassword.Click += new System.EventHandler(this.buttonForgotPassword_Click);
             // 
+            // buttonRegister
+            // 
+            this.buttonRegister.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegister.ForeColor = System.Drawing.Color.White;
+            this.buttonRegister.Location = new System.Drawing.Point(137, 276);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(221, 45);
+            this.buttonRegister.TabIndex = 41;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonRegister.Visible = false;
+            this.buttonRegister.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(147, 324);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 18);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "If you Don\'t have an Account ?";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonForgotPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelIncorrectPassword);
@@ -187,5 +217,7 @@
         private System.Windows.Forms.Label labelLoginUserName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonForgotPassword;
+        private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.Label label1;
     }
 }

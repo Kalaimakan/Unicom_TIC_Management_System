@@ -32,10 +32,7 @@ namespace Unicom_TIC_Management_System.Views
                 dataGridViewStaffs.Columns["Password"].Visible = false;
                 dataGridViewStaffs.Columns["User_Email"].Visible = false;
             }
-            else
-            {
-                MessageBox.Show("No admin records found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
 
         }
     }

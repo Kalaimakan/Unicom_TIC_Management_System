@@ -25,6 +25,7 @@ namespace Unicom_TIC_Management_System.Views
             InitializeComponent();
             SetPlaceholders();
             LoadCourse();
+
         }
 
         private void SetPlaceholders()

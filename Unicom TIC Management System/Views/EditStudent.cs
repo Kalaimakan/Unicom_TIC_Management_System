@@ -18,11 +18,21 @@ namespace Unicom_TIC_Management_System.Views
         Student student = new Student();
         User user = new User();
         private Student selectedStudent = null;
-        public EditStudent()
+        public EditStudent(string mode)
         {
             InitializeComponent();
             loadStudentData();
             clearField();
+            if (mode == "Update")
+            {
+                labelheading.Text = "Update Students";
+                buttonUpdate.Visible = true;
+            }
+            if (mode == "Delete")
+            {
+                labelheading.Text = "Delete Student";
+                buttonDelete.Visible = true;
+            }
         }
 
         public void loadStudentData()
@@ -183,6 +193,11 @@ namespace Unicom_TIC_Management_System.Views
                 Gender = gender
             };
 
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

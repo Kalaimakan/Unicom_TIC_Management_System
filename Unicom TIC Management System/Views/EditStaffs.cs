@@ -18,10 +18,22 @@ namespace Unicom_TIC_Management_System.Views
         Staff staff = new Staff();
         User user = new User();
         private Staff selectedStaff = null;
-        public EditStaffs()
+        public EditStaffs(string mode)
         {
             InitializeComponent();
             loadAdminData();
+
+            if (mode == "Update")
+            {
+                labelheading.Text = "Update Staffs";
+                buttonUpdate.Visible = true;
+            }
+            if (mode == "Delete")
+            {
+                labelheading.Text = "Delete Staffs";
+                buttonDelete.Visible = true;
+            }
+
         }
 
         public void loadAdminData()
@@ -172,6 +184,11 @@ namespace Unicom_TIC_Management_System.Views
             {
                 MessageBox.Show($"Error deleting staff: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

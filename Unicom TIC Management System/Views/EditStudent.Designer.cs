@@ -59,23 +59,24 @@
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(296, 461);
+            this.buttonDelete.Location = new System.Drawing.Point(123, 450);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(113, 38);
+            this.buttonDelete.Size = new System.Drawing.Size(454, 38);
             this.buttonDelete.TabIndex = 150;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Visible = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // dataGridViewUpdate
             // 
             this.dataGridViewUpdate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUpdate.Location = new System.Drawing.Point(33, 535);
+            this.dataGridViewUpdate.Location = new System.Drawing.Point(28, 540);
             this.dataGridViewUpdate.Name = "dataGridViewUpdate";
             this.dataGridViewUpdate.RowHeadersWidth = 51;
             this.dataGridViewUpdate.RowTemplate.Height = 24;
-            this.dataGridViewUpdate.Size = new System.Drawing.Size(651, 282);
+            this.dataGridViewUpdate.Size = new System.Drawing.Size(651, 257);
             this.dataGridViewUpdate.TabIndex = 149;
             this.dataGridViewUpdate.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewUpdate_CellMouseClick);
             // 
@@ -168,13 +169,14 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(463, 461);
+            this.buttonCancel.Location = new System.Drawing.Point(121, 492);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(113, 38);
+            this.buttonCancel.Size = new System.Drawing.Size(456, 38);
             this.buttonCancel.TabIndex = 137;
             this.buttonCancel.Text = "Back";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // textBoxLastName
             // 
@@ -220,13 +222,14 @@
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonUpdate.Location = new System.Drawing.Point(122, 461);
+            this.buttonUpdate.Location = new System.Drawing.Point(122, 448);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(113, 38);
+            this.buttonUpdate.Size = new System.Drawing.Size(454, 38);
             this.buttonUpdate.TabIndex = 130;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Visible = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // textBoxFirstName
@@ -271,7 +274,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 1051);
+            this.ClientSize = new System.Drawing.Size(718, 809);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDelete);

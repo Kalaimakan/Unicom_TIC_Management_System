@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExamCreation));
             this.textBoxExamName = new System.Windows.Forms.TextBox();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +50,9 @@
             this.labelFillExamType = new System.Windows.Forms.Label();
             this.labelFillSubject = new System.Windows.Forms.Label();
             this.labelFillCourse = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExams)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxExamName
@@ -275,11 +278,22 @@
             this.labelFillCourse.Size = new System.Drawing.Size(0, 16);
             this.labelFillCourse.TabIndex = 126;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(127, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 127;
+            this.pictureBox1.TabStop = false;
+            // 
             // ExamCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 670);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelFillCourse);
             this.Controls.Add(this.labelFillSubject);
             this.Controls.Add(this.labelFillExamType);
@@ -304,6 +318,7 @@
             this.Name = "ExamCreation";
             this.Text = "ExamCreation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExams)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +347,6 @@
         private System.Windows.Forms.Label labelFillExamType;
         private System.Windows.Forms.Label labelFillSubject;
         private System.Windows.Forms.Label labelFillCourse;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

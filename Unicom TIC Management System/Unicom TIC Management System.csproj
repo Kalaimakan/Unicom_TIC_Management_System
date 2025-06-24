@@ -153,6 +153,12 @@
     <Compile Include="Views\MainDashBoard.Designer.cs">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MarkCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MarkCreation.Designer.cs">
+      <DependentUpon>MarkCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RoomCreation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainDashBoard.resx">
       <DependentUpon>MainDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MarkCreation.resx">
+      <DependentUpon>MarkCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RoomCreation.resx">
       <DependentUpon>RoomCreation.cs</DependentUpon>

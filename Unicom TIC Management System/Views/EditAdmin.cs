@@ -21,11 +21,21 @@ namespace Unicom_TIC_Management_System.Views
         Admin admin = new Admin();
         User user = new User();
         private Admin selectedAdmin = null;
-        public EditAdmin()
+        public EditAdmin(string mode)
         {
             InitializeComponent();
             loadAdminData();
             clearField();
+            if (mode == "Update")
+            {
+                labelEditAdmin.Text = "Update Admin";
+                buttonDelete.Visible = false;
+            }
+            if (mode == "Delete")
+            {
+                labelEditAdmin.Text = "Delete Admin";
+                buttonUpdate.Visible = false;
+            }
         }
 
         public void loadAdminData()
@@ -183,6 +193,11 @@ namespace Unicom_TIC_Management_System.Views
             {
                 MessageBox.Show($"Error deleting Admin: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

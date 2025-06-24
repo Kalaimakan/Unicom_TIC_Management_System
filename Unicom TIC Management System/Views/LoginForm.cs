@@ -23,6 +23,8 @@ namespace Unicom_TIC_Management_System.Views
             InitializeComponent();
             SetPlaceholders();
             clearFormField();
+            buttonRegister.Visible = true;
+
         }
 
         private void SetPlaceholders()
@@ -135,13 +137,16 @@ namespace Unicom_TIC_Management_System.Views
             if (matchedUser != null)
             {
                 MessageBox.Show("Login successful!");
+                MainDashBoard mainDashBoard = new MainDashBoard();
+                mainDashBoard.Show();
+                this.Hide();
                 clearFormField();
-                // Navigate to dashboard here
             }
             else
             {
                 ShowAuthenticationError(usernameOrEmail);
             }
+
         }
 
         private void buttonTogglePassword_Click(object sender, EventArgs e)
@@ -159,6 +164,11 @@ namespace Unicom_TIC_Management_System.Views
         {
             ForgetPassword forgetPasswordForm = new ForgetPassword();
             forgetPasswordForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new AdminCreation().ShowDialog();
         }
     }
 }

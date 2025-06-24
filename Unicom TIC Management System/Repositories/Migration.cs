@@ -182,6 +182,10 @@ namespace Unicom_TIC_Management_System.Repositories
                                     Marks_Value INTEGER NOT NULL,     
                                     Student_Id INTEGER,
                                     Exam_Id INTEGER,
+                                    Subject_Id INTEGER,
+                                    FOREIGN KEY (Subject_Id) REFERENCES Exams(Subject_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
                                     FOREIGN KEY (Student_Id) REFERENCES Students(Student_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE,

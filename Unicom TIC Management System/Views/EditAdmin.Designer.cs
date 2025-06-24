@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditAdmin));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelheading = new System.Windows.Forms.Label();
+            this.labelEditAdmin = new System.Windows.Forms.Label();
             this.checkBoxOther = new System.Windows.Forms.CheckBox();
             this.checkBoxFemale = new System.Windows.Forms.CheckBox();
             this.checkBoxMale = new System.Windows.Forms.CheckBox();
@@ -61,16 +61,16 @@
             this.pictureBox1.TabIndex = 100;
             this.pictureBox1.TabStop = false;
             // 
-            // labelheading
+            // labelEditAdmin
             // 
-            this.labelheading.AutoSize = true;
-            this.labelheading.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelheading.Location = new System.Drawing.Point(272, 38);
-            this.labelheading.Name = "labelheading";
-            this.labelheading.Size = new System.Drawing.Size(132, 25);
-            this.labelheading.TabIndex = 99;
-            this.labelheading.Text = "Edit Admin";
-            this.labelheading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelEditAdmin.AutoSize = true;
+            this.labelEditAdmin.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEditAdmin.Location = new System.Drawing.Point(272, 38);
+            this.labelEditAdmin.Name = "labelEditAdmin";
+            this.labelEditAdmin.Size = new System.Drawing.Size(132, 25);
+            this.labelEditAdmin.TabIndex = 99;
+            this.labelEditAdmin.Text = "Edit Admin";
+            this.labelEditAdmin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // checkBoxOther
             // 
@@ -140,13 +140,14 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(469, 385);
+            this.buttonCancel.Location = new System.Drawing.Point(128, 417);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(113, 38);
+            this.buttonCancel.Size = new System.Drawing.Size(455, 38);
             this.buttonCancel.TabIndex = 78;
             this.buttonCancel.Text = "Back";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // textBoxLastName
             // 
@@ -192,10 +193,10 @@
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonUpdate.Location = new System.Drawing.Point(128, 385);
+            this.buttonUpdate.Location = new System.Drawing.Point(128, 375);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(113, 38);
+            this.buttonUpdate.Size = new System.Drawing.Size(454, 38);
             this.buttonUpdate.TabIndex = 71;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = false;
@@ -223,7 +224,7 @@
             // dataGridViewUpdate
             // 
             this.dataGridViewUpdate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUpdate.Location = new System.Drawing.Point(40, 449);
+            this.dataGridViewUpdate.Location = new System.Drawing.Point(29, 460);
             this.dataGridViewUpdate.Name = "dataGridViewUpdate";
             this.dataGridViewUpdate.RowHeadersWidth = 51;
             this.dataGridViewUpdate.RowTemplate.Height = 24;
@@ -237,10 +238,10 @@
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(302, 385);
+            this.buttonDelete.Location = new System.Drawing.Point(129, 375);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(113, 38);
+            this.buttonDelete.Size = new System.Drawing.Size(454, 38);
             this.buttonDelete.TabIndex = 102;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -250,11 +251,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 743);
+            this.ClientSize = new System.Drawing.Size(703, 752);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.dataGridViewUpdate);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.labelheading);
+            this.Controls.Add(this.labelEditAdmin);
             this.Controls.Add(this.checkBoxOther);
             this.Controls.Add(this.checkBoxFemale);
             this.Controls.Add(this.checkBoxMale);
@@ -281,7 +282,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelheading;
+        private System.Windows.Forms.Label labelEditAdmin;
         private System.Windows.Forms.CheckBox checkBoxOther;
         private System.Windows.Forms.CheckBox checkBoxFemale;
         private System.Windows.Forms.CheckBox checkBoxMale;
