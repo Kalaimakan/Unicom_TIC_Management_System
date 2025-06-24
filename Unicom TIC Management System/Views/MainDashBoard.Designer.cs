@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDashBoard));
             this.panelAdmin = new System.Windows.Forms.Panel();
+            this.buttonTimetableManage = new System.Windows.Forms.Button();
+            this.buttonRoomManage = new System.Windows.Forms.Button();
             this.buttonExamMarks = new System.Windows.Forms.Button();
             this.buttonAdminManage = new System.Windows.Forms.Button();
             this.buttonEducationManage = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMainPanal = new System.Windows.Forms.Panel();
-            this.buttonRoomManage = new System.Windows.Forms.Button();
-            this.buttonTimetableManage = new System.Windows.Forms.Button();
             this.buttonDeleteAdmin = new System.Windows.Forms.Button();
             this.buttonViewAdmin = new System.Windows.Forms.Button();
             this.buttonUpdateAdmin = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.buttonDepartment = new System.Windows.Forms.Button();
             this.buttonCourse = new System.Windows.Forms.Button();
             this.panelCourseDepartmentButtons = new System.Windows.Forms.Panel();
+            this.buttonSubject = new System.Windows.Forms.Button();
             this.buttonUpdateLecturer = new System.Windows.Forms.Button();
             this.buttonViewLecturer = new System.Windows.Forms.Button();
             this.buttonDeleteLecturer = new System.Windows.Forms.Button();
@@ -73,7 +74,7 @@
             this.buttonTimetable = new System.Windows.Forms.Button();
             this.buttonViewTimetable = new System.Windows.Forms.Button();
             this.panelTimetableButtons = new System.Windows.Forms.Panel();
-            this.buttonSubject = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -107,6 +108,32 @@
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(232, 1030);
             this.panelAdmin.TabIndex = 0;
+            // 
+            // buttonTimetableManage
+            // 
+            this.buttonTimetableManage.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonTimetableManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTimetableManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.buttonTimetableManage.Location = new System.Drawing.Point(23, 235);
+            this.buttonTimetableManage.Name = "buttonTimetableManage";
+            this.buttonTimetableManage.Size = new System.Drawing.Size(187, 35);
+            this.buttonTimetableManage.TabIndex = 90;
+            this.buttonTimetableManage.Text = "Timetable Manage";
+            this.buttonTimetableManage.UseVisualStyleBackColor = false;
+            this.buttonTimetableManage.Click += new System.EventHandler(this.buttonTimetableManage_Click);
+            // 
+            // buttonRoomManage
+            // 
+            this.buttonRoomManage.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonRoomManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRoomManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.buttonRoomManage.Location = new System.Drawing.Point(23, 325);
+            this.buttonRoomManage.Name = "buttonRoomManage";
+            this.buttonRoomManage.Size = new System.Drawing.Size(187, 35);
+            this.buttonRoomManage.TabIndex = 89;
+            this.buttonRoomManage.Text = "Room Manage";
+            this.buttonRoomManage.UseVisualStyleBackColor = false;
+            this.buttonRoomManage.Click += new System.EventHandler(this.buttonRoomManage_Click);
             // 
             // buttonExamMarks
             // 
@@ -209,6 +236,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(232, 0);
@@ -234,32 +262,6 @@
             this.panelMainPanal.Name = "panelMainPanal";
             this.panelMainPanal.Size = new System.Drawing.Size(973, 912);
             this.panelMainPanal.TabIndex = 2;
-            // 
-            // buttonRoomManage
-            // 
-            this.buttonRoomManage.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonRoomManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRoomManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonRoomManage.Location = new System.Drawing.Point(23, 325);
-            this.buttonRoomManage.Name = "buttonRoomManage";
-            this.buttonRoomManage.Size = new System.Drawing.Size(187, 35);
-            this.buttonRoomManage.TabIndex = 89;
-            this.buttonRoomManage.Text = "Room Manage";
-            this.buttonRoomManage.UseVisualStyleBackColor = false;
-            this.buttonRoomManage.Click += new System.EventHandler(this.buttonRoomManage_Click);
-            // 
-            // buttonTimetableManage
-            // 
-            this.buttonTimetableManage.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonTimetableManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTimetableManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonTimetableManage.Location = new System.Drawing.Point(23, 235);
-            this.buttonTimetableManage.Name = "buttonTimetableManage";
-            this.buttonTimetableManage.Size = new System.Drawing.Size(187, 35);
-            this.buttonTimetableManage.TabIndex = 90;
-            this.buttonTimetableManage.Text = "Timetable Manage";
-            this.buttonTimetableManage.UseVisualStyleBackColor = false;
-            this.buttonTimetableManage.Click += new System.EventHandler(this.buttonTimetableManage_Click);
             // 
             // buttonDeleteAdmin
             // 
@@ -422,6 +424,19 @@
             this.panelCourseDepartmentButtons.Name = "panelCourseDepartmentButtons";
             this.panelCourseDepartmentButtons.Size = new System.Drawing.Size(169, 134);
             this.panelCourseDepartmentButtons.TabIndex = 169;
+            // 
+            // buttonSubject
+            // 
+            this.buttonSubject.BackColor = System.Drawing.Color.Silver;
+            this.buttonSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubject.Location = new System.Drawing.Point(8, 15);
+            this.buttonSubject.Name = "buttonSubject";
+            this.buttonSubject.Size = new System.Drawing.Size(152, 33);
+            this.buttonSubject.TabIndex = 100;
+            this.buttonSubject.Text = "Subject";
+            this.buttonSubject.UseVisualStyleBackColor = false;
+            this.buttonSubject.Visible = false;
+            this.buttonSubject.Click += new System.EventHandler(this.buttonSubject_Click);
             // 
             // buttonUpdateLecturer
             // 
@@ -633,18 +648,18 @@
             this.panelTimetableButtons.Size = new System.Drawing.Size(171, 91);
             this.panelTimetableButtons.TabIndex = 173;
             // 
-            // buttonSubject
+            // button1
             // 
-            this.buttonSubject.BackColor = System.Drawing.Color.Silver;
-            this.buttonSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubject.Location = new System.Drawing.Point(8, 15);
-            this.buttonSubject.Name = "buttonSubject";
-            this.buttonSubject.Size = new System.Drawing.Size(152, 33);
-            this.buttonSubject.TabIndex = 100;
-            this.buttonSubject.Text = "Subject";
-            this.buttonSubject.UseVisualStyleBackColor = false;
-            this.buttonSubject.Visible = false;
-            this.buttonSubject.Click += new System.EventHandler(this.buttonSubject_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.Location = new System.Drawing.Point(1018, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 35);
+            this.button1.TabIndex = 91;
+            this.button1.Text = "Log Out";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainDashBoard
             // 
@@ -665,6 +680,7 @@
             this.MinimizeBox = false;
             this.Name = "MainDashBoard";
             this.Text = "MainDashBoard";
+            this.Load += new System.EventHandler(this.MainDashBoard_Load);
             this.panelAdmin.ResumeLayout(false);
             this.panelAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -728,5 +744,6 @@
         private System.Windows.Forms.Button buttonViewTimetable;
         private System.Windows.Forms.Panel panelTimetableButtons;
         private System.Windows.Forms.Button buttonSubject;
+        private System.Windows.Forms.Button button1;
     }
 }

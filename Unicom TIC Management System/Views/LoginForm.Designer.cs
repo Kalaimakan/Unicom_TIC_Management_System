@@ -71,7 +71,7 @@
             this.buttonTogglePassword.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonTogglePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTogglePassword.ForeColor = System.Drawing.Color.Black;
-            this.buttonTogglePassword.Location = new System.Drawing.Point(635, 189);
+            this.buttonTogglePassword.Location = new System.Drawing.Point(639, 189);
             this.buttonTogglePassword.Name = "buttonTogglePassword";
             this.buttonTogglePassword.Size = new System.Drawing.Size(34, 31);
             this.buttonTogglePassword.TabIndex = 36;

@@ -100,6 +100,7 @@ namespace Unicom_TIC_Management_System.Views
             return users.FirstOrDefault(user =>
                 (user.User_Name == input || user.User_Email == input) &&
                 user.Password == password);
+            
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -137,7 +138,7 @@ namespace Unicom_TIC_Management_System.Views
             if (matchedUser != null)
             {
                 MessageBox.Show("Login successful!");
-                MainDashBoard mainDashBoard = new MainDashBoard();
+                MainDashBoard mainDashBoard = new MainDashBoard(matchedUser.User_Role);
                 mainDashBoard.Show();
                 this.Hide();
                 clearFormField();

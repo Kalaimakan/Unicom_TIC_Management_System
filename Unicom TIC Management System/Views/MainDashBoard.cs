@@ -16,6 +16,12 @@ namespace Unicom_TIC_Management_System.Views
         {
             InitializeComponent();
         }
+        private string UserRole;
+        public MainDashBoard(string userRole)
+        {
+            InitializeComponent();
+            this.UserRole = userRole;
+        }
         public void LoadForm(object formObj)
         {
             if (this.panelMainPanal.Controls.Count > 0)
@@ -29,6 +35,21 @@ namespace Unicom_TIC_Management_System.Views
             this.panelMainPanal.Controls.Add(form);
             this.panelMainPanal.Tag = form;
             form.Show();
+        }
+        private void MainDashBoard_Load(object sender, EventArgs e)
+        {
+            if (UserRole == "Staff" || UserRole == "Lecturer" || UserRole == "Student")
+            {
+
+            }
+            if (UserRole == "Lecturer" || UserRole == "Student")
+            {
+
+            }
+            if (UserRole == "Student")
+            {
+
+            }
         }
         private void LoadButtons(string place) 
         {
@@ -99,57 +120,21 @@ namespace Unicom_TIC_Management_System.Views
         }
         private void buttonAdminManage_Click(object sender, EventArgs e)
         {
-            //panelCourseDepartmentButtons.Visible = false;
-            //panelAdminButtons.Visible = true;
-            //panelStaffButtons.Visible = false;
-            //panelLecturerButtons.Visible = false;
-            //panelStudentButtons.Visible = false;
-            //buttonRegisterAdmin.Visible = true;
-            //buttonViewAdmin.Visible = true;
-            //buttonUpdateAdmin.Visible = true;
-            //buttonDeleteAdmin.Visible = true;
             LoadButtons("admin");
         }
 
         private void buttonStaffManage_Click(object sender, EventArgs e)
         {
-            //panelCourseDepartmentButtons.Visible = false;
-            //panelAdminButtons.Visible = false;
-            //panelStaffButtons.Visible = true;
-            //panelLecturerButtons.Visible = false;
-            //panelStudentButtons.Visible = false;
-            //buttonRegisterStaff.Visible = true;
-            //buttonViewStaff.Visible = true;
-            //buttonUpdateStaff.Visible = true;
-            //buttonDeleteStaff.Visible = true;
             LoadButtons("staff");
         }
 
         private void buttonLecturerManage_Click(object sender, EventArgs e)
         {
-            //panelCourseDepartmentButtons.Visible = false;
-            //panelAdminButtons.Visible = false;
-            //panelStaffButtons.Visible = false;
-            //panelLecturerButtons.Visible = true;
-            //panelStudentButtons.Visible = false;
-            //buttonRegisterLecturer.Visible = true;
-            //buttonViewLecturer.Visible = true;
-            //buttonUpdateLecturer.Visible = true;
-            //buttonDeleteLecturer.Visible = true;
             LoadButtons("Lecturer");
         }
 
         private void buttonStudentManage_Click(object sender, EventArgs e)
         {
-            //panelCourseDepartmentButtons.Visible = false;
-            //panelAdminButtons.Visible = false;
-            //panelStaffButtons.Visible = false;
-            //panelLecturerButtons.Visible = false;
-            //panelStudentButtons.Visible = true;
-            //buttonRegisterStudent.Visible = true;
-            //buttonViewStudent.Visible = true;
-            //buttonUpdateStudent.Visible = true;
-            //buttonDeleteStudent.Visible = true;
             LoadButtons("Student");
 
         }
@@ -300,5 +285,11 @@ namespace Unicom_TIC_Management_System.Views
         {
             LoadForm(new SubjectCreation());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }
