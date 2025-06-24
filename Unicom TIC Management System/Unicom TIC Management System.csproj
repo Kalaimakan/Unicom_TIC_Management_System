@@ -123,6 +123,12 @@
     <Compile Include="Views\EditStudent.Designer.cs">
       <DependentUpon>EditStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ExamCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ExamCreation.Designer.cs">
+      <DependentUpon>ExamCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     <EmbeddedResource Include="Views\EditStudent.resx">
       <DependentUpon>EditStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ExamCreation.resx">
+      <DependentUpon>ExamCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +294,7 @@
     <EmbeddedResource Include="Views\ViewStudents.resx">
       <DependentUpon>ViewStudents.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\UnicomTICManagementSystem.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -300,7 +310,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
     <Folder Include="Img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

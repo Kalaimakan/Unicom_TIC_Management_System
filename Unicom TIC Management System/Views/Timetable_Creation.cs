@@ -159,6 +159,16 @@ namespace Unicom_TIC_Management_System.Views
             {
                 labelFillDepartment.Visible = false;
             }
+            if (comboBoxRoom.SelectedIndex < 0)
+            {
+                labelFillRoom.Text = "Please select a room.";
+                labelFillRoom.Visible = true;
+                isValid = false;
+            }
+            else
+            {
+                labelFillRoom.Visible = false;
+            }
             if (!isValid)
             {
                 return;

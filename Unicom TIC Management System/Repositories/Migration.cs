@@ -162,8 +162,14 @@ namespace Unicom_TIC_Management_System.Repositories
                     //Create Exam Table.
                     commend.CommandText = @"CREATE TABLE IF NOT EXISTS Exams(
                                     Exam_Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    Name TEXT NOT NULL, 
+                                    Exam_Name TEXT NOT NULL, 
+                                    Exam_Type TEXT NOT NULL, 
+                                    Exam_Date TEXT NOT NULL, 
                                     Subject_Id INTEGER,
+                                    Course_Id INTEGER, 
+                                    FOREIGN KEY (Course_Id) REFERENCES Courses(Course_Id)
+                                        ON DELETE SET NULL
+                                        ON UPDATE CASCADE,
                                     FOREIGN KEY (Subject_Id) REFERENCES Subjects(Subject_Id)
                                         ON DELETE SET NULL
                                         ON UPDATE CASCADE
