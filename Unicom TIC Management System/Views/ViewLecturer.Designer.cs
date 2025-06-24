@@ -75,6 +75,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewLecturers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewLecturer";
             this.Text = "ViewLecturer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

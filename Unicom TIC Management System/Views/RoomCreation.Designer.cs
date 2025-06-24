@@ -49,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(174, 37);
+            this.label1.Location = new System.Drawing.Point(260, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 29);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 106);
+            this.label2.Location = new System.Drawing.Point(115, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 22);
             this.label2.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 164);
+            this.label3.Location = new System.Drawing.Point(115, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 22);
             this.label3.TabIndex = 2;
@@ -78,7 +78,7 @@
             // textBoxRoomName
             // 
             this.textBoxRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRoomName.Location = new System.Drawing.Point(207, 103);
+            this.textBoxRoomName.Location = new System.Drawing.Point(293, 132);
             this.textBoxRoomName.Name = "textBoxRoomName";
             this.textBoxRoomName.Size = new System.Drawing.Size(280, 28);
             this.textBoxRoomName.TabIndex = 3;
@@ -100,7 +100,7 @@
             this.comboBoxRoomType.Items.AddRange(new object[] {
             "Hall",
             "Lab"});
-            this.comboBoxRoomType.Location = new System.Drawing.Point(207, 163);
+            this.comboBoxRoomType.Location = new System.Drawing.Point(293, 192);
             this.comboBoxRoomType.Name = "comboBoxRoomType";
             this.comboBoxRoomType.Size = new System.Drawing.Size(280, 28);
             this.comboBoxRoomType.TabIndex = 106;
@@ -111,7 +111,7 @@
             this.buttonBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonBack.Location = new System.Drawing.Point(390, 229);
+            this.buttonBack.Location = new System.Drawing.Point(476, 258);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(97, 39);
@@ -125,7 +125,7 @@
             this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd.Location = new System.Drawing.Point(33, 230);
+            this.buttonAdd.Location = new System.Drawing.Point(119, 259);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(91, 38);
@@ -140,7 +140,7 @@
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(211, 230);
+            this.buttonDelete.Location = new System.Drawing.Point(297, 259);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(91, 38);
@@ -152,7 +152,7 @@
             // dataGridViewRooms
             // 
             this.dataGridViewRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRooms.Location = new System.Drawing.Point(33, 295);
+            this.dataGridViewRooms.Location = new System.Drawing.Point(119, 324);
             this.dataGridViewRooms.Name = "dataGridViewRooms";
             this.dataGridViewRooms.RowHeadersWidth = 51;
             this.dataGridViewRooms.RowTemplate.Height = 24;
@@ -164,7 +164,7 @@
             // 
             this.labelFillRoomName.AutoSize = true;
             this.labelFillRoomName.ForeColor = System.Drawing.Color.Red;
-            this.labelFillRoomName.Location = new System.Drawing.Point(204, 134);
+            this.labelFillRoomName.Location = new System.Drawing.Point(290, 163);
             this.labelFillRoomName.Name = "labelFillRoomName";
             this.labelFillRoomName.Size = new System.Drawing.Size(0, 16);
             this.labelFillRoomName.TabIndex = 112;
@@ -173,7 +173,7 @@
             // 
             this.labelFillRoomType.AutoSize = true;
             this.labelFillRoomType.ForeColor = System.Drawing.Color.Red;
-            this.labelFillRoomType.Location = new System.Drawing.Point(204, 194);
+            this.labelFillRoomType.Location = new System.Drawing.Point(290, 223);
             this.labelFillRoomType.Name = "labelFillRoomType";
             this.labelFillRoomType.Size = new System.Drawing.Size(0, 16);
             this.labelFillRoomType.TabIndex = 113;
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 496);
+            this.ClientSize = new System.Drawing.Size(642, 741);
             this.Controls.Add(this.labelFillRoomType);
             this.Controls.Add(this.labelFillRoomName);
             this.Controls.Add(this.dataGridViewRooms);
@@ -195,6 +195,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RoomCreation";
             this.Text = "RoomCreation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

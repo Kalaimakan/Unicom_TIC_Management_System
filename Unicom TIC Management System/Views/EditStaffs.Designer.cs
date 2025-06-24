@@ -59,7 +59,7 @@
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(127, 442);
+            this.buttonDelete.Location = new System.Drawing.Point(188, 442);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(454, 38);
@@ -71,7 +71,7 @@
             // dataGridViewUpdate
             // 
             this.dataGridViewUpdate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUpdate.Location = new System.Drawing.Point(38, 534);
+            this.dataGridViewUpdate.Location = new System.Drawing.Point(99, 534);
             this.dataGridViewUpdate.Name = "dataGridViewUpdate";
             this.dataGridViewUpdate.RowHeadersWidth = 51;
             this.dataGridViewUpdate.RowTemplate.Height = 24;
@@ -93,7 +93,7 @@
             // 
             this.labelheading.AutoSize = true;
             this.labelheading.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelheading.Location = new System.Drawing.Point(271, 41);
+            this.labelheading.Location = new System.Drawing.Point(332, 41);
             this.labelheading.Name = "labelheading";
             this.labelheading.Size = new System.Drawing.Size(115, 25);
             this.labelheading.TabIndex = 122;
@@ -104,7 +104,7 @@
             // 
             this.checkBoxOther.AutoSize = true;
             this.checkBoxOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxOther.Location = new System.Drawing.Point(508, 397);
+            this.checkBoxOther.Location = new System.Drawing.Point(569, 397);
             this.checkBoxOther.Name = "checkBoxOther";
             this.checkBoxOther.Size = new System.Drawing.Size(73, 24);
             this.checkBoxOther.TabIndex = 121;
@@ -115,7 +115,7 @@
             // 
             this.checkBoxFemale.AutoSize = true;
             this.checkBoxFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFemale.Location = new System.Drawing.Point(387, 397);
+            this.checkBoxFemale.Location = new System.Drawing.Point(448, 397);
             this.checkBoxFemale.Name = "checkBoxFemale";
             this.checkBoxFemale.Size = new System.Drawing.Size(86, 24);
             this.checkBoxFemale.TabIndex = 120;
@@ -126,7 +126,7 @@
             // 
             this.checkBoxMale.AutoSize = true;
             this.checkBoxMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMale.Location = new System.Drawing.Point(278, 397);
+            this.checkBoxMale.Location = new System.Drawing.Point(339, 397);
             this.checkBoxMale.Name = "checkBoxMale";
             this.checkBoxMale.Size = new System.Drawing.Size(67, 24);
             this.checkBoxMale.TabIndex = 119;
@@ -137,7 +137,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(123, 395);
+            this.labelGender.Location = new System.Drawing.Point(184, 395);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(130, 22);
             this.labelGender.TabIndex = 118;
@@ -146,7 +146,7 @@
             // textBoxPhoneNumber
             // 
             this.textBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(277, 271);
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(338, 271);
             this.textBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(305, 28);
@@ -156,7 +156,7 @@
             // 
             this.labelPhoneNumber.AutoSize = true;
             this.labelPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPhoneNumber.Location = new System.Drawing.Point(123, 274);
+            this.labelPhoneNumber.Location = new System.Drawing.Point(184, 274);
             this.labelPhoneNumber.Name = "labelPhoneNumber";
             this.labelPhoneNumber.Size = new System.Drawing.Size(130, 22);
             this.labelPhoneNumber.TabIndex = 113;
@@ -168,7 +168,7 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(127, 488);
+            this.buttonCancel.Location = new System.Drawing.Point(188, 488);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(455, 38);
@@ -180,7 +180,7 @@
             // textBoxLastName
             // 
             this.textBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastName.Location = new System.Drawing.Point(276, 153);
+            this.textBoxLastName.Location = new System.Drawing.Point(337, 153);
             this.textBoxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(305, 28);
@@ -189,7 +189,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(277, 210);
+            this.textBoxEmail.Location = new System.Drawing.Point(338, 210);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(305, 28);
@@ -199,7 +199,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(123, 213);
+            this.labelEmail.Location = new System.Drawing.Point(184, 213);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(129, 22);
             this.labelEmail.TabIndex = 108;
@@ -209,7 +209,7 @@
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(123, 153);
+            this.labelLastName.Location = new System.Drawing.Point(184, 153);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(131, 22);
             this.labelLastName.TabIndex = 106;
@@ -221,7 +221,7 @@
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonUpdate.Location = new System.Drawing.Point(127, 446);
+            this.buttonUpdate.Location = new System.Drawing.Point(188, 446);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(454, 38);
@@ -234,7 +234,7 @@
             // textBoxFirstName
             // 
             this.textBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstName.Location = new System.Drawing.Point(276, 99);
+            this.textBoxFirstName.Location = new System.Drawing.Point(337, 99);
             this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(305, 28);
@@ -244,7 +244,7 @@
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(123, 99);
+            this.labelFirstName.Location = new System.Drawing.Point(184, 99);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(132, 22);
             this.labelFirstName.TabIndex = 103;
@@ -253,7 +253,7 @@
             // textBoxSalary
             // 
             this.textBoxSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSalary.Location = new System.Drawing.Point(276, 336);
+            this.textBoxSalary.Location = new System.Drawing.Point(337, 336);
             this.textBoxSalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSalary.Name = "textBoxSalary";
             this.textBoxSalary.Size = new System.Drawing.Size(305, 28);
@@ -263,7 +263,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(122, 339);
+            this.label1.Location = new System.Drawing.Point(183, 339);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 22);
             this.label1.TabIndex = 126;
@@ -273,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 826);
+            this.ClientSize = new System.Drawing.Size(865, 952);
             this.Controls.Add(this.textBoxSalary);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelete);
@@ -294,6 +294,7 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.labelFirstName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditStaffs";
             this.Text = "EditStaffs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpdate)).EndInit();

@@ -65,7 +65,7 @@
             // 
             this.labelEditAdmin.AutoSize = true;
             this.labelEditAdmin.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEditAdmin.Location = new System.Drawing.Point(272, 38);
+            this.labelEditAdmin.Location = new System.Drawing.Point(353, 38);
             this.labelEditAdmin.Name = "labelEditAdmin";
             this.labelEditAdmin.Size = new System.Drawing.Size(132, 25);
             this.labelEditAdmin.TabIndex = 99;
@@ -76,7 +76,7 @@
             // 
             this.checkBoxOther.AutoSize = true;
             this.checkBoxOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxOther.Location = new System.Drawing.Point(509, 331);
+            this.checkBoxOther.Location = new System.Drawing.Point(590, 331);
             this.checkBoxOther.Name = "checkBoxOther";
             this.checkBoxOther.Size = new System.Drawing.Size(73, 24);
             this.checkBoxOther.TabIndex = 98;
@@ -87,7 +87,7 @@
             // 
             this.checkBoxFemale.AutoSize = true;
             this.checkBoxFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFemale.Location = new System.Drawing.Point(388, 331);
+            this.checkBoxFemale.Location = new System.Drawing.Point(469, 331);
             this.checkBoxFemale.Name = "checkBoxFemale";
             this.checkBoxFemale.Size = new System.Drawing.Size(86, 24);
             this.checkBoxFemale.TabIndex = 97;
@@ -98,7 +98,7 @@
             // 
             this.checkBoxMale.AutoSize = true;
             this.checkBoxMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMale.Location = new System.Drawing.Point(279, 331);
+            this.checkBoxMale.Location = new System.Drawing.Point(360, 331);
             this.checkBoxMale.Name = "checkBoxMale";
             this.checkBoxMale.Size = new System.Drawing.Size(67, 24);
             this.checkBoxMale.TabIndex = 96;
@@ -109,7 +109,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(124, 329);
+            this.labelGender.Location = new System.Drawing.Point(205, 329);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(130, 22);
             this.labelGender.TabIndex = 94;
@@ -118,7 +118,7 @@
             // textBoxPhoneNumber
             // 
             this.textBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(278, 269);
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(359, 269);
             this.textBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(305, 28);
@@ -128,7 +128,7 @@
             // 
             this.labelPhoneNumber.AutoSize = true;
             this.labelPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPhoneNumber.Location = new System.Drawing.Point(124, 272);
+            this.labelPhoneNumber.Location = new System.Drawing.Point(205, 272);
             this.labelPhoneNumber.Name = "labelPhoneNumber";
             this.labelPhoneNumber.Size = new System.Drawing.Size(130, 22);
             this.labelPhoneNumber.TabIndex = 84;
@@ -140,7 +140,7 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(128, 417);
+            this.buttonCancel.Location = new System.Drawing.Point(209, 417);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(455, 38);
@@ -152,7 +152,7 @@
             // textBoxLastName
             // 
             this.textBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastName.Location = new System.Drawing.Point(277, 150);
+            this.textBoxLastName.Location = new System.Drawing.Point(358, 150);
             this.textBoxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(305, 28);
@@ -161,7 +161,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(278, 208);
+            this.textBoxEmail.Location = new System.Drawing.Point(359, 208);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(305, 28);
@@ -171,7 +171,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(124, 211);
+            this.labelEmail.Location = new System.Drawing.Point(205, 211);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(129, 22);
             this.labelEmail.TabIndex = 74;
@@ -181,7 +181,7 @@
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(124, 150);
+            this.labelLastName.Location = new System.Drawing.Point(205, 150);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(131, 22);
             this.labelLastName.TabIndex = 72;
@@ -193,7 +193,7 @@
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonUpdate.Location = new System.Drawing.Point(128, 375);
+            this.buttonUpdate.Location = new System.Drawing.Point(209, 375);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(454, 38);
@@ -205,7 +205,7 @@
             // textBoxFirstName
             // 
             this.textBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstName.Location = new System.Drawing.Point(277, 96);
+            this.textBoxFirstName.Location = new System.Drawing.Point(358, 96);
             this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(305, 28);
@@ -215,7 +215,7 @@
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(124, 96);
+            this.labelFirstName.Location = new System.Drawing.Point(205, 96);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(132, 22);
             this.labelFirstName.TabIndex = 69;
@@ -224,7 +224,7 @@
             // dataGridViewUpdate
             // 
             this.dataGridViewUpdate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUpdate.Location = new System.Drawing.Point(29, 460);
+            this.dataGridViewUpdate.Location = new System.Drawing.Point(110, 460);
             this.dataGridViewUpdate.Name = "dataGridViewUpdate";
             this.dataGridViewUpdate.RowHeadersWidth = 51;
             this.dataGridViewUpdate.RowTemplate.Height = 24;
@@ -238,7 +238,7 @@
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(129, 375);
+            this.buttonDelete.Location = new System.Drawing.Point(210, 375);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(454, 38);
@@ -251,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 752);
+            this.ClientSize = new System.Drawing.Size(883, 840);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.dataGridViewUpdate);
             this.Controls.Add(this.pictureBox1);
@@ -270,6 +270,7 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.labelFirstName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditAdmin";
             this.Text = "Edint Admin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

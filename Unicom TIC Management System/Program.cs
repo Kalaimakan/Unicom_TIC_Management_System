@@ -19,8 +19,8 @@ namespace Unicom_TIC_Management_System
             Migration.createTable();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
-            //Application.Run(new MainDashBoard());
+            //Application.Run(new LoginForm());
+            Application.Run(new MainDashBoard());
             //Application.Run(new MarkCreation());
             //Application.Run(new ExamCreation());
             //Application.Run(new ViewTimetable());

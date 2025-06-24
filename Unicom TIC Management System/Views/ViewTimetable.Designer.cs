@@ -75,6 +75,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridViewTimetable);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewTimetable";
             this.Text = "View Timetable";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimetable)).EndInit();

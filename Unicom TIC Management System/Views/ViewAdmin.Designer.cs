@@ -75,6 +75,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewAdmin";
             this.Text = "ViewAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();

@@ -52,7 +52,7 @@
             this.labelFillCourse.BackColor = System.Drawing.SystemColors.Control;
             this.labelFillCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFillCourse.ForeColor = System.Drawing.Color.Red;
-            this.labelFillCourse.Location = new System.Drawing.Point(228, 125);
+            this.labelFillCourse.Location = new System.Drawing.Point(452, 240);
             this.labelFillCourse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFillCourse.Name = "labelFillCourse";
             this.labelFillCourse.Size = new System.Drawing.Size(0, 20);
@@ -61,7 +61,7 @@
             // textBoxAddDepartment
             // 
             this.textBoxAddDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddDepartment.Location = new System.Drawing.Point(216, 97);
+            this.textBoxAddDepartment.Location = new System.Drawing.Point(440, 212);
             this.textBoxAddDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAddDepartment.Name = "textBoxAddDepartment";
             this.textBoxAddDepartment.Size = new System.Drawing.Size(220, 24);
@@ -71,7 +71,7 @@
             // 
             this.labelDepartmentName.AutoSize = true;
             this.labelDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDepartmentName.Location = new System.Drawing.Point(51, 100);
+            this.labelDepartmentName.Location = new System.Drawing.Point(275, 215);
             this.labelDepartmentName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDepartmentName.Name = "labelDepartmentName";
             this.labelDepartmentName.Size = new System.Drawing.Size(161, 20);
@@ -82,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(133, 34);
+            this.label2.Location = new System.Drawing.Point(357, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(211, 25);
@@ -94,7 +94,7 @@
             this.buttonClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonClear.Location = new System.Drawing.Point(242, 170);
+            this.buttonClear.Location = new System.Drawing.Point(466, 285);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(95, 33);
@@ -108,7 +108,7 @@
             this.buttonBack.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonBack.Location = new System.Drawing.Point(341, 170);
+            this.buttonBack.Location = new System.Drawing.Point(565, 285);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(95, 33);
@@ -122,7 +122,7 @@
             this.buttonDelete.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(143, 170);
+            this.buttonDelete.Location = new System.Drawing.Point(367, 285);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(95, 33);
@@ -136,7 +136,7 @@
             this.buttonAdd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd.Location = new System.Drawing.Point(44, 170);
+            this.buttonAdd.Location = new System.Drawing.Point(268, 285);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(95, 33);
@@ -164,12 +164,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewDepartment.Location = new System.Drawing.Point(63, 252);
+            this.dataGridViewDepartment.Location = new System.Drawing.Point(268, 367);
             this.dataGridViewDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDepartment.Name = "dataGridViewDepartment";
             this.dataGridViewDepartment.RowHeadersWidth = 51;
             this.dataGridViewDepartment.RowTemplate.Height = 24;
-            this.dataGridViewDepartment.Size = new System.Drawing.Size(349, 162);
+            this.dataGridViewDepartment.Size = new System.Drawing.Size(392, 162);
             this.dataGridViewDepartment.TabIndex = 29;
             this.dataGridViewDepartment.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDepartment_CellMouseClick);
             // 
@@ -178,7 +178,7 @@
             this.labelFillDepartment.AutoSize = true;
             this.labelFillDepartment.BackColor = System.Drawing.SystemColors.Control;
             this.labelFillDepartment.ForeColor = System.Drawing.Color.Red;
-            this.labelFillDepartment.Location = new System.Drawing.Point(213, 138);
+            this.labelFillDepartment.Location = new System.Drawing.Point(437, 253);
             this.labelFillDepartment.Name = "labelFillDepartment";
             this.labelFillDepartment.Size = new System.Drawing.Size(0, 16);
             this.labelFillDepartment.TabIndex = 30;
@@ -186,9 +186,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(147, 74);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 47);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 69;
             this.pictureBox1.TabStop = false;
@@ -197,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 466);
+            this.ClientSize = new System.Drawing.Size(973, 700);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelFillDepartment);
             this.Controls.Add(this.dataGridViewDepartment);
@@ -209,6 +209,7 @@
             this.Controls.Add(this.labelFillCourse);
             this.Controls.Add(this.textBoxAddDepartment);
             this.Controls.Add(this.labelDepartmentName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DepartmentCeation";
             this.Text = "DepartmentCeation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartment)).EndInit();

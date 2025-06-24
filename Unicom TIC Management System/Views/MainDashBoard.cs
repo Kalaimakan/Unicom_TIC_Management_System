@@ -30,56 +30,127 @@ namespace Unicom_TIC_Management_System.Views
             this.panelMainPanal.Tag = form;
             form.Show();
         }
-        private void buttonAdminManage_Click(object sender, EventArgs e)
+        private void LoadButtons(string place) 
         {
+            buttonRoom.Visible = false;
+            panelTimetableButtons.Visible = false;  
+            panelExamMarkButtons.Visible = false;
             panelCourseDepartmentButtons.Visible = false;
-            panelAdminButtons.Visible = true;
+            panelAdminButtons.Visible = false;
+            panelStudentButtons.Visible = false;
             panelStaffButtons.Visible = false;
             panelLecturerButtons.Visible = false;
-            panelStudentButtons.Visible = false;
-            buttonRegisterAdmin.Visible = true;
-            buttonViewAdmin.Visible = true;
-            buttonUpdateAdmin.Visible = true;
-            buttonDeleteAdmin.Visible = true;
+            if(place == "admin") 
+            {
+                panelAdminButtons.Visible = true;
+                buttonRegisterAdmin.Visible = true;
+                buttonViewAdmin.Visible = true;
+                buttonUpdateAdmin.Visible = true;
+                buttonDeleteAdmin.Visible = true;
+            }
+            if (place == "staff")
+            {
+                panelStaffButtons.Visible = true;
+                buttonRegisterStaff.Visible = true;
+                buttonViewStaff.Visible = true;
+                buttonUpdateStaff.Visible = true;
+                buttonDeleteStaff.Visible = true;
+            }
+            if (place == "Lecturer")
+            {
+                panelLecturerButtons.Visible = true;
+                buttonRegisterLecturer.Visible = true;
+                buttonViewLecturer.Visible = true;
+                buttonUpdateLecturer.Visible = true;
+                buttonDeleteLecturer.Visible = true;
+
+            }
+            if (place == "Student")
+            {
+                panelStudentButtons.Visible = true;
+                buttonRegisterStudent.Visible = true;
+                buttonViewStudent.Visible = true;
+                buttonUpdateStudent.Visible = true;
+                buttonDeleteStudent.Visible = true;
+            }
+            if (place=="Course")
+            {
+                panelCourseDepartmentButtons.Visible = true;
+                buttonCourse.Visible = true;
+                buttonDepartment.Visible = true;
+                buttonSubject.Visible = true;
+            }
+            if (place == "Exam")
+            {
+                panelExamMarkButtons.Visible = true;
+                buttonExam.Visible = true;
+                buttonMark.Visible = true;
+            }
+            if (place == "Room")
+            {
+                buttonRoom.Visible = true;
+            }
+            if (place == "Timetable")
+            {
+                panelTimetableButtons.Visible = true;
+                buttonViewTimetable.Visible = true;
+                buttonTimetable.Visible = true;
+            }
+        }
+        private void buttonAdminManage_Click(object sender, EventArgs e)
+        {
+            //panelCourseDepartmentButtons.Visible = false;
+            //panelAdminButtons.Visible = true;
+            //panelStaffButtons.Visible = false;
+            //panelLecturerButtons.Visible = false;
+            //panelStudentButtons.Visible = false;
+            //buttonRegisterAdmin.Visible = true;
+            //buttonViewAdmin.Visible = true;
+            //buttonUpdateAdmin.Visible = true;
+            //buttonDeleteAdmin.Visible = true;
+            LoadButtons("admin");
         }
 
         private void buttonStaffManage_Click(object sender, EventArgs e)
         {
-            panelCourseDepartmentButtons.Visible = false;
-            panelAdminButtons.Visible = false;
-            panelStaffButtons.Visible = true;
-            panelLecturerButtons.Visible = false;
-            panelStudentButtons.Visible = false;
-            buttonRegisterStaff.Visible = true;
-            buttonViewStaff.Visible = true;
-            buttonUpdateStaff.Visible = true;
-            buttonDeleteStaff.Visible = true;
+            //panelCourseDepartmentButtons.Visible = false;
+            //panelAdminButtons.Visible = false;
+            //panelStaffButtons.Visible = true;
+            //panelLecturerButtons.Visible = false;
+            //panelStudentButtons.Visible = false;
+            //buttonRegisterStaff.Visible = true;
+            //buttonViewStaff.Visible = true;
+            //buttonUpdateStaff.Visible = true;
+            //buttonDeleteStaff.Visible = true;
+            LoadButtons("staff");
         }
-         
+
         private void buttonLecturerManage_Click(object sender, EventArgs e)
         {
-            panelCourseDepartmentButtons.Visible = false;
-            panelAdminButtons.Visible = false;
-            panelStaffButtons.Visible = false;
-            panelLecturerButtons.Visible = true;
-            panelStudentButtons.Visible = false;
-            buttonRegisterLecturer.Visible = true;
-            buttonViewLecturer.Visible=true;
-            buttonUpdateLecturer.Visible = true;
-            buttonDeleteLecturer.Visible = true;
+            //panelCourseDepartmentButtons.Visible = false;
+            //panelAdminButtons.Visible = false;
+            //panelStaffButtons.Visible = false;
+            //panelLecturerButtons.Visible = true;
+            //panelStudentButtons.Visible = false;
+            //buttonRegisterLecturer.Visible = true;
+            //buttonViewLecturer.Visible = true;
+            //buttonUpdateLecturer.Visible = true;
+            //buttonDeleteLecturer.Visible = true;
+            LoadButtons("Lecturer");
         }
 
         private void buttonStudentManage_Click(object sender, EventArgs e)
         {
-            panelCourseDepartmentButtons.Visible = false;
-            panelAdminButtons.Visible = false;
-            panelStaffButtons.Visible = false;
-            panelLecturerButtons.Visible = false;
-            panelStudentButtons.Visible = true;
-            buttonRegisterStudent.Visible = true;
-            buttonViewStudent.Visible = true;
-            buttonUpdateStudent.Visible = true;
-            buttonDeleteStudent.Visible = true;
+            //panelCourseDepartmentButtons.Visible = false;
+            //panelAdminButtons.Visible = false;
+            //panelStaffButtons.Visible = false;
+            //panelLecturerButtons.Visible = false;
+            //panelStudentButtons.Visible = true;
+            //buttonRegisterStudent.Visible = true;
+            //buttonViewStudent.Visible = true;
+            //buttonUpdateStudent.Visible = true;
+            //buttonDeleteStudent.Visible = true;
+            LoadButtons("Student");
 
         }
         private void buttonRegisterAdmin_Click(object sender, EventArgs e)
@@ -175,7 +246,59 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonCourseDepartment_Click(object sender, EventArgs e)
         {
+            LoadButtons("Course");
+            
+        }
 
+        private void buttonExam_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ExamCreation());
+        }
+
+        private void buttonMark_Click(object sender, EventArgs e)
+        {
+            LoadForm(new MarkCreation());
+        }
+
+        private void buttonExamMarks_Click(object sender, EventArgs e)
+        {
+            LoadButtons("Exam");
+
+        }
+
+        private void buttonTimetable_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Timetable_Creation());
+
+        }
+
+        private void buttonViewTimetable_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ViewTimetable());
+
+        }
+
+        private void buttonRoom_Click(object sender, EventArgs e)
+        {
+            LoadForm(new RoomCreation());
+
+        }
+
+        private void buttonRoomManage_Click(object sender, EventArgs e)
+        {
+            LoadButtons("Room");
+
+        }
+
+        private void buttonTimetableManage_Click(object sender, EventArgs e)
+        {
+            LoadButtons("Timetable");
+
+        }
+
+        private void buttonSubject_Click(object sender, EventArgs e)
+        {
+            LoadForm(new SubjectCreation());
         }
     }
 }

@@ -241,6 +241,7 @@
             this.Controls.Add(this.labelCourseName);
             this.Controls.Add(this.labelSubjectName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SubjectCreation";
             this.Text = "SubjectCreation";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject)).EndInit();
