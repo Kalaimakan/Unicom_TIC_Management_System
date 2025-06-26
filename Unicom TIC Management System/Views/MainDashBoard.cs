@@ -17,10 +17,11 @@ namespace Unicom_TIC_Management_System.Views
             InitializeComponent();
         }
         private string UserRole;
-        public MainDashBoard(string userRole)
+        public MainDashBoard(string userRole, string userName)
         {
             InitializeComponent();
             this.UserRole = userRole;
+            
         }
         public void LoadForm(object formObj)
         {
@@ -40,6 +41,7 @@ namespace Unicom_TIC_Management_System.Views
         {
             if (UserRole == "Staff" || UserRole == "Lecturer" || UserRole == "Student")
             {
+                buttonTimetable.Visible = false;
 
             }
             if (UserRole == "Lecturer" || UserRole == "Student")
@@ -48,7 +50,6 @@ namespace Unicom_TIC_Management_System.Views
             }
             if (UserRole == "Student")
             {
-
             }
         }
         private void LoadButtons(string place) 

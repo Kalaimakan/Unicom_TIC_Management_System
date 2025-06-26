@@ -41,6 +41,7 @@
             this.labelRoleBasedAccess = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMainPanal = new System.Windows.Forms.Panel();
             this.buttonDeleteAdmin = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@
             this.buttonTimetable = new System.Windows.Forms.Button();
             this.buttonViewTimetable = new System.Windows.Forms.Button();
             this.panelTimetableButtons = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -140,7 +140,7 @@
             this.buttonExamMarks.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonExamMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExamMarks.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonExamMarks.Location = new System.Drawing.Point(23, 418);
+            this.buttonExamMarks.Location = new System.Drawing.Point(23, 410);
             this.buttonExamMarks.Name = "buttonExamMarks";
             this.buttonExamMarks.Size = new System.Drawing.Size(187, 35);
             this.buttonExamMarks.TabIndex = 88;
@@ -153,7 +153,7 @@
             this.buttonAdminManage.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonAdminManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdminManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonAdminManage.Location = new System.Drawing.Point(23, 858);
+            this.buttonAdminManage.Location = new System.Drawing.Point(23, 824);
             this.buttonAdminManage.Name = "buttonAdminManage";
             this.buttonAdminManage.Size = new System.Drawing.Size(187, 35);
             this.buttonAdminManage.TabIndex = 86;
@@ -166,7 +166,7 @@
             this.buttonEducationManage.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonEducationManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEducationManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonEducationManage.Location = new System.Drawing.Point(23, 513);
+            this.buttonEducationManage.Location = new System.Drawing.Point(23, 485);
             this.buttonEducationManage.Name = "buttonEducationManage";
             this.buttonEducationManage.Size = new System.Drawing.Size(187, 35);
             this.buttonEducationManage.TabIndex = 87;
@@ -179,7 +179,7 @@
             this.buttonStudentManage.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonStudentManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStudentManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonStudentManage.Location = new System.Drawing.Point(23, 604);
+            this.buttonStudentManage.Location = new System.Drawing.Point(23, 564);
             this.buttonStudentManage.Name = "buttonStudentManage";
             this.buttonStudentManage.Size = new System.Drawing.Size(187, 35);
             this.buttonStudentManage.TabIndex = 73;
@@ -192,7 +192,7 @@
             this.buttonLecturerManage.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonLecturerManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLecturerManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonLecturerManage.Location = new System.Drawing.Point(23, 691);
+            this.buttonLecturerManage.Location = new System.Drawing.Point(23, 652);
             this.buttonLecturerManage.Name = "buttonLecturerManage";
             this.buttonLecturerManage.Size = new System.Drawing.Size(187, 35);
             this.buttonLecturerManage.TabIndex = 72;
@@ -205,7 +205,7 @@
             this.buttonStaffManage.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonStaffManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStaffManage.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonStaffManage.Location = new System.Drawing.Point(23, 775);
+            this.buttonStaffManage.Location = new System.Drawing.Point(23, 739);
             this.buttonStaffManage.Name = "buttonStaffManage";
             this.buttonStaffManage.Size = new System.Drawing.Size(187, 35);
             this.buttonStaffManage.TabIndex = 71;
@@ -243,6 +243,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1158, 100);
             this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.Location = new System.Drawing.Point(1018, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 35);
+            this.button1.TabIndex = 91;
+            this.button1.Text = "Log Out";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -321,7 +334,7 @@
             this.panelAdminButtons.Controls.Add(this.buttonUpdateAdmin);
             this.panelAdminButtons.Controls.Add(this.buttonViewAdmin);
             this.panelAdminButtons.Controls.Add(this.buttonDeleteAdmin);
-            this.panelAdminButtons.Location = new System.Drawing.Point(238, 838);
+            this.panelAdminButtons.Location = new System.Drawing.Point(238, 808);
             this.panelAdminButtons.Name = "panelAdminButtons";
             this.panelAdminButtons.Size = new System.Drawing.Size(169, 180);
             this.panelAdminButtons.TabIndex = 165;
@@ -384,7 +397,7 @@
             this.panelStaffButtons.Controls.Add(this.buttonDeleteStaff);
             this.panelStaffButtons.Controls.Add(this.buttonUpdateStaff);
             this.panelStaffButtons.Controls.Add(this.buttonViewStaff);
-            this.panelStaffButtons.Location = new System.Drawing.Point(238, 761);
+            this.panelStaffButtons.Location = new System.Drawing.Point(238, 720);
             this.panelStaffButtons.Name = "panelStaffButtons";
             this.panelStaffButtons.Size = new System.Drawing.Size(169, 180);
             this.panelStaffButtons.TabIndex = 168;
@@ -420,7 +433,7 @@
             this.panelCourseDepartmentButtons.Controls.Add(this.buttonSubject);
             this.panelCourseDepartmentButtons.Controls.Add(this.buttonCourse);
             this.panelCourseDepartmentButtons.Controls.Add(this.buttonDepartment);
-            this.panelCourseDepartmentButtons.Location = new System.Drawing.Point(235, 498);
+            this.panelCourseDepartmentButtons.Location = new System.Drawing.Point(235, 473);
             this.panelCourseDepartmentButtons.Name = "panelCourseDepartmentButtons";
             this.panelCourseDepartmentButtons.Size = new System.Drawing.Size(169, 134);
             this.panelCourseDepartmentButtons.TabIndex = 169;
@@ -496,7 +509,7 @@
             this.panelLecturerButtons.Controls.Add(this.buttonDeleteLecturer);
             this.panelLecturerButtons.Controls.Add(this.buttonViewLecturer);
             this.panelLecturerButtons.Controls.Add(this.buttonUpdateLecturer);
-            this.panelLecturerButtons.Location = new System.Drawing.Point(238, 681);
+            this.panelLecturerButtons.Location = new System.Drawing.Point(238, 637);
             this.panelLecturerButtons.Name = "panelLecturerButtons";
             this.panelLecturerButtons.Size = new System.Drawing.Size(169, 180);
             this.panelLecturerButtons.TabIndex = 166;
@@ -560,7 +573,7 @@
             this.panelStudentButtons.Controls.Add(this.buttonViewStudent);
             this.panelStudentButtons.Controls.Add(this.buttonUpdateStudent);
             this.panelStudentButtons.Controls.Add(this.buttonDeleteStudent);
-            this.panelStudentButtons.Location = new System.Drawing.Point(238, 589);
+            this.panelStudentButtons.Location = new System.Drawing.Point(238, 550);
             this.panelStudentButtons.Name = "panelStudentButtons";
             this.panelStudentButtons.Size = new System.Drawing.Size(169, 180);
             this.panelStudentButtons.TabIndex = 167;
@@ -595,7 +608,7 @@
             // 
             this.panelExamMarkButtons.Controls.Add(this.buttonExam);
             this.panelExamMarkButtons.Controls.Add(this.buttonMark);
-            this.panelExamMarkButtons.Location = new System.Drawing.Point(238, 404);
+            this.panelExamMarkButtons.Location = new System.Drawing.Point(238, 398);
             this.panelExamMarkButtons.Name = "panelExamMarkButtons";
             this.panelExamMarkButtons.Size = new System.Drawing.Size(169, 100);
             this.panelExamMarkButtons.TabIndex = 170;
@@ -647,19 +660,6 @@
             this.panelTimetableButtons.Name = "panelTimetableButtons";
             this.panelTimetableButtons.Size = new System.Drawing.Size(171, 91);
             this.panelTimetableButtons.TabIndex = 173;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button1.Location = new System.Drawing.Point(1018, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 35);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "Log Out";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainDashBoard
             // 

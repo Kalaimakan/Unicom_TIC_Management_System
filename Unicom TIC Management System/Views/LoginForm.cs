@@ -138,7 +138,7 @@ namespace Unicom_TIC_Management_System.Views
             if (matchedUser != null)
             {
                 MessageBox.Show("Login successful!");
-                MainDashBoard mainDashBoard = new MainDashBoard(matchedUser.User_Role);
+                MainDashBoard mainDashBoard = new MainDashBoard(matchedUser.User_Role,matchedUser.User_Name);
                 mainDashBoard.Show();
                 this.Hide();
                 clearFormField();
