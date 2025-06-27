@@ -137,11 +137,11 @@ namespace Unicom_TIC_Management_System.Views
             var matchedUser = AuthenticateUser(usernameOrEmail, password);
             if (matchedUser != null)
             {
+             
                 MessageBox.Show("Login successful!");
-                MainDashBoard mainDashBoard = new MainDashBoard(matchedUser.User_Role,matchedUser.User_Name);
-                mainDashBoard.Show();
-                this.Hide();
-                clearFormField();
+                new MainDashBoard(matchedUser.User_Role,matchedUser.User_Name).ShowDialog();
+                textBoxLoginPassword.Clear();
+                textBoxLoginUserName.Clear();
             }
             else
             {

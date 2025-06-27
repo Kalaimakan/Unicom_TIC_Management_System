@@ -93,6 +93,12 @@
     <Compile Include="Views\AdminCreation.Designer.cs">
       <DependentUpon>AdminCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChangeUserNamePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangeUserNamePassword.Designer.cs">
+      <DependentUpon>ChangeUserNamePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CourseCreatio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,11 +201,11 @@
     <Compile Include="Views\Timetable_Creation.Designer.cs">
       <DependentUpon>Timetable_Creation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewStudentTimetable.cs">
+    <Compile Include="Views\ViewMarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ViewStudentTimetable.Designer.cs">
-      <DependentUpon>ViewStudentTimetable.cs</DependentUpon>
+    <Compile Include="Views\ViewMarks.Designer.cs">
+      <DependentUpon>ViewMarks.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewTimetable.cs">
       <SubType>Form</SubType>
@@ -242,6 +248,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AdminCreation.resx">
       <DependentUpon>AdminCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangeUserNamePassword.resx">
+      <DependentUpon>ChangeUserNamePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CourseCreatio.resx">
       <DependentUpon>CourseCreatio.cs</DependentUpon>
@@ -294,8 +303,8 @@
     <EmbeddedResource Include="Views\Timetable_Creation.resx">
       <DependentUpon>Timetable_Creation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ViewStudentTimetable.resx">
-      <DependentUpon>ViewStudentTimetable.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ViewMarks.resx">
+      <DependentUpon>ViewMarks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewTimetable.resx">
       <DependentUpon>ViewTimetable.cs</DependentUpon>

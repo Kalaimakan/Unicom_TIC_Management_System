@@ -17,11 +17,14 @@ namespace Unicom_TIC_Management_System.Views
             InitializeComponent();
         }
         private string UserRole;
+        private string UserName;
         public MainDashBoard(string userRole, string userName)
         {
             InitializeComponent();
             this.UserRole = userRole;
-            
+            this.UserName = userName;
+
+
         }
         public void LoadForm(object formObj)
         {
@@ -39,30 +42,48 @@ namespace Unicom_TIC_Management_System.Views
         }
         private void MainDashBoard_Load(object sender, EventArgs e)
         {
+            if (UserRole=="Admin")
+            {
+                labelRoleBasedAccess.Text = $"{UserRole} DashBoard";
+                labelWelcome.Text = $"Welcome to Unicom Management System {UserName}!";
+            }
             if (UserRole == "Staff" || UserRole == "Lecturer" || UserRole == "Student")
             {
+                buttonAdminManage.Visible = false;
+                buttonStaffManage.Visible = false;
+                buttonRegisterStudent.Visible = false;
+                buttonUpdateStudent.Visible = false;
+                buttonDeleteStudent.Visible = false;
+                buttonEducationManage.Visible = false;
+                buttonLecturerManage.Visible = false;
                 buttonTimetable.Visible = false;
-
+                labelRoleBasedAccess.Text = $"{UserRole} DashBoard";
+                labelWelcome.Text = $"Welcome to Unicom Management System {UserName}!";
             }
             if (UserRole == "Lecturer" || UserRole == "Student")
             {
-
+                buttonRoomManage.Visible = false;
+                labelRoleBasedAccess.Text = $"{UserRole} DashBoard";
+                labelWelcome.Text = $"Welcome to Unicom Management System {UserName}!";
             }
             if (UserRole == "Student")
             {
+                buttonStudentManage.Visible = false;
+                buttonExam.Visible = false;
+                labelRoleBasedAccess.Text = $"{UserRole} DashBoard";
+                labelWelcome.Text = $"Welcome to Unicom Management System {UserName}!";
             }
         }
-        private void LoadButtons(string place) 
+        private void LoadButtons(string place)
         {
-            buttonRoom.Visible = false;
-            panelTimetableButtons.Visible = false;  
+            panelTimetableButtons.Visible = false;
             panelExamMarkButtons.Visible = false;
             panelCourseDepartmentButtons.Visible = false;
             panelAdminButtons.Visible = false;
             panelStudentButtons.Visible = false;
             panelStaffButtons.Visible = false;
             panelLecturerButtons.Visible = false;
-            if(place == "admin") 
+            if (place == "admin")
             {
                 panelAdminButtons.Visible = true;
                 buttonRegisterAdmin.Visible = true;
@@ -95,9 +116,10 @@ namespace Unicom_TIC_Management_System.Views
                 buttonUpdateStudent.Visible = true;
                 buttonDeleteStudent.Visible = true;
             }
-            if (place=="Course")
+            if (place == "Course")
             {
-                panelCourseDepartmentButtons.Visible = true;
+                if (UserRole != "Student")
+                    panelCourseDepartmentButtons.Visible = true;
                 buttonCourse.Visible = true;
                 buttonDepartment.Visible = true;
                 buttonSubject.Visible = true;
@@ -105,18 +127,22 @@ namespace Unicom_TIC_Management_System.Views
             if (place == "Exam")
             {
                 panelExamMarkButtons.Visible = true;
-                buttonExam.Visible = true;
+                if (UserRole != "Student")
+                    buttonExam.Visible = true;
                 buttonMark.Visible = true;
+                buttonViewMark.Visible = true;
             }
             if (place == "Room")
             {
-                buttonRoom.Visible = true;
+                if (UserRole != "Student")
+                    buttonRoomManage.Visible = true;
             }
             if (place == "Timetable")
             {
                 panelTimetableButtons.Visible = true;
                 buttonViewTimetable.Visible = true;
-                buttonTimetable.Visible = true;
+                if (UserRole != "Student")
+                    buttonTimetable.Visible = true;
             }
         }
         private void buttonAdminManage_Click(object sender, EventArgs e)
@@ -233,7 +259,7 @@ namespace Unicom_TIC_Management_System.Views
         private void buttonCourseDepartment_Click(object sender, EventArgs e)
         {
             LoadButtons("Course");
-            
+
         }
 
         private void buttonExam_Click(object sender, EventArgs e)
@@ -290,7 +316,12 @@ namespace Unicom_TIC_Management_System.Views
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+
         }
 
+        private void buttonViewMark_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ViewMarks());
+        }
     }
 }
