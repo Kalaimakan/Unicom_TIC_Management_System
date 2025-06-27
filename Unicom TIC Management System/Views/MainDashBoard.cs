@@ -7,24 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unicom_TIC_Management_System.Controllers;
+using Unicom_TIC_Management_System.Models;
 
 namespace Unicom_TIC_Management_System.Views
 {
     public partial class MainDashBoard : Form
     {
+        UserController userController = new UserController();
         public MainDashBoard()
         {
             InitializeComponent();
         }
+        private int userId;
         private string UserRole;
         private string UserName;
-        public MainDashBoard(string userRole, string userName)
+        private string Password;
+        public MainDashBoard(string userRole,int id, string userName, string password)
         {
             InitializeComponent();
             this.UserRole = userRole;
             this.UserName = userName;
-
-
+            this.Password = password;
+            this.userId = id;
+        }
+        public void RefreshUserInfo(User updatedUser)
+        {
+            labelShowUserName.Text = updatedUser.User_Name;
+            labelShowPassword.Text = updatedUser.Password;
         }
         public void LoadForm(object formObj)
         {
@@ -74,6 +84,9 @@ namespace Unicom_TIC_Management_System.Views
                 labelRoleBasedAccess.Text = $"{UserRole} DashBoard";
                 labelWelcome.Text = $"Welcome to Unicom Management System {UserName}!";
             }
+            User user = userController.getUserById(userId);
+            labelShowUserName.Text = user.User_Name;
+            labelShowPassword.Text = user.Password;
         }
         private void LoadButtons(string place)
         {
@@ -326,6 +339,11 @@ namespace Unicom_TIC_Management_System.Views
         private void buttonViewMark_Click(object sender, EventArgs e)
         {
             LoadForm(new ViewMarks());
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ChangeUserNamePassword(userId));
         }
     }
 }

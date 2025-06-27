@@ -91,22 +91,47 @@ namespace Unicom_TIC_Management_System.Controllers
             return users;
         }
 
-        //Update User
-        public void UpdateUser(User user, SQLiteConnection connection, SQLiteTransaction transaction)
+
+        public User getUserById(int userId)
         {
-            string updateQuery = @"UPDATE Users 
+            User user = new User();
+            using (var connection = Db_Config.getConnection())
+            {
+                string getQuary = "SELECT * FROM Users WHERE User_Id = @UserId";
+                using (var command = new SQLiteCommand(getQuary, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            user.User_Id = reader.GetInt32(0);
+                            user.User_Name = reader.GetString(1);
+                            user.Password = reader.GetString(2);
+                            user.User_Email = reader.GetString(3);
+                            user.User_Role = reader.GetString(4);
+                        }
+                    }
+                }
+            }
+            return user;
+        }
+
+        //Update User
+        public void UpdateUser(User user)
+        {
+            using (var connection = Db_Config.getConnection())
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Users 
                            SET User_Name = @UserName, 
-                               Password = @Password, 
-                               User_Email = @userEmail
+                               Password = @Password
                            WHERE User_Id = @UserId";
 
-            using (SQLiteCommand command = new SQLiteCommand(updateQuery, connection, transaction))
-            {
                 command.Parameters.AddWithValue("@UserName", user.User_Name);
                 command.Parameters.AddWithValue("@Password", user.Password);
-                command.Parameters.AddWithValue("@userEmail", user.User_Email);
                 command.Parameters.AddWithValue("@UserId", user.User_Id);
-
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected == 0)
                 {
@@ -114,6 +139,7 @@ namespace Unicom_TIC_Management_System.Controllers
                 }
             }
         }
+                
         public void UpdateEmailUser(int userId, string email, SQLiteConnection connection, SQLiteTransaction transaction)
         {
             string updateUserEmailQuery = @"UPDATE Users 

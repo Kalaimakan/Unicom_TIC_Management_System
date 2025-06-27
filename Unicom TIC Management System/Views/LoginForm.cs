@@ -139,7 +139,7 @@ namespace Unicom_TIC_Management_System.Views
             {
              
                 MessageBox.Show("Login successful!");
-                new MainDashBoard(matchedUser.User_Role,matchedUser.User_Name).ShowDialog();
+                new MainDashBoard(matchedUser.User_Role,matchedUser.User_Id,matchedUser.User_Name,matchedUser.Password).ShowDialog();
                 textBoxLoginPassword.Clear();
                 textBoxLoginUserName.Clear();
             }
