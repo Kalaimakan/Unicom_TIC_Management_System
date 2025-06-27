@@ -321,6 +321,7 @@
     <EmbeddedResource Include="Views\ViewStudents.resx">
       <DependentUpon>ViewStudents.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\UnicomTICManagementSystem.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -336,7 +337,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
     <Folder Include="Img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

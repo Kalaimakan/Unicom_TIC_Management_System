@@ -49,6 +49,7 @@ namespace Unicom_TIC_Management_System.Views
             }
             if (UserRole == "Staff" || UserRole == "Lecturer" || UserRole == "Student")
             {
+                buttonRoom.Visible = false ;
                 buttonAdminManage.Visible = false;
                 buttonStaffManage.Visible = false;
                 buttonRegisterStudent.Visible = false;
@@ -76,6 +77,7 @@ namespace Unicom_TIC_Management_System.Views
         }
         private void LoadButtons(string place)
         {
+            buttonRoom.Visible = false;
             panelTimetableButtons.Visible = false;
             panelExamMarkButtons.Visible = false;
             panelCourseDepartmentButtons.Visible = false;
@@ -136,6 +138,8 @@ namespace Unicom_TIC_Management_System.Views
             {
                 if (UserRole != "Student")
                     buttonRoomManage.Visible = true;
+                    buttonRoom.Visible = true;
+
             }
             if (place == "Timetable")
             {

@@ -610,16 +610,16 @@
             this.panelExamMarkButtons.Controls.Add(this.buttonViewMark);
             this.panelExamMarkButtons.Controls.Add(this.buttonExam);
             this.panelExamMarkButtons.Controls.Add(this.buttonMark);
-            this.panelExamMarkButtons.Location = new System.Drawing.Point(248, 308);
+            this.panelExamMarkButtons.Location = new System.Drawing.Point(253, 310);
             this.panelExamMarkButtons.Name = "panelExamMarkButtons";
-            this.panelExamMarkButtons.Size = new System.Drawing.Size(169, 130);
+            this.panelExamMarkButtons.Size = new System.Drawing.Size(164, 130);
             this.panelExamMarkButtons.TabIndex = 170;
             // 
             // buttonRoom
             // 
             this.buttonRoom.BackColor = System.Drawing.Color.Silver;
             this.buttonRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRoom.Location = new System.Drawing.Point(256, 412);
+            this.buttonRoom.Location = new System.Drawing.Point(257, 412);
             this.buttonRoom.Name = "buttonRoom";
             this.buttonRoom.Size = new System.Drawing.Size(152, 33);
             this.buttonRoom.TabIndex = 100;
@@ -658,7 +658,7 @@
             // 
             this.panelTimetableButtons.Controls.Add(this.buttonViewTimetable);
             this.panelTimetableButtons.Controls.Add(this.buttonTimetable);
-            this.panelTimetableButtons.Location = new System.Drawing.Point(248, 229);
+            this.panelTimetableButtons.Location = new System.Drawing.Point(250, 228);
             this.panelTimetableButtons.Name = "panelTimetableButtons";
             this.panelTimetableButtons.Size = new System.Drawing.Size(171, 91);
             this.panelTimetableButtons.TabIndex = 173;
@@ -681,10 +681,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1390, 1030);
+            this.Controls.Add(this.panelTimetableButtons);
+            this.Controls.Add(this.buttonRoom);
             this.Controls.Add(this.panelExamMarkButtons);
             this.Controls.Add(this.panelCourseDepartmentButtons);
-            this.Controls.Add(this.buttonRoom);
-            this.Controls.Add(this.panelTimetableButtons);
             this.Controls.Add(this.panelStudentButtons);
             this.Controls.Add(this.panelLecturerButtons);
             this.Controls.Add(this.panelStaffButtons);

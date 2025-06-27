@@ -129,8 +129,6 @@ namespace Unicom_TIC_Management_System.Controllers
 
         }
 
-
-
         //Delete User
         public void DeleteUser(int userId, SQLiteConnection connection, SQLiteTransaction transaction)
         {
