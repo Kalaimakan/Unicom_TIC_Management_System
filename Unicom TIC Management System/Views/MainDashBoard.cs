@@ -59,6 +59,7 @@ namespace Unicom_TIC_Management_System.Views
             }
             if (UserRole == "Staff" || UserRole == "Lecturer" || UserRole == "Student")
             {
+                buttonMark.Visible = false;
                 buttonRoom.Visible = false ;
                 buttonAdminManage.Visible = false;
                 buttonStaffManage.Visible = false;
@@ -142,10 +143,10 @@ namespace Unicom_TIC_Management_System.Views
             if (place == "Exam")
             {
                 panelExamMarkButtons.Visible = true;
+                buttonViewMark.Visible = true;
                 if (UserRole != "Student")
                     buttonExam.Visible = true;
-                buttonMark.Visible = true;
-                buttonViewMark.Visible = true;
+                    buttonMark.Visible = true;
             }
             if (place == "Room")
             {

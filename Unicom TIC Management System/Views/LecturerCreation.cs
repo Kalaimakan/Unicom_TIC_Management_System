@@ -135,7 +135,7 @@ namespace Unicom_TIC_Management_System.Views
                 registerLecturer.Gender = "Female";
             else
                 registerLecturer.Gender = "Other";
-            //registerLecturer.subject_Id =comboBoxSubject.SelectedIndex;
+            registerLecturer.Subject_Id = comboBoxSubject.SelectedIndex;
             //comboBoxSubject.SelectedIndex = -1;
             subject = (Subject)comboBoxSubject.SelectedItem;
 

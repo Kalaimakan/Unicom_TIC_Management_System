@@ -145,9 +145,9 @@
             // 
             this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonForgotPassword.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonForgotPassword.Location = new System.Drawing.Point(272, 353);
+            this.buttonForgotPassword.Location = new System.Drawing.Point(272, 351);
             this.buttonForgotPassword.Name = "buttonForgotPassword";
-            this.buttonForgotPassword.Size = new System.Drawing.Size(255, 33);
+            this.buttonForgotPassword.Size = new System.Drawing.Size(255, 40);
             this.buttonForgotPassword.TabIndex = 40;
             this.buttonForgotPassword.Text = "Forgot Password  ?";
             this.buttonForgotPassword.UseVisualStyleBackColor = true;

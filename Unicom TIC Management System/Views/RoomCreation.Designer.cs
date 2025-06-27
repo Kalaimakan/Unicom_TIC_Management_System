@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 741);
+            this.ClientSize = new System.Drawing.Size(642, 606);
             this.Controls.Add(this.labelFillRoomType);
             this.Controls.Add(this.labelFillRoomName);
             this.Controls.Add(this.dataGridViewRooms);

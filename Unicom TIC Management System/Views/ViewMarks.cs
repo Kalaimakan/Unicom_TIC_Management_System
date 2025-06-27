@@ -18,6 +18,7 @@ namespace Unicom_TIC_Management_System.Views
         public ViewMarks()
         {
             InitializeComponent();
+            loadMarksData();
         }
 
         public void loadMarksData()
