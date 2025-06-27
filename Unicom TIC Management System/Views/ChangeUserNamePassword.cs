@@ -24,17 +24,13 @@ namespace Unicom_TIC_Management_System.Views
             InitializeComponent();
         }
         private int userId;
-        public ChangeUserNamePassword(MainDashBoard dashboard)
+        public ChangeUserNamePassword(MainDashBoard dashboard, int userId)
         {
             InitializeComponent();
             this.mainDash = dashboard;
-        }
-        public ChangeUserNamePassword(int userId)
-        {
-            InitializeComponent();
             this.userId = userId;
         }
-        
+
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
             changeUser.User_Id = userId;

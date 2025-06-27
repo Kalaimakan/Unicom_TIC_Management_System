@@ -343,7 +343,7 @@ namespace Unicom_TIC_Management_System.Views
 
         private void buttonChange_Click(object sender, EventArgs e)
         {
-            LoadForm(new ChangeUserNamePassword(userId));
+            LoadForm(new ChangeUserNamePassword(this, userId));
         }
     }
 }
