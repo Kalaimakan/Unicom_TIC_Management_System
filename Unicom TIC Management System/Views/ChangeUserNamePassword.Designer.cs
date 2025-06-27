@@ -80,7 +80,7 @@
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(182, 35);
             this.buttonChangePassword.TabIndex = 67;
-            this.buttonChangePassword.Text = "Change Password";
+            this.buttonChangePassword.Text = "Change";
             this.buttonChangePassword.UseVisualStyleBackColor = false;
             this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 

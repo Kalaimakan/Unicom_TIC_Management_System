@@ -41,9 +41,13 @@
             this.labelRoleBasedAccess = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonChange = new System.Windows.Forms.Button();
+            this.panelChangeUserNamePassword = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelShowPassword = new System.Windows.Forms.Label();
+            this.buttonChange = new System.Windows.Forms.Button();
+            this.labelShowUserName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.panelMainPanal = new System.Windows.Forms.Panel();
             this.buttonDeleteAdmin = new System.Windows.Forms.Button();
@@ -78,13 +82,10 @@
             this.buttonTimetable = new System.Windows.Forms.Button();
             this.buttonViewTimetable = new System.Windows.Forms.Button();
             this.panelTimetableButtons = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelShowUserName = new System.Windows.Forms.Label();
-            this.labelShowPassword = new System.Windows.Forms.Label();
-            this.panelChangeUserNamePassword = new System.Windows.Forms.Panel();
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelChangeUserNamePassword.SuspendLayout();
             this.panelAdminButtons.SuspendLayout();
             this.panelStaffButtons.SuspendLayout();
             this.panelCourseDepartmentButtons.SuspendLayout();
@@ -92,7 +93,6 @@
             this.panelStudentButtons.SuspendLayout();
             this.panelExamMarkButtons.SuspendLayout();
             this.panelTimetableButtons.SuspendLayout();
-            this.panelChangeUserNamePassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAdmin
@@ -252,6 +252,33 @@
             this.panel1.Size = new System.Drawing.Size(1143, 116);
             this.panel1.TabIndex = 1;
             // 
+            // panelChangeUserNamePassword
+            // 
+            this.panelChangeUserNamePassword.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelChangeUserNamePassword.Controls.Add(this.button1);
+            this.panelChangeUserNamePassword.Controls.Add(this.label1);
+            this.panelChangeUserNamePassword.Controls.Add(this.labelShowPassword);
+            this.panelChangeUserNamePassword.Controls.Add(this.buttonChange);
+            this.panelChangeUserNamePassword.Controls.Add(this.labelShowUserName);
+            this.panelChangeUserNamePassword.Controls.Add(this.label2);
+            this.panelChangeUserNamePassword.Location = new System.Drawing.Point(858, 9);
+            this.panelChangeUserNamePassword.Name = "panelChangeUserNamePassword";
+            this.panelChangeUserNamePassword.Size = new System.Drawing.Size(278, 101);
+            this.panelChangeUserNamePassword.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.Location = new System.Drawing.Point(156, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 33);
+            this.button1.TabIndex = 91;
+            this.button1.Text = "Log Out";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -262,6 +289,16 @@
             this.label1.Size = new System.Drawing.Size(96, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "User Name  :";
+            // 
+            // labelShowPassword
+            // 
+            this.labelShowPassword.AutoSize = true;
+            this.labelShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowPassword.ForeColor = System.Drawing.Color.Black;
+            this.labelShowPassword.Location = new System.Drawing.Point(168, 31);
+            this.labelShowPassword.Name = "labelShowPassword";
+            this.labelShowPassword.Size = new System.Drawing.Size(0, 18);
+            this.labelShowPassword.TabIndex = 95;
             // 
             // buttonChange
             // 
@@ -276,18 +313,26 @@
             this.buttonChange.UseVisualStyleBackColor = false;
             this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
-            // button1
+            // labelShowUserName
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button1.Location = new System.Drawing.Point(156, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 33);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "Log Out";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelShowUserName.AutoSize = true;
+            this.labelShowUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowUserName.ForeColor = System.Drawing.Color.Black;
+            this.labelShowUserName.Location = new System.Drawing.Point(168, 2);
+            this.labelShowUserName.Name = "labelShowUserName";
+            this.labelShowUserName.Size = new System.Drawing.Size(0, 18);
+            this.labelShowUserName.TabIndex = 94;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(35, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 18);
+            this.label2.TabIndex = 93;
+            this.label2.Text = "Password    :";
             // 
             // labelWelcome
             // 
@@ -707,51 +752,6 @@
             this.panelTimetableButtons.Size = new System.Drawing.Size(164, 91);
             this.panelTimetableButtons.TabIndex = 173;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(35, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 18);
-            this.label2.TabIndex = 93;
-            this.label2.Text = "Password    :";
-            // 
-            // labelShowUserName
-            // 
-            this.labelShowUserName.AutoSize = true;
-            this.labelShowUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelShowUserName.ForeColor = System.Drawing.Color.Black;
-            this.labelShowUserName.Location = new System.Drawing.Point(168, 2);
-            this.labelShowUserName.Name = "labelShowUserName";
-            this.labelShowUserName.Size = new System.Drawing.Size(0, 18);
-            this.labelShowUserName.TabIndex = 94;
-            // 
-            // labelShowPassword
-            // 
-            this.labelShowPassword.AutoSize = true;
-            this.labelShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelShowPassword.ForeColor = System.Drawing.Color.Black;
-            this.labelShowPassword.Location = new System.Drawing.Point(168, 31);
-            this.labelShowPassword.Name = "labelShowPassword";
-            this.labelShowPassword.Size = new System.Drawing.Size(0, 18);
-            this.labelShowPassword.TabIndex = 95;
-            // 
-            // panelChangeUserNamePassword
-            // 
-            this.panelChangeUserNamePassword.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelChangeUserNamePassword.Controls.Add(this.button1);
-            this.panelChangeUserNamePassword.Controls.Add(this.label1);
-            this.panelChangeUserNamePassword.Controls.Add(this.labelShowPassword);
-            this.panelChangeUserNamePassword.Controls.Add(this.buttonChange);
-            this.panelChangeUserNamePassword.Controls.Add(this.labelShowUserName);
-            this.panelChangeUserNamePassword.Controls.Add(this.label2);
-            this.panelChangeUserNamePassword.Location = new System.Drawing.Point(841, 9);
-            this.panelChangeUserNamePassword.Name = "panelChangeUserNamePassword";
-            this.panelChangeUserNamePassword.Size = new System.Drawing.Size(278, 101);
-            this.panelChangeUserNamePassword.TabIndex = 0;
-            // 
             // MainDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -777,6 +777,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelChangeUserNamePassword.ResumeLayout(false);
+            this.panelChangeUserNamePassword.PerformLayout();
             this.panelAdminButtons.ResumeLayout(false);
             this.panelStaffButtons.ResumeLayout(false);
             this.panelCourseDepartmentButtons.ResumeLayout(false);
@@ -784,8 +786,6 @@
             this.panelStudentButtons.ResumeLayout(false);
             this.panelExamMarkButtons.ResumeLayout(false);
             this.panelTimetableButtons.ResumeLayout(false);
-            this.panelChangeUserNamePassword.ResumeLayout(false);
-            this.panelChangeUserNamePassword.PerformLayout();
             this.ResumeLayout(false);
 
         }
